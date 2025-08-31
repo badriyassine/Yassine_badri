@@ -45,6 +45,7 @@ const Skills = () => {
             <FontAwesomeIcon icon={faCss3Alt} size="3x" />
             <FontAwesomeIcon icon={faJs} size="3x" />
             <FontAwesomeIcon icon={faReact} size="3x" />
+            <FontAwesomeIcon icon={faCode} size="3x" /> {/* TypeScript representation */}
           </div>
         </div>
 
@@ -55,7 +56,7 @@ const Skills = () => {
             <FontAwesomeIcon icon={faNodeJs} size="3x" />
             <FontAwesomeIcon icon={faPhp} size="3x" />
             <FontAwesomeIcon icon={faLaravel} size="3x" />
-            <FontAwesomeIcon icon={faCode} size="3x" />
+            <FontAwesomeIcon icon={faCode} size="3x" /> {/* Express.js representation */}
           </div>
         </div>
 
@@ -63,7 +64,8 @@ const Skills = () => {
         <div className="flex flex-col items-center gap-4">
           <h3 className="text-xl font-semibold">Database</h3>
           <div className="flex gap-4 flex-wrap justify-center">
-            <FontAwesomeIcon icon={faDatabase} size="3x" />
+            <FontAwesomeIcon icon={faDatabase} size="3x" /> {/* MySQL */}
+            <FontAwesomeIcon icon={faDatabase} size="3x" /> {/* MongoDB */}
           </div>
         </div>
 
@@ -73,6 +75,7 @@ const Skills = () => {
           <div className="flex gap-4 flex-wrap justify-center">
             <FontAwesomeIcon icon={faGithub} size="3x" />
             <FontAwesomeIcon icon={faFigma} size="3x" />
+            <FontAwesomeIcon icon={faCode} size="3x" /> {/* Postman representation */}
           </div>
         </div>
       </div>
@@ -88,6 +91,10 @@ const Skills = () => {
           <div className="flex flex-col items-center gap-2">
             <FontAwesomeIcon icon={faUsers} size="2x" />
             <span>Communication</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FontAwesomeIcon icon={faCode} size="2x" />
+            <span>Problem Solving</span>
           </div>
         </div>
       </div>
@@ -126,6 +133,7 @@ const Skills = () => {
 };
 
 export default Skills;
+
 
 
 
