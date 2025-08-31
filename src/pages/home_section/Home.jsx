@@ -72,7 +72,7 @@ const Home = () => {
           {/* View My Work */}
           <a
             href="#projects"
-            className="relative px-8 py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group"
+            className="relative px-8 py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-2 border-white/20 text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group"
           >
             <span className="relative z-10">View My Work</span>
             <FaArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
@@ -86,7 +86,7 @@ const Home = () => {
             href="https://github.com/YassineBadri"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative px-6 py-3 rounded-xl border border-[#050708] bg-[#050708] font-medium text-white flex items-center gap-2 shadow-md overflow-hidden group"
+            className="relative px-6 py-3 rounded-xl border border-[#050708] bg-[#050708] font-medium text-white flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
           >
             <FaGithub className="z-10" />
             <span className="relative z-10">Check My GitHub</span>
