@@ -28,7 +28,7 @@ const Header = () => {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="hover:text-white hover:opacity-80 transition duration-300"
+              className="hover:text-white hover:opacity-50 transition duration-300"
             >
               {item}
             </a>
