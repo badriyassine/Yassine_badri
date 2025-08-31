@@ -32,7 +32,7 @@ const Home = () => {
         transition={{ duration: 1.5, ease: "easeInOut" }}
         className="max-w-2xl"
       >
-        <h1 className="text-5xl font-bold mb-4">Hi, I&apos;m Yassine Badri</h1>
+        <h1 className="text-6xl font-bold mb-6">Hi, I&apos;m Yassine Badri</h1>
 
         {/* Animated Role Switching */}
         <div className="h-12 mb-6 overflow-hidden">
@@ -43,7 +43,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 1 }}
-              className="text-2xl font-semibold text-gray-300"
+              className="text-4xl font-semibold text-gray-300"
             >
               {roles[index]}
             </motion.h2>
@@ -57,7 +57,7 @@ const Home = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex gap-6 justify-center">
+        <div className="flex gap-4 justify-center">
           {/* View My Work */}
           <a
             href="#projects"
@@ -67,7 +67,7 @@ const Home = () => {
             <FaArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
 
             {/* Linear dynamic grey gradient overlay */}
-            <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-gray-500 via-gray-300 to-gray-700 opacity-50 animate-[shine_6s_linear_infinite] blur-xl"></span>
+            <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-black via-gray-300 to-gray-700 opacity-50 animate-[shine_6s_linear_infinite] blur-xl"></span>
           </a>
 
           {/* Check My GitHub */}
@@ -97,8 +97,8 @@ const Home = () => {
       {/* Keyframes for linear gradient animation */}
       <style jsx>{`
         @keyframes shine {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
         }
       `}</style>
     </section>
