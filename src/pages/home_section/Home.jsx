@@ -25,13 +25,24 @@ const Home = () => {
       id="home"
       className="relative flex flex-col items-center justify-center min-h-screen text-center text-white px-6"
     >
-      {/* Entry Animation */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
-        className="max-w-2xl"
+        className="max-w-2xl mt-6"
       >
+        {/* Glass-style section above title */}
+    
+        <div className="mx-auto mb-10 rounded-4xl border  border-gray-700 bg-white/5 backdrop-blur-xl px-6 py-3 flex items-center gap-4 shadow-md inline-flex">
+          <div className="w-2 h-2 rounded-full bg-white"></div>
+          <h3 className="font-medium relative overflow-hidden">
+            <span className="bg-gradient-to-r from-gray-800 via-gray-400 to-gray-900 bg-clip-text text-transparent animate-gradientSlide">
+              Crafting unique brand identities
+            </span>
+          </h3>
+        </div>
+
+        {/* Main Title */}
         <h1 className="text-6xl font-bold mb-6">Hi, I&apos;m Yassine Badri</h1>
 
         {/* Animated Role Switching */}
@@ -100,12 +111,25 @@ const Home = () => {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
+
+        @keyframes gradientSlide {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradientSlide {
+          background-size: 200% 200%;
+          animation: gradientSlide 5s ease-in-out infinite;
+        }
       `}</style>
     </section>
   );
 };
 
 export default Home;
+
+
 
 
 
