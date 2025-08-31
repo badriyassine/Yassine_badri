@@ -39,7 +39,7 @@ const Header = () => {
         <a
           href="/cv.pdf" // replace with your CV path
           download
-          className="px-5 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-lg text-white font-semibold hover:bg-white/20 transition duration-300 shadow-lg"
+          className="px-5 py-2 rounded-4xl border border-white/20 bg-white/10 backdrop-blur-lg text-white font-semibold hover:bg-white/20 transition duration-300 shadow-lg"
         >
           Download CV
         </a>
