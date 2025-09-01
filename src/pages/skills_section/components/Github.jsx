@@ -90,15 +90,15 @@ const Github = () => {
       </div>
 
       {/* Stats */}
-      <div className="flex flex-wrap gap-6 mt-6 text-gray-300 transition-all duration-500">
-        <span>Repos: {user.public_repos || 0}</span>
+      <div className="flex justify-between flex-wrap gap-10  mt-6 text-gray-300 transition-all duration-500">
+        <span>Repositories: {user.public_repos || 0}</span>
         <span>Followers: {user.followers || 0}</span>
         <span>Total Stars: {totalStars}</span>
         <span>Total Forks: {totalForks}</span>
       </div>
 
       {/* Nav */}
-      <div className="flex gap-6 mt-6 border-b border-white/20 pb-2 text-white font-medium transition-all duration-500">
+      <div className="flex w-full gap-6 mt-6 border-b border-white/20 pb-2 text-white font-medium transition-all duration-500">
         {["Contributions", "Repositories", "Languages"].map((tab) => (
           <button
             key={tab}
