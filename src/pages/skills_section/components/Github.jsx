@@ -52,7 +52,7 @@ const Github = () => {
   const displayedRepos = showAllRepos ? repos : repos.slice(0, 6);
 
   return (
-    <div className="flex flex-col items-start mt-26 mb-36 px-4 w-full max-w-6xl transition-all duration-500">
+    <div className="flex flex-col items-start mt-26 mb-5 px-4 w-full max-w-6xl transition-all duration-500">
       {/* Top Header */}
       <div className="flex justify-between w-full items-center transition-all duration-500">
         <div className="flex flex-col">

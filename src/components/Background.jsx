@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const SlowWavyWhiteGradientBackground = () => {
+const GradientBubbleBackground = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -19,51 +19,52 @@ const SlowWavyWhiteGradientBackground = () => {
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Wavy lines
-    const waveCount = 6;
-    const waves = Array.from({ length: waveCount }, (_, i) => ({
-      amplitude: 20 + Math.random() * 40,
-      frequency: 0.002 + Math.random() * 0.003,
-      phase: Math.random() * Math.PI * 2,
-      speed: 0.001 + Math.random() * 0.003, // slower for subtle movement
-      offset: i * 50,
+    // Create bubbles
+    const bubbleCount = 40;
+    const bubbles = Array.from({ length: bubbleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: 10 + Math.random() * 20,
+      speedX: -0.2 + Math.random() * 0.4,
+      speedY: -0.2 + Math.random() * 0.4,
+      gradientColors: [
+        `rgba(255,255,255,${0.05 + Math.random() * 0.1})`,
+        `rgba(255,255,255,0)`
+      ]
     }));
 
-    // Animate
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Dark background with subtle white gradient overlay
+      // Dark gradient background
       const bgGradient = ctx.createLinearGradient(0, 0, width, height);
-      bgGradient.addColorStop(0, "rgba(10,10,10,1)"); // dark
-      bgGradient.addColorStop(1, "rgba(17,17,17,1)"); // slightly lighter dark
+      bgGradient.addColorStop(0, "#0a0a0a");
+      bgGradient.addColorStop(1, "#111111");
       ctx.fillStyle = bgGradient;
       ctx.fillRect(0, 0, width, height);
 
-      // Optional subtle white gradient overlay for depth
-      const overlayGradient = ctx.createLinearGradient(0, 0, width, height);
-      overlayGradient.addColorStop(0, "rgba(255,255,255,0.03)");
-      overlayGradient.addColorStop(1, "rgba(255,255,255,0.06)");
-      ctx.fillStyle = overlayGradient;
-      ctx.fillRect(0, 0, width, height);
+      // Draw bubbles
+      bubbles.forEach(bubble => {
+        // Move bubble
+        bubble.x += bubble.speedX;
+        bubble.y += bubble.speedY;
 
-      // Draw wavy lines
-      waves.forEach((wave, i) => {
+        // Bounce on edges
+        if (bubble.x < 0 || bubble.x > width) bubble.speedX *= -1;
+        if (bubble.y < 0 || bubble.y > height) bubble.speedY *= -1;
+
+        // Bubble gradient
+        const grad = ctx.createRadialGradient(
+          bubble.x, bubble.y, 0,
+          bubble.x, bubble.y, bubble.radius
+        );
+        grad.addColorStop(0, bubble.gradientColors[0]);
+        grad.addColorStop(1, bubble.gradientColors[1]);
+
+        ctx.fillStyle = grad;
         ctx.beginPath();
-        for (let x = 0; x <= width; x += 2) {
-          const y =
-            height / 2 - 50 + // shift waves slightly up
-            wave.amplitude * Math.sin(wave.frequency * x + wave.phase + mouseX * 0.001) +
-            wave.offset +
-            Math.sin(x * 0.01 + mouseY * 0.001) * 10;
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = `rgba(255,255,255,${0.02 + i * 0.02})`;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        wave.phase += wave.speed; // slow wave movement
+        ctx.arc(bubble.x, bubble.y, bubble.radius, 0, Math.PI * 2);
+        ctx.fill();
       });
 
       requestAnimationFrame(animate);
@@ -87,5 +88,4 @@ const SlowWavyWhiteGradientBackground = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full -z-10" />;
 };
 
-export default SlowWavyWhiteGradientBackground;
-
+export default GradientBubbleBackground;
