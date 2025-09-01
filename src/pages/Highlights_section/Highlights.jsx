@@ -4,7 +4,7 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
 const Highlights = () => {
   return (
-    <div className="flex items-center justify-center mt-10 gap-32 flex-wrap">
+    <div className="flex items-center justify-center mt-10 gap-38 py-20 flex-wrap">
       {/* Highlight 1 */}
       <div className="flex flex-col items-center gap-2">
         <FontAwesomeIcon icon={faUsers} size="2x" />

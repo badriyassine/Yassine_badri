@@ -8,9 +8,29 @@ const Tech = () => {
     Tools: ["VSCode", "Figma", "Git", "GitHub", "Postman", "Canva"],
   };
 
+  // Define colors for each tech
+  const techColors = {
+    HTML: "#E34F26",
+    CSS: "#1572B6",
+    JavaScript: "#F7DF1E",
+    React: "#61DAFB",
+    TailwindCSS: "#38B2AC",
+    PHP: "#777BB4",
+    Laravel: "#FF2D20",
+    "Node.js": "#339933",
+    "Express.js": "#000000",
+    MySQL: "#4479A1",
+    MongoDB: "#47A248",
+    VSCode: "#007ACC",
+    Figma: "#F24E1E",
+    Git: "#F05032",
+    GitHub: "#181717",
+    Postman: "#FF6C37",
+    Canva: "#00C4CC",
+  };
+
   return (
     <div className="flex flex-col items-center mt-16 px-4 w-full">
-      {/* Tech Categories */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 w-full max-w-5xl">
         {Object.entries(techStack).map(([category, items]) => (
           <div key={category} className="flex flex-col items-center gap-4">
@@ -19,7 +39,8 @@ const Tech = () => {
               {items.map((tech) => (
                 <span
                   key={tech}
-                  className="
+                  style={{ cursor: "pointer" }}
+                  className={`
                     px-4 py-2 
                     bg-white/10 
                     border border-white/20 
@@ -27,8 +48,10 @@ const Tech = () => {
                     text-white text-base
                     font-medium
                     transition-all duration-300
-                    hover:bg-white/20 hover:scale-110 hover:shadow-lg
-                  "
+                    hover:scale-110 hover:shadow-lg
+                  `}
+                  onMouseEnter={(e) => e.currentTarget.style.color = techColors[tech]}
+                  onMouseLeave={(e) => e.currentTarget.style.color = "white"}
                 >
                   {tech}
                 </span>
@@ -42,4 +65,5 @@ const Tech = () => {
 };
 
 export default Tech;
+
 
