@@ -6,11 +6,11 @@ const Skills = () => {
   return (
     <div className="flex flex-col items-center mt-20 px-4 w-full">
       {/* Section Title */}
-      <h2 className="text-4xl font-bold text-white text-center">
-        My Skills & Work
+      <h2 className="text-5xl font-bold text-white text-center">
+        Technologies & GitHub Work
       </h2>
       <p className="text-gray-400 text-center mt-2 max-w-2xl">
-        Here’s an overview of the technologies I use and my GitHub projects. I focus on building clean, efficient, and modern solutions.
+        Showcasing my tech expertise and GitHub projects, delivering clean,<br /> efficient, and modern solutions
       </p>
 
       {/* Tech on top */}
