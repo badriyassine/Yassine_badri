@@ -6,15 +6,7 @@ import { useContributions } from "../api/useContributions";
 const GITHUB_USERNAME = "badriyassine";
 
 const LANGUAGE_CATEGORIES = {
-  Frontend: [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Vue",
-    "Angular",
-  ],
+  Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "Angular"],
   Backend: ["Node.js", "Express.js", "PHP", "Laravel", "Python", "Django"],
   Database: ["MySQL", "MongoDB", "PostgreSQL", "SQLite"],
   Tools: ["Git", "GitHub", "Docker", "Postman", "Figma", "VSCode", "Canva"],
@@ -30,30 +22,25 @@ const Github = () => {
   const [showAllRepos, setShowAllRepos] = useState(false);
   const [tabTransition, setTabTransition] = useState(false);
 
-  // 🔹 use real contributions hook or generate dummy objects with date
-  const contributions =
-    useContributions() ||
-    Array.from({ length: 52 * 7 }, (_, i) => {
-      const date = new Date();
-      date.setDate(date.getDate() - (52 * 7 - i));
-      const count = Math.floor(Math.random() * 5);
-      let color;
-      if (count === 0) color = "#ebedf0";
-      else if (count === 1) color = "#9be9a8";
-      else if (count === 2) color = "#40c463";
-      else if (count === 3) color = "#30a14e";
-      else color = "#216e39";
-      return { date: date.toISOString().split("T")[0], count, color };
-    });
+  const contributions = useContributions() || Array.from({ length: 52 * 7 }, (_, i) => {
+    const date = new Date();
+    date.setDate(date.getDate() - (52 * 7 - i));
+    const count = Math.floor(Math.random() * 5);
+    let color;
+    if (count === 0) color = "#ebedf0";
+    else if (count === 1) color = "#9be9a8";
+    else if (count === 2) color = "#40c463";
+    else if (count === 3) color = "#30a14e";
+    else color = "#216e39";
+    return { date: date.toISOString().split("T")[0], count, color };
+  });
 
   useEffect(() => {
-    // Fetch user info
     fetch(`https://api.github.com/users/${GITHUB_USERNAME}`)
       .then((res) => res.json())
       .then((data) => setUser(data))
       .catch((err) => console.error(err));
 
-    // Fetch repos
     fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`)
       .then((res) => res.json())
       .then((data) => {
@@ -65,8 +52,7 @@ const Github = () => {
           data.forEach((repo) => {
             stars += repo.stargazers_count;
             forks += repo.forks_count;
-            if (repo.language)
-              langs[repo.language] = (langs[repo.language] || 0) + 1;
+            if (repo.language) langs[repo.language] = (langs[repo.language] || 0) + 1;
           });
           setTotalStars(stars);
           setTotalForks(forks);
@@ -86,7 +72,6 @@ const Github = () => {
 
   const displayedRepos = showAllRepos ? repos : repos.slice(0, 6);
 
-  // Organize languages by category
   const categorizedLanguages = {};
   Object.entries(LANGUAGE_CATEGORIES).forEach(([category, langs]) => {
     categorizedLanguages[category] = langs
@@ -97,12 +82,11 @@ const Github = () => {
   return (
     <div className="flex flex-col items-start mt-16 mb-10 px-4 w-full max-w-6xl transition-all duration-500">
       {/* Top Header */}
-      <div className="flex justify-between w-full items-center transition-all duration-500">
+      <div className="flex justify-between w-full items-center">
         <div className="flex flex-col">
           <h2 className="text-2xl font-bold text-white">{user.login}</h2>
           <span className="text-gray-400">Full-Stack Developer</span>
         </div>
-
         <a
           href={`https://github.com/${GITHUB_USERNAME}`}
           target="_blank"
@@ -122,7 +106,7 @@ const Github = () => {
         <span>Total Forks: {totalForks}</span>
       </div>
 
-      {/* Nav */}
+      {/* Tabs */}
       <div className="flex w-full gap-6 mt-6 border-b border-white/20 pb-2 text-white font-medium">
         {["Contributions", "Repositories", "Languages"].map((tab) => (
           <button
@@ -140,13 +124,7 @@ const Github = () => {
       </div>
 
       {/* Tab Content */}
-      <div
-        className={`mt-6 w-full transition-all duration-300 transform ${
-          tabTransition
-            ? "opacity-0 translate-y-4"
-            : "opacity-100 translate-y-0"
-        }`}
-      >
+      <div className={`mt-6 w-full transition-all duration-300 transform ${tabTransition ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}>
         {/* Repositories */}
         {activeTab === "Repositories" && (
           <>
@@ -159,12 +137,8 @@ const Github = () => {
                   rel="noopener noreferrer"
                   className="p-4 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 w-full"
                 >
-                  <h3 className="text-white font-semibold text-lg">
-                    {repo.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm mt-1 line-clamp-3">
-                    {repo.description || "No description"}
-                  </p>
+                  <h3 className="text-white font-semibold text-lg">{repo.name}</h3>
+                  <p className="text-gray-400 text-sm mt-1 line-clamp-3">{repo.description || "No description"}</p>
                   <div className="flex justify-between items-center mt-2 text-gray-400 text-sm">
                     <span>{repo.language || "N/A"}</span>
                     <span>⭐ {repo.stargazers_count}</span>
@@ -172,7 +146,6 @@ const Github = () => {
                 </a>
               ))}
             </div>
-
             {repos.length > 6 && (
               <button
                 onClick={() => setShowAllRepos(!showAllRepos)}
@@ -194,10 +167,7 @@ const Github = () => {
                   <h4 className="text-white font-semibold mb-2">{category}</h4>
                   <div className="flex flex-wrap gap-2">
                     {langs.map((lang) => (
-                      <span
-                        key={lang.name}
-                        className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-white text-sm"
-                      >
+                      <span key={lang.name} className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-white text-sm">
                         {lang.name} ({lang.count})
                       </span>
                     ))}
@@ -211,29 +181,12 @@ const Github = () => {
         {/* Contributions */}
         {activeTab === "Contributions" && (
           <div className="w-full flex flex-col gap-4">
-            <h4 className="text-white font-semibold mb-2">
-              Contribution Heatmap
-            </h4>
+            <h4 className="text-white font-semibold mb-2">Contribution Heatmap</h4>
 
             {/* Month Labels */}
             <div className="flex justify-between text-gray-400 text-sm mb-1 px-1">
-              {[
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec",
-              ].map((month, i) => (
-                <span key={i} className="w-20 text-center">
-                  {month}
-                </span>
+              {["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map((month, i) => (
+                <span key={i} className="w-20 text-center">{month}</span>
               ))}
             </div>
 
@@ -241,9 +194,7 @@ const Github = () => {
               {/* Day Labels */}
               <div className="flex flex-col justify-between h-full text-gray-400 text-xs">
                 {["Sun", "", "Tue", "", "Thu", "", "Sat"].map((day) => (
-                  <span key={day} className="h-4">
-                    {day}
-                  </span>
+                  <span key={day} className="h-4">{day}</span>
                 ))}
               </div>
 
@@ -251,16 +202,10 @@ const Github = () => {
               <div className="grid grid-rows-7 grid-flow-col gap-0.5">
                 {contributions.map((day, i) => {
                   const lighterDarkColor =
-                    day.color === "#ebedf0"
-                      ? "#2a2a2a"
-                      : day.color === "#9be9a8"
-                      ? "#137f74"
-                      : day.color === "#40c463"
-                      ? "#19a68f"
-                      : day.color === "#30a14e"
-                      ? "#0e8d6e"
-                      : "#066455";
-
+                    day.color === "#ebedf0" ? "#2a2a2a" :
+                    day.color === "#9be9a8" ? "#137f74" :
+                    day.color === "#40c463" ? "#19a68f" :
+                    day.color === "#30a14e" ? "#0e8d6e" : "#066455";
                   return (
                     <div
                       key={i}
@@ -274,8 +219,7 @@ const Github = () => {
             </div>
 
             <p className="text-gray-400 text-sm mt-2">
-              Contributions heatmap fetched directly from GitHub GraphQL API
-              with dates.
+              Contributions heatmap fetched directly from GitHub GraphQL API with dates.
             </p>
           </div>
         )}
@@ -285,3 +229,4 @@ const Github = () => {
 };
 
 export default Github;
+
