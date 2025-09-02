@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Background from "./components/Background";
 import Header from "./components/ui/Header";
-import Home from "./pages/home_section/Home";
+import Hero from "./pages/hero_section/Hero";
 import Skills from "./pages/skills_section/Skills";
 import Highlights from "./pages/Highlights_section/Highlights";
 import { FaArrowUp } from "react-icons/fa";
@@ -33,7 +33,7 @@ const App = () => {
     <div className="relative min-h-screen text-white">
       <Background />
       <Header />
-      <Home />
+      <Hero />
       <Skills />
       <Highlights />
 

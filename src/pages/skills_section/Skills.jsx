@@ -7,7 +7,7 @@ const Skills = () => {
   return (
     <div className="flex flex-col items-center mt-20 px-4 w-full">
       {/* Section Title */}
-      <h2 className="text-5xl font-bold text-white text-center">
+      <h2 className="text-5xl font-bold mb-1 text-white text-center">
         Technologies & GitHub Work
       </h2>
       <p className="text-gray-400 text-center mt-2 max-w-2xl">

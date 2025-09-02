@@ -16,7 +16,7 @@ const projectImages = [
   "/src/assets/images/4.png",
 ];
 
-const Home = () => {
+const Hero = () => {
   const [index, setIndex] = useState(0);
   const [bgIndex, setBgIndex] = useState(0);
   const [slideshowActive, setSlideshowActive] = useState(true);
@@ -130,7 +130,7 @@ const Home = () => {
           </a>
 
           <a
-            href="https://github.com/YassineBadri"
+            href="https://github.com/badriyassine"
             target="_blank"
             rel="noopener noreferrer"
             className="relative px-6 py-3 rounded-xl border border-[#050708] bg-[#050708] font-medium text-white flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
@@ -194,7 +194,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Hero;
 
 
 
