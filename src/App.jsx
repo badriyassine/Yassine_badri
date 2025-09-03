@@ -5,6 +5,8 @@ import Hero from "./pages/hero_section/Hero";
 import Skills from "./pages/skills_section/Skills";
 import Highlights from "./pages/Highlights_section/Highlights";
 import { FaArrowUp } from "react-icons/fa";
+import Audio from "./components/Audio"; 
+import Projects from "./pages/project_section/Projects";
 
 const App = () => {
   const [showButton, setShowButton] = useState(false);
@@ -36,6 +38,7 @@ const App = () => {
       <Hero />
       <Skills />
       <Highlights />
+      <Projects />
 
       {/* Scroll To Top Button */}
       <button
@@ -46,9 +49,15 @@ const App = () => {
       >
         <FaArrowUp size={18} />
       </button>
+
+      {/* 🎵 Audio Player - fixed right & centered vertically */}
+      <div className="fixed right-1 top-1/2 z-50 -translate-y-1/2">
+        <Audio />
+      </div>
     </div>
   );
 };
 
 export default App;
+
 
