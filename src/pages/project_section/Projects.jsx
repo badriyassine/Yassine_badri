@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -12,7 +13,7 @@ const projects = [
   },
   {
     name: "Inventory Management",
-    images: ["/projects/inventory1.png", "/projects/inventory2.png"],
+    images: ["/src/assets/images/projects/Capture d’écran 2025-07-20 202354.png", "/src/assets/images/projects/Capture d’écran 2025-07-13 035015.png"],
     description:
       "A product management dashboard where each user can add, edit, and track their products with real-time stats.",
     technologies: ["React", "Node.js", "MongoDB", "Express"],
@@ -42,54 +43,60 @@ const Projects = () => {
   const project = projects[currentIndex];
 
   return (
-    <div className="flex flex-col items-center mt-20 px-4 w-full">
+    <motion.div
+      className="flex flex-col items-center mt-20 px-4 w-full"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       {/* Section Title */}
       <h2 className="text-5xl font-bold mb-1 text-white text-center">
         Projects
       </h2>
-      <p className="text-gray-400 text-center mt-2 mb-16 max-w-2xl">
+      <p className="text-gray-400 text-center mt-2 mb-16 max-w-3xl">
         Explore my featured work — each project highlights unique challenges,
         clean design, and powerful solutions.
       </p>
 
-      {/* Project Card (Cross Layout) */}
-      <div className="relative w-full max-w-4xl mt-10">
+      {/* Project Card */}
+      <div className="relative w-full max-w-6xl mt-10">
         {/* Title */}
-        <div className="absolute -top-13 left-1/2 -translate-x-1/2 bg-white/10 px-6 py-2  rounded-xl border border-white/20 backdrop-blur-lg">
-          <h3 className="text-xl font-bold text-white">{project.name}</h3>
+        <div className="absolute -top-8 z-30 left-1/2 -translate-x-1/2 bg-gradient-to-b from-black/60 to-black/30 px-8 py-3 rounded-xl border border-white/20 backdrop-blur-lg shadow-lg">
+          <h3 className="text-2xl font-bold text-white">{project.name}</h3>
         </div>
 
-        {/* Slider */}
+        {/* Image */}
         <div className="relative bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden">
           <img
-            src={project.images[0]} // always show first image of project
+            src={project.images[0]}
             alt="project screenshot"
-            className="w-full h-[500px] object-cover" // <-- taller slider
+            className="w-full h-[550px] object-cover"
           />
           {/* Controls */}
           <button
             onClick={prevProject}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
           >
-            <FaChevronLeft />
+            <FaChevronLeft size={22} />
           </button>
           <button
             onClick={nextProject}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
           >
-            <FaChevronRight />
+            <FaChevronRight size={22} />
           </button>
         </div>
 
         {/* Description */}
-        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 bg-white/10 px-8 py-6 rounded-xl border border-white/20 backdrop-blur-lg w-3/4 text-center">
-          <p className="text-gray-300">{project.description}</p>
+        <div className="absolute -bottom-28 left-1/2 -translate-x-1/2 bg-gradient-to-b from-black/60 to-black/30 px-10 py-8 rounded-xl border border-white/20 backdrop-blur-lg w-[85%] text-center shadow-xl">
+          <p className="text-white text-lg">{project.description}</p>
           {/* Technologies */}
-          <div className="flex flex-wrap gap-3 mt-4 justify-center">
+          <div className="flex flex-wrap gap-3 mt-5 justify-center">
             {project.technologies.map((tech, t) => (
               <span
                 key={t}
-                className="px-3 py-1 bg-white/10 text-gray-300 rounded-full text-sm"
+                className="px-4 py-2 bg-white/10 text-white rounded-full text-sm"
               >
                 {tech}
               </span>
@@ -100,28 +107,30 @@ const Projects = () => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 px-5 py-2 bg-gray-800 hover:bg-gray-700 rounded-xl text-white transition-all duration-300"
+            className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl text-white transition-all duration-300"
           >
-            <FaGithub /> View on GitHub
+            <FaGithub size={20} /> View on GitHub
           </a>
         </div>
       </div>
 
-      {/* Switch Projects Dots */}
-      <div className="flex gap-4 mt-32">
+      {/* Navigation Dots */}
+      <div className="flex gap-4 mt-36">
         {projects.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`w-3 h-3 rounded-full ${
-              idx === currentIndex ? "bg-white" : "bg-gray-500"
+            className={`w-4 h-4 rounded-full transition ${
+              idx === currentIndex ? "bg-white scale-110" : "bg-gray-500"
             }`}
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default Projects;
+
+
 
