@@ -30,11 +30,21 @@ const Tech = () => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-16 px-4 w-full">
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 w-full max-w-5xl">
+    <div className="flex flex-col items-center px-4 w-full">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 w-full max-w-6xl">
         {Object.entries(techStack).map(([category, items]) => (
-          <div key={category} className="flex flex-col items-center gap-4">
-            <h3 className="text-2xl font-semibold text-white">{category}</h3>
+          <div
+            key={category}
+            className="flex flex-col items-center justify-between gap-4 
+                       bg-white/5 border border-white/10 rounded-2xl 
+                       p-6 shadow-md 
+                       transition-transform duration-300 ease-out
+                       hover:scale-105 hover:shadow-xl
+                       w-full h-full"
+          >
+            <h3 className="text-2xl font-semibold" style={{ color: "#ff734d" }}>
+              {category}
+            </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {items.map((tech) => (
                 <span
@@ -45,13 +55,17 @@ const Tech = () => {
                     bg-white/10 
                     border border-white/20 
                     rounded-full 
-                    text-white text-base
+                    text-white text-sm
                     font-medium
                     transition-all duration-300
                     hover:scale-110 hover:shadow-lg
                   `}
-                  onMouseEnter={(e) => e.currentTarget.style.color = techColors[tech]}
-                  onMouseLeave={(e) => e.currentTarget.style.color = "white"}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = techColors[tech])
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "white")
+                  }
                 >
                   {tech}
                 </span>
@@ -65,5 +79,7 @@ const Tech = () => {
 };
 
 export default Tech;
+
+
 
 
