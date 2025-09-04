@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCode, FaDatabase, FaLaptopCode, FaGamepad } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Highlights from "../Highlights_section/Highlights";
 
 const About = () => {
   const cards = [
@@ -48,7 +49,7 @@ const About = () => {
         transition={{ duration: 1.2 }}
         className="text-2xl text-gray-300 mb-6"
       >
-        Who am I?
+        Who am I ?
       </motion.h3>
 
       {/* Answer */}
@@ -56,16 +57,24 @@ const About = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4 }}
-        className="max-w-2xl text-gray-400 mb-16"
+        className="max-w-5xl text-gray-400 mb-16"
       >
-        I’m <span className="text-[#ff734d] font-semibold">Yassine</span>, a passionate{" "}
-        <span className="text-[#ff734d] font-semibold">Full Stack Developer</span> 
-        who loves building web experiences that balance clean design, smooth user 
-        interactions, and strong backend functionality.
+        I’m <span className="text-[#ff734d] font-semibold">Yassine</span>, a
+        passionate{" "}
+        <span className="text-[#ff734d] font-semibold">
+          Full Stack Developer
+        </span>{" "}
+        who loves building web experiences that balance clean design, smooth
+        user interactions, and strong backend functionality. With a deep
+        curiosity for new technologies and a focus on problem-solving, I strive
+        to create digital solutions that are not only{" "}
+        <span className="text-[#ff734d] font-semibold">efficient</span> and{" "}
+        <span className="text-[#ff734d] font-semibold">scalable</span>, but also
+        leave a lasting impact for users and businesses alike.
       </motion.p>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mb-20">
         {cards.map((card, idx) => (
           <motion.div
             key={idx}
@@ -75,10 +84,24 @@ const About = () => {
             className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300"
           >
             <div className="text-[#ff734d] mb-4">{card.icon}</div>
-            <h4 className="text-lg font-semibold text-white mb-2">{card.title}</h4>
+            <h4 className="text-lg font-semibold text-white mb-2">
+              {card.title}
+            </h4>
             <p className="text-sm text-gray-400">{card.desc}</p>
           </motion.div>
         ))}
+      </div>
+      <div>
+        {/* Question */}
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="text-2xl text-gray-300 "
+        >
+          What do I believe in ?
+        </motion.h3>
+        <Highlights />
       </div>
     </section>
   );

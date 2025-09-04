@@ -3,7 +3,6 @@ import Background from "./components/Background";
 import Header from "./components/ui/Header";
 import Hero from "./pages/hero_section/Hero";
 import Skills from "./pages/skills_section/Skills";
-import Highlights from "./pages/Highlights_section/Highlights";
 import { FaArrowUp } from "react-icons/fa";
 import Audio from "./components/Audio"; 
 import Projects from "./pages/project_section/Projects";
@@ -39,8 +38,8 @@ const App = () => {
       <Hero />
       <About />
       <Skills />
-      <Highlights />
       <Projects />
+      
 
       {/* Scroll To Top Button */}
       <button

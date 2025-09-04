@@ -107,7 +107,7 @@ const Projects = () => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl text-white transition-all duration-300"
+            className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-[#ff734d] rounded-md text-white transition-all hover:bg-[#ff734d]/80  duration-300 shadow-lg"
           >
             <FaGithub size={20} /> View on GitHub
           </a>
