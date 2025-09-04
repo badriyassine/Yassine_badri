@@ -9,7 +9,7 @@ const Header = () => {
       <motion.img
         src={logo}
         alt="Logo"
-        className=" h-16 object-contain"
+        className="h-16 object-contain"
         animate={{
           y: [0, -8, 0],
         }}
@@ -23,12 +23,12 @@ const Header = () => {
       {/* Navigation + Button */}
       <div className="flex items-center gap-8">
         {/* Nav Links */}
-        <nav className="flex gap-6 text-gray-300 font-medium tracking-wide">
-          {["Home", "Skills", "Projects", "About", "Contact"].map((item) => (
+        <nav className="flex gap-6 font-medium tracking-wide">
+          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="hover:text-white hover:opacity-50 transition duration-300"
+              className="text-gray-300 hover:text-[#ff734d] transition-colors duration-300"
             >
               {item}
             </a>
@@ -39,7 +39,7 @@ const Header = () => {
         <a
           href="/cv.pdf" // replace with your CV path
           download
-          className="px-5 py-2 rounded-4xl border border-white/20 bg-white/10 backdrop-blur-lg text-white font-semibold hover:bg-white/20 transition duration-300 shadow-lg"
+          className="px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] backdrop-blur-lg text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 shadow-lg"
         >
           Download CV
         </a>

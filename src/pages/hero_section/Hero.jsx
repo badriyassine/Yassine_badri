@@ -46,11 +46,7 @@ const Hero = () => {
   // Detect scroll to hide slideshow and button
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setShowOnScroll(false);
-      } else {
-        setShowOnScroll(true);
-      }
+      setShowOnScroll(window.scrollY <= 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -85,9 +81,9 @@ const Hero = () => {
       >
         {/* Glass-style section above title */}
         <div className="mx-auto mb-10 rounded-4xl border border-gray-700 bg-white/5 backdrop-blur-xl px-6 py-3 flex items-center gap-4 shadow-md inline-flex">
-          <div className="w-2 h-2 rounded-full bg-white"></div>
+          <div className="w-2 h-2 rounded-full bg-[#ff734d]"></div>
           <h3 className="font-medium relative overflow-hidden">
-            <span className="bg-gradient-to-r from-gray-800 via-gray-400 to-gray-900 bg-clip-text text-transparent animate-gradientSlide">
+            <span className="bg-gradient-to-r from-gray-400 via-[#ff734d] to-gray-500 bg-clip-text text-transparent animate-gradientSlide">
               Crafting unique brand identities
             </span>
           </h3>
@@ -122,18 +118,18 @@ const Hero = () => {
         <div className="flex gap-4 justify-center">
           <a
             href="#projects"
-            className="relative px-8 py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-2 border-white/20 text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            className="relative px-8 py-3 rounded-xl bg-[#ff734d] border border-[#ff734d] text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
             <span className="relative z-10">View My Work</span>
             <FaArrowRight className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
-            <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-black via-gray-300 to-gray-700 opacity-50 animate-[shine_6s_linear_infinite] blur-xl group-hover:opacity-70"></span>
+            <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#ff734d]/40 via-gray-300/30 to-gray-700/20 opacity-50 animate-[shine_6s_linear_infinite] blur-xl group-hover:opacity-70"></span>
           </a>
 
           <a
             href="https://github.com/badriyassine"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative px-6 py-3 rounded-xl border border-[#050708] bg-[#050708] font-medium text-white flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
+            className="relative px-6 py-3 rounded-xl border border-[#ff734d] bg-[#050708] font-medium text-white flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
           >
             <FaGithub className="z-10" />
             <span className="relative z-10">Check My GitHub</span>

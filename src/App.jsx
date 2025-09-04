@@ -7,6 +7,7 @@ import Highlights from "./pages/Highlights_section/Highlights";
 import { FaArrowUp } from "react-icons/fa";
 import Audio from "./components/Audio"; 
 import Projects from "./pages/project_section/Projects";
+import About from "./pages/about_section/About";
 
 const App = () => {
   const [showButton, setShowButton] = useState(false);
@@ -36,6 +37,7 @@ const App = () => {
       <Background />
       <Header />
       <Hero />
+      <About />
       <Skills />
       <Highlights />
       <Projects />
