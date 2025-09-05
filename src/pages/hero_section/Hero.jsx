@@ -10,10 +10,9 @@ const roles = [
 ];
 
 const projectImages = [
-  "/src/assets/images/1.png",
-  "/src/assets/images/2.png",
-  "/src/assets/images/3.png",
-  "/src/assets/images/4.png",
+  "/src/assets/images/hero/1.png",
+  "/src/assets/images/hero/2.png",
+  "/src/assets/images/hero/3.png",
 ];
 
 const Hero = () => {
@@ -80,10 +79,10 @@ const Hero = () => {
         className="max-w-2xl mt-6 z-10"
       >
         {/* Glass-style section above title */}
-        <div className="mx-auto mb-10 rounded-4xl border border-gray-700 bg-white/5 backdrop-blur-xl px-6 py-3 flex items-center gap-4 shadow-md inline-flex">
+        <div className="mx-auto mb-10 rounded-4xl border border-[#ff734d]  backdrop-blur-xl px-6 py-3 flex items-center gap-4 shadow-md inline-flex">
           <div className="w-2 h-2 rounded-full bg-[#ff734d]"></div>
           <h3 className="font-medium relative overflow-hidden">
-            <span className="bg-gradient-to-r from-gray-400 via-[#ff734d] to-gray-500 bg-clip-text text-transparent animate-gradientSlide">
+            <span className="bg-gradient-to-r from-white via-[#ff734d] to-white bg-clip-text text-transparent animate-gradientSlide">
               Crafting unique brand identities
             </span>
           </h3>
@@ -118,7 +117,7 @@ const Hero = () => {
         <div className="flex gap-4 justify-center">
           <a
             href="#projects"
-            className="relative px-8 py-3 rounded-xl bg-[#ff734d] border border-[#ff734d] text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            className="relative px-8 py-3 rounded-full bg-[#ff734d] border border-[#ff734d] text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
             <span className="relative z-10">View My Work</span>
             <FaArrowRight className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
@@ -129,7 +128,7 @@ const Hero = () => {
             href="https://github.com/badriyassine"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative px-6 py-3 rounded-xl border border-[#ff734d] bg-[#050708] font-medium text-white flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
+            className="relative px-6 py-3 rounded-full border border-[#ff734d] bg-[#05070869] font-medium text-[#ff734d] flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
           >
             <FaGithub className="z-10" />
             <span className="relative z-10">Check My GitHub</span>
@@ -152,7 +151,7 @@ const Hero = () => {
       {showOnScroll && (
         <button
           onClick={() => setSlideshowActive((prev) => !prev)}
-          className="absolute bottom-8 left-8 p-3 rounded-full bg-[#797979b9] text-white shadow-md hover:opacity-80 transition-colors z-10 cursor-pointer"
+          className="absolute bottom-8 left-8 p-3 rounded-full bg-[#ff734d] text-white shadow-md hover:opacity-80 transition-colors z-10 cursor-pointer"
         >
           {slideshowActive ? <FaStop size={18} /> : <FaPlay size={18} />}
         </button>

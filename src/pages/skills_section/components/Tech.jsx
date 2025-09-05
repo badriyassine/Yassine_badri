@@ -1,5 +1,3 @@
-import React from "react";
-
 const Tech = () => {
   const techStack = {
     Frontend: ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],
@@ -35,16 +33,17 @@ const Tech = () => {
         {Object.entries(techStack).map(([category, items]) => (
           <div
             key={category}
-            className="flex flex-col items-center justify-between gap-4 
+            className="flex flex-col items-center  gap-4 
                        bg-white/5 border border-white/10 rounded-2xl 
                        p-6 shadow-md 
                        transition-transform duration-300 ease-out
                        hover:scale-105 hover:shadow-xl
                        w-full h-full"
           >
-            <h3 className="text-2xl font-semibold" style={{ color: "#ff734d" }}>
+            <h3 className="text-2xl font-semibold" style={{ color: "#fff" }}>
               {category}
             </h3>
+            <div className="bg-[#ff734d] h-1 mb-2 w-full rounded-full max-w-5"></div>
             <div className="flex flex-wrap justify-center gap-3">
               {items.map((tech) => (
                 <span
@@ -63,9 +62,7 @@ const Tech = () => {
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.color = techColors[tech])
                   }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "white")
-                  }
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
                 >
                   {tech}
                 </span>
@@ -79,7 +76,3 @@ const Tech = () => {
 };
 
 export default Tech;
-
-
-
-

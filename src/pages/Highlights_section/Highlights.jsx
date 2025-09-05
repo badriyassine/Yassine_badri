@@ -1,9 +1,17 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faShieldAlt, faClock } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 const Highlights = () => {
   return (
-    <div className="flex items-center justify-center  gap-38 py-20 flex-wrap">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="flex items-center justify-center gap-36 py-20 flex-wrap"
+    >
       {/* Highlight 1 */}
       <div className="flex flex-col items-center gap-2 group cursor-pointer">
         <FontAwesomeIcon
@@ -20,7 +28,7 @@ const Highlights = () => {
       </div>
 
       {/* Divider */}
-      <div className="w-3 h-3 bg-white rounded-full hidden sm:block"></div>
+      <div className="w-3 h-3 bg-white rounded-full hidden md:block"></div>
 
       {/* Highlight 2 */}
       <div className="flex flex-col items-center gap-2 group cursor-pointer">
@@ -38,7 +46,7 @@ const Highlights = () => {
       </div>
 
       {/* Divider */}
-      <div className="w-3 h-3 bg-white rounded-full hidden sm:block"></div>
+      <div className="w-3 h-3 bg-white rounded-full hidden md:block"></div>
 
       {/* Highlight 3 */}
       <div className="flex flex-col items-center gap-2 group cursor-pointer">
@@ -54,8 +62,10 @@ const Highlights = () => {
           Projects delivered on time
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default Highlights;
+
+

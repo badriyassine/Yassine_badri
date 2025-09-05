@@ -73,14 +73,16 @@ const About = () => {
         leave a lasting impact for users and businesses alike.
       </motion.p>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mb-20">
+      {/* Cards (animate as a single block) */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mb-20"
+      >
         {cards.map((card, idx) => (
-          <motion.div
+          <div
             key={idx}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: idx * 0.2 }}
             className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300"
           >
             <div className="text-[#ff734d] mb-4">{card.icon}</div>
@@ -88,9 +90,10 @@ const About = () => {
               {card.title}
             </h4>
             <p className="text-sm text-gray-400">{card.desc}</p>
-          </motion.div>
+          </div>
         ))}
-      </div>
+      </motion.div>
+
       <div>
         {/* Question */}
         <motion.h3
@@ -101,6 +104,8 @@ const About = () => {
         >
           What do I believe in ?
         </motion.h3>
+
+        {/* Highlights */}
         <Highlights />
       </div>
     </section>
@@ -108,3 +113,4 @@ const About = () => {
 };
 
 export default About;
+

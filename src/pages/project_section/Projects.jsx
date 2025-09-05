@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaGithub } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
     name: "Hotel Reservation App",
-    images: ["/projects/hotel1.png", "/projects/hotel2.png", "/projects/hotel3.png"],
+    image: "/src/assets/images/projects/6.png",
     description:
       "A hotel reservation system built with React and PHP, featuring dynamic room availability, admin dashboard, and user booking flow.",
     technologies: ["React", "TailwindCSS", "PHP", "MySQL"],
@@ -13,7 +13,7 @@ const projects = [
   },
   {
     name: "Inventory Management",
-    images: ["/src/assets/images/projects/Capture d’écran 2025-07-20 202354.png", "/src/assets/images/projects/Capture d’écran 2025-07-13 035015.png"],
+    image: "/projects/inventory.png",
     description:
       "A product management dashboard where each user can add, edit, and track their products with real-time stats.",
     technologies: ["React", "Node.js", "MongoDB", "Express"],
@@ -21,7 +21,7 @@ const projects = [
   },
   {
     name: "Portfolio Website",
-    images: ["/projects/portfolio1.png", "/projects/portfolio2.png"],
+    image: "/projects/portfolio1.png",
     description:
       "A modern personal portfolio built with React and TailwindCSS showcasing my skills and projects.",
     technologies: ["React", "TailwindCSS", "Framer Motion"],
@@ -30,107 +30,120 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextProject = () =>
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-
-  const prevProject = () =>
-    setCurrentIndex((prev) =>
-      prev === 0 ? projects.length - 1 : prev - 1
-    );
-
+  const [[currentIndex, direction], setCurrent] = useState([0, 0]);
   const project = projects[currentIndex];
 
+  const paginate = (dir) => {
+    const newIndex =
+      (currentIndex + dir + projects.length) % projects.length;
+    setCurrent([newIndex, dir]);
+  };
+
+  const slideVariants = {
+    enter: (dir) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir) => ({ x: dir < 0 ? 300 : -300, opacity: 0 }),
+  };
+
   return (
-    <motion.div
-      className="flex flex-col items-center mt-20 px-4 w-full"
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      {/* Section Title */}
-      <h2 className="text-5xl font-bold mb-1 text-white text-center">
+    <div className="flex flex-col items-center mt-20 px-4 w-full">
+      <h2 className="text-5xl font-bold mb-3 text-white text-center">
         Projects
       </h2>
       <p className="text-gray-400 text-center mt-2 mb-16 max-w-3xl">
-        Explore my featured work — each project highlights unique challenges,
-        clean design, and powerful solutions.
+        Explore my featured work — each project highlights unique challenges, clean design, and powerful solutions.
       </p>
 
-      {/* Project Card */}
-      <div className="relative w-full max-w-6xl mt-10">
-        {/* Title */}
-        <div className="absolute -top-8 z-30 left-1/2 -translate-x-1/2 bg-gradient-to-b from-black/60 to-black/30 px-8 py-3 rounded-xl border border-white/20 backdrop-blur-lg shadow-lg">
-          <h3 className="text-2xl font-bold text-white">{project.name}</h3>
-        </div>
-
-        {/* Image */}
-        <div className="relative bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden">
-          <img
-            src={project.images[0]}
-            alt="project screenshot"
-            className="w-full h-[550px] object-cover"
-          />
-          {/* Controls */}
-          <button
-            onClick={prevProject}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+      <div className="relative w-full max-w-6xl h-[550px] overflow-hidden rounded-2xl shadow-xl">
+        <AnimatePresence custom={direction} initial={false}>
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ type: "tween", duration: 0.6 }}
+            className="absolute w-full h-full rounded-2xl overflow-hidden"
           >
-            <FaChevronLeft size={22} />
-          </button>
-          <button
-            onClick={nextProject}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
-          >
-            <FaChevronRight size={22} />
-          </button>
-        </div>
+            {/* Project Image */}
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-full h-full object-cover"
+            />
 
-        {/* Description */}
-        <div className="absolute -bottom-28 left-1/2 -translate-x-1/2 bg-gradient-to-b from-black/60 to-black/30 px-10 py-8 rounded-xl border border-white/20 backdrop-blur-lg w-[85%] text-center shadow-xl">
-          <p className="text-white text-lg">{project.description}</p>
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-3 mt-5 justify-center">
-            {project.technologies.map((tech, t) => (
-              <span
-                key={t}
-                className="px-4 py-2 bg-white/10 text-white rounded-full text-sm"
+            {/* Overlay Info */}
+            <motion.div
+              className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center p-6 opacity-0 hover:opacity-100 transition-opacity duration-300"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-3">
+                {project.name}
+              </h3>
+              <p className="text-gray-300 mb-4">{project.description}</p>
+              <div className="flex flex-wrap justify-center gap-2 mb-4">
+                {project.technologies.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-white/10 text-white rounded-full text-sm font-medium transition-all duration-300 hover:scale-110 hover:bg-[#ff734d]/50"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2 bg-[#ff734d] rounded-full text-white transition-all hover:bg-[#ff734d]/80 duration-300 shadow-lg"
               >
-                {tech}
-              </span>
-            ))}
-          </div>
-          {/* GitHub Button */}
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-[#ff734d] rounded-md text-white transition-all hover:bg-[#ff734d]/80  duration-300 shadow-lg"
-          >
-            <FaGithub size={20} /> View on GitHub
-          </a>
-        </div>
+                <FaGithub size={18} /> View on GitHub
+              </a>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation Buttons */}
+        <button
+          onClick={() => paginate(-1)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+        >
+          <FaChevronLeft size={22} />
+        </button>
+        <button
+          onClick={() => paginate(1)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+        >
+          <FaChevronRight size={22} />
+        </button>
       </div>
 
       {/* Navigation Dots */}
-      <div className="flex gap-4 mt-36">
+      <div className="flex gap-3 mt-6">
         {projects.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`w-4 h-4 rounded-full transition ${
-              idx === currentIndex ? "bg-white scale-110" : "bg-gray-500"
+            onClick={() =>
+              setCurrent([idx, idx > currentIndex ? 1 : -1])
+            }
+            className={`w-4 h-2 rounded-full transition ${
+              idx === currentIndex ? "bg-[#ff734d] scale-110" : "bg-[#fff]"
             }`}
           />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 export default Projects;
+
+
+
+
+
 
 
 
