@@ -4,6 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
+    name: "Motary – Online Car Store",
+    image: "/images/projects/Motary.png",
+    description:
+      "Motary is an online car store I built for browsing and buying vehicles. It offers a clean design and smooth user experience to make car shopping easier.",
+    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Express"],
+    github: "https://github.com/badriyassine/Motary",
+  },
+  {
     name: "InventoryPro – Simple Inventory Tracker",
     image: "/images/projects/InventoryPro.png",
     description:
@@ -18,14 +26,6 @@ const projects = [
       "HealthTracker is a web app I built to help users monitor their daily health and fitness activities. It features interactive charts, goal tracking, and a responsive, user-friendly interface.",
     technologies: ["React", "TailwindCSS"],
     github: "https://github.com/badriyassine/health_tracker",
-  },
-  {
-    name: "Motary – Online Car Store",
-    image: "/images/projects/Motary.png",
-    description:
-      "Motary is an online car store I built for browsing and buying vehicles. It offers a clean design and smooth user experience to make car shopping easier.",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Express"],
-    github: "https://github.com/badriyassine/Motary",
   },
   {
     name: "Goldbike – Online Bike Store",
