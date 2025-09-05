@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const projects = [
   {
     name: "InventoryPro – Simple Inventory Tracker",
-    image: "/src/assets/images/projects/InventoryPro.png",
+    image: "/images/projects/InventoryPro.png",
     description:
       "InventoryPro is a simple app I built to track products and stock. It keeps everything organized while showing real-time updates.",
     technologies: ["React", "TailwindCSS", "PHP", "MySQL"],
@@ -13,7 +13,7 @@ const projects = [
   },
   {
     name: "HealthTracker – Monitor Your Wellness",
-    image: "/src/assets/images/projects/Health-tracker.png",
+    image: "/images/projects/Health-tracker.png",
     description:
       "HealthTracker is a web app I built to help users monitor their daily health and fitness activities. It features interactive charts, goal tracking, and a responsive, user-friendly interface.",
     technologies: ["React", "TailwindCSS"],
@@ -21,7 +21,7 @@ const projects = [
   },
   {
     name: "Motary – Online Car Store",
-    image: "/src/assets/images/projects/Motary.png",
+    image: "/images/projects/Motary.png",
     description:
       "Motary is an online car store I built for browsing and buying vehicles. It offers a clean design and smooth user experience to make car shopping easier.",
     technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Express"],
@@ -29,7 +29,7 @@ const projects = [
   },
   {
     name: "Goldbike – Online Bike Store",
-    image: "/src/assets/images/projects/Goldbike.png",
+    image: "/images/projects/Goldbike.png",
     description:
       "Goldbike is a modern bike store UI design I created to showcase clean layouts and smooth shopping flow. It focuses on a stylish look and user-friendly experience.",
     technologies: ["HTML", "CSS"],
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     name: "DashboardPro – Interactive Data Panel",
-    image: "/src/assets/images/projects/Dashboard.png",
+    image: "/images/projects/Dashboard.png",
     description:
       "DashboardPro is a sleek admin panel design I created to showcase data visualization and clean layouts. It focuses on intuitive navigation and modern UI aesthetics.",
     technologies: ["HTML", "CSS"],
