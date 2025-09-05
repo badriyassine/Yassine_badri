@@ -11,7 +11,7 @@ const projects = [
     technologies: ["React", "TailwindCSS", "PHP", "MySQL"],
     github: "https://github.com/badriyassine/InventoryPro",
   },
-    {
+  {
     name: "HealthTracker – Monitor Your Wellness",
     image: "/src/assets/images/projects/Health-tracker.png",
     description:
@@ -35,12 +35,12 @@ const projects = [
     technologies: ["HTML", "CSS"],
     github: "https://github.com/badriyassine/Goldbike",
   },
-    {
+  {
     name: "DashboardPro – Interactive Data Panel",
     image: "/src/assets/images/projects/Dashboard.png",
     description:
       "DashboardPro is a sleek admin panel design I created to showcase data visualization and clean layouts. It focuses on intuitive navigation and modern UI aesthetics.",
-    technologies: ["HTML", "CSS",],
+    technologies: ["HTML", "CSS"],
     github: "https://github.com/badriyassine/Dashboard-design",
   },
 ];
@@ -50,8 +50,7 @@ const Projects = () => {
   const project = projects[currentIndex];
 
   const paginate = (dir) => {
-    const newIndex =
-      (currentIndex + dir + projects.length) % projects.length;
+    const newIndex = (currentIndex + dir + projects.length) % projects.length;
     setCurrent([newIndex, dir]);
   };
 
@@ -61,8 +60,19 @@ const Projects = () => {
     exit: (dir) => ({ x: dir < 0 ? 300 : -300, opacity: 0 }),
   };
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
-    <div className="flex flex-col items-center mt-20 px-4 w-full">
+    <motion.div
+      className="flex flex-col items-center mt-20 px-4 w-full"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <h2 className="text-5xl font-bold mb-3 text-white text-center">
         Featured Work
       </h2>
@@ -95,10 +105,8 @@ const Projects = () => {
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
             >
-              <h3 className="text-2xl font-bold text-white mb-3">
-                {project.name}
-              </h3>
-              <p className="text-gray-300  max-w-2xl mb-4">{project.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
+              <p className="text-gray-300 max-w-2xl mb-4">{project.description}</p>
               <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {project.technologies.map((tech, idx) => (
                   <span
@@ -141,20 +149,19 @@ const Projects = () => {
         {projects.map((_, idx) => (
           <button
             key={idx}
-            onClick={() =>
-              setCurrent([idx, idx > currentIndex ? 1 : -1])
-            }
+            onClick={() => setCurrent([idx, idx > currentIndex ? 1 : -1])}
             className={`w-4 h-2 rounded-full transition ${
               idx === currentIndex ? "bg-[#ff734d] scale-110" : "bg-[#fff]"
             }`}
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default Projects;
+
 
 
 

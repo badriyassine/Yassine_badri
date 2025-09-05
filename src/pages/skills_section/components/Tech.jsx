@@ -1,3 +1,6 @@
+import React from "react";
+import { motion } from "framer-motion";
+
 const Tech = () => {
   const techStack = {
     Frontend: ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],
@@ -6,7 +9,6 @@ const Tech = () => {
     Tools: ["VSCode", "Figma", "Git", "GitHub", "Postman", "Canva"],
   };
 
-  // Define colors for each tech
   const techColors = {
     HTML: "#E34F26",
     CSS: "#1572B6",
@@ -27,18 +29,33 @@ const Tech = () => {
     Canva: "#00C4CC",
   };
 
+  // Variants for each card
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+    }),
+  };
+
   return (
     <div className="flex flex-col items-center px-4 w-full">
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 w-full max-w-6xl">
-        {Object.entries(techStack).map(([category, items]) => (
-          <div
+        {Object.entries(techStack).map(([category, items], index) => (
+          <motion.div
             key={category}
-            className="flex flex-col items-center  gap-4 
+            className="flex flex-col items-center gap-4 
                        bg-white/5 border border-white/10 rounded-2xl 
                        p-6 shadow-md 
                        transition-transform duration-300 ease-out
                        hover:scale-105 hover:shadow-xl
                        w-full h-full"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            custom={index}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <h3 className="text-2xl font-semibold" style={{ color: "#fff" }}>
               {category}
@@ -59,16 +76,14 @@ const Tech = () => {
                     transition-all duration-300
                     hover:scale-110 hover:shadow-lg
                   `}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = techColors[tech])
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.color = techColors[tech])}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
                 >
                   {tech}
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
@@ -76,3 +91,4 @@ const Tech = () => {
 };
 
 export default Tech;
+

@@ -6,6 +6,7 @@ import Skills from "./pages/skills_section/Skills";
 import { FaArrowUp } from "react-icons/fa";
 import Projects from "./pages/project_section/Projects";
 import About from "./pages/about_section/About";
+import Contact from "./pages/contact_section/Contact";
 
 const App = () => {
   const [showButton, setShowButton] = useState(false);
@@ -38,6 +39,7 @@ const App = () => {
       <About />
       <Skills />
       <Projects />
+      <Contact />
       
 
       {/* Scroll To Top Button */}
