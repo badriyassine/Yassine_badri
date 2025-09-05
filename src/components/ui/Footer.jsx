@@ -44,7 +44,7 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-gray-400 text-sm">
           © {new Date().getFullYear()} Created by{" "}
-          <span className="text-[#ff734d] font-medium">Yassine Badri</span> with ❤️
+          <span className="text-[#ff734d] font-medium">Yassine Badri</span>, All rights reserved.
         </div>
       </motion.div>
     </footer>

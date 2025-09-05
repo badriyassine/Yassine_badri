@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaArrowDown, FaGithub, FaPlay, FaStop } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaArrowDown,
+  FaGithub,
+  FaPlay,
+  FaStop,
+} from "react-icons/fa";
 
 const roles = [
   "Frontend Developer",
@@ -113,21 +119,34 @@ const Hero = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#projects"
-            className="relative px-8 py-3 rounded-full bg-[#ff734d] border border-[#ff734d] text-white font-medium flex items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            className="relative inline-flex px-8 py-3 rounded-full bg-[#ff734d] border border-[#ff734d] text-white font-medium items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
             <span className="relative z-10">View My Work</span>
             <FaArrowRight className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
             <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#ff734d]/40 via-gray-300/30 to-gray-700/20 opacity-50 animate-[shine_6s_linear_infinite] blur-xl group-hover:opacity-70"></span>
           </a>
 
+          {/* Mobile-only GitHub Button */}
           <a
             href="https://github.com/badriyassine"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative px-6 py-3 rounded-full border border-[#ff734d] bg-[#05070869] font-medium text-[#ff734d] flex items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
+            className="inline-flex md:hidden relative px-6 py-3 rounded-full border border-[#ff734d] bg-[#05070869] font-medium text-[#ff734d] items-center gap-2 shadow-md overflow-hidden group hover:opacity-80 mt-2"
+          >
+            <FaGithub className="z-10" />
+            <span className="relative z-10">Check My GitHub</span>
+            <span className="absolute inset-0 rounded-xl border-2 border-transparent animate-[pulse_2s_infinite]"></span>
+          </a>
+
+          {/* Desktop-only GitHub Button */}
+          <a
+            href="https://github.com/badriyassine"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex relative px-6 py-3 rounded-full border border-[#ff734d] bg-[#05070869] font-medium text-[#ff734d] items-center gap-2 shadow-md overflow-hidden group hover:opacity-80"
           >
             <FaGithub className="z-10" />
             <span className="relative z-10">Check My GitHub</span>
@@ -189,12 +208,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-
-
-
-
-
-
-
