@@ -146,8 +146,8 @@ const Contact = () => {
       >
         <a href="https://www.linkedin.com/in/yassine-badri-0279a7342/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaLinkedin /></a>
         <a href="https://www.instagram.com/yassinebadri_dev/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaInstagram /></a>
-        <a href="https://x.com/yassine_o2" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaXTwitter /></a>
         <a href="https://github.com/badriyassine" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaGithub /></a>
+        <a href="https://x.com/yassine_o2" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaXTwitter /></a>
       </motion.div>
 
       {/* Contact Form */}
