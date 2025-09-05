@@ -8,7 +8,7 @@ const projects = [
     image: "/images/projects/Motary.png",
     description:
       "Motary is an online car store I built for browsing and buying vehicles. It offers a clean design and smooth user experience to make car shopping easier.",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Express"],
+    technologies: ["React", "TypeScript", "Express", "MongoDB"],
     github: "https://github.com/badriyassine/Motary",
   },
   {
