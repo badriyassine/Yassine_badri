@@ -45,7 +45,7 @@ const projects = [
   },
 ];
 
-const Projects = () => {
+const Projects = ({ id = "projects" }) => {
   const [[currentIndex, direction], setCurrent] = useState([0, 0]);
   const project = projects[currentIndex];
 
@@ -66,20 +66,28 @@ const Projects = () => {
   };
 
   return (
-    <motion.div
+    <section
+      id={id}
       className="flex flex-col items-center mt-20 px-4 w-full"
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
     >
-      <h2 className="text-5xl font-bold mb-3 text-white text-center">
-        Featured Work
-      </h2>
-      <p className="text-gray-400 text-center mt-2 mb-16 max-w-3xl">
-        Explore my featured work — each project highlights unique challenges, clean design, and powerful solutions.
-      </p>
+      {/* Section Title */}
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="mb-10"
+      >
+        <h2 className="text-5xl font-bold mb-3 text-white text-center">
+          Featured Work
+        </h2>
+        <p className="text-gray-400 text-center mt-2 mb-16 max-w-3xl">
+          Explore my featured work — each project highlights unique challenges,
+          clean design, and powerful solutions.
+        </p>
+      </motion.div>
 
+      {/* Project Carousel */}
       <div className="relative w-full max-w-6xl h-[600px] overflow-hidden rounded-2xl shadow-xl">
         <AnimatePresence custom={direction} initial={false}>
           <motion.div
@@ -156,11 +164,12 @@ const Projects = () => {
           />
         ))}
       </div>
-    </motion.div>
+    </section>
   );
 };
 
 export default Projects;
+
 
 
 

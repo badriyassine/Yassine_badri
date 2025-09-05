@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaInstagram, FaTwitter, FaEnvelope, FaPhone } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,15 +29,10 @@ const Contact = () => {
     setFormData({ name: "", email: "", type: "freelance", message: "" });
   };
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-transparent"
     >
       {/* Available for work title */}
       <motion.div
@@ -40,7 +43,9 @@ const Contact = () => {
         className="flex items-center gap-3 mb-6"
       >
         <span className="w-4 h-4 bg-green-500 rounded-full animate-pulse"></span>
-        <h4 className="text-green-500 font-semibold text-lg">Available for Work</h4>
+        <h4 className="text-green-500 font-semibold text-lg">
+          Available for Work
+        </h4>
       </motion.div>
 
       {/* Section Title */}
@@ -61,9 +66,51 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-gray-400 text-center mt-2 mb-12 max-w-3xl"
       >
-        Whether you’re a client looking for freelance work or a company looking to hire,
-        I’m open to discussing your project or career opportunity. Let’s connect!
+        Whether you’re a client looking for freelance work or a company looking
+        to hire, I’m open to discussing your project or career opportunity.
+        Let’s connect!
       </motion.p>
+
+      {/* Info Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex flex-col md:flex-row gap-5 mb-12 max-w-4xl w-full justify-around"
+      >
+        {/* Left - Email */}
+        <div className="flex-1 flex flex-col items-center md:items-end gap-2 ">
+          <div className="flex flex-col items-center text-white gap-2 ">
+            <FaEnvelope className="text-white hover:text-[#ff734d] transition text-xl cursor-pointer" />
+            <span className="text-sm md:text-base ">
+              yassine.badrii18@gmail.com
+            </span>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden md:block w-px bg-gray-500"></div>
+
+        {/* Mid - Location */}
+        <div className="flex-1 flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center text-white gap-2">
+            <FaMapMarkerAlt className="text-white hover:text-[#ff734d] transition text-xl cursor-pointer" />
+            <span className="text-sm md:text-base">Morocco</span>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden md:block w-px bg-gray-500"></div>
+
+        {/* Right - Phone */}
+        <div className="flex-1 flex flex-col items-center md:items-start gap-2">
+          <div className="flex flex-col items-center text-white gap-2">
+            <FaPhoneAlt className="text-white hover:text-[#ff734d] transition text-xl cursor-pointer" />
+            <span className="text-sm md:text-base">+212 723 509 769</span>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Social Media Links */}
       <motion.div
@@ -73,23 +120,37 @@ const Contact = () => {
         viewport={{ once: true }}
         className="flex gap-6 mb-12 text-white text-2xl"
       >
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-[#0a66c2] transition-colors">
+        <a
+          href="https://www.linkedin.com/in/yassine-badri-0279a7342/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
           <FaLinkedin />
         </a>
-        <a href="https://github.com/badriyassine" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors">
-          <FaGithub />
-        </a>
-        <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-[#E1306C] transition-colors">
+        <a
+          href="https://www.instagram.com/yassinebadri_dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
           <FaInstagram />
         </a>
-        <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-[#1DA1F2] transition-colors">
-          <FaTwitter />
+        <a
+          href="https://x.com/yassine_o2"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
+          <FaXTwitter />
         </a>
-        <a href="mailto:your.email@gmail.com" className="hover:text-[#D44638] transition-colors">
-          <FaEnvelope />
-        </a>
-        <a href="tel:+212600000000" className="hover:text-green-500 transition-colors">
-          <FaPhone />
+        <a
+          href="https://github.com/badriyassine"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
+          <FaGithub />
         </a>
       </motion.div>
 
@@ -98,7 +159,7 @@ const Contact = () => {
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         className="w-full max-w-3xl bg-white/5 border border-white/20 rounded-2xl p-8 flex flex-col gap-6 shadow-lg"
       >
@@ -154,4 +215,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

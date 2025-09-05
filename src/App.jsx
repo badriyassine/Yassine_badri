@@ -3,21 +3,34 @@ import Background from "./components/Background";
 import Header from "./components/ui/Header";
 import Hero from "./pages/hero_section/Hero";
 import Skills from "./pages/skills_section/Skills";
-import { FaArrowUp } from "react-icons/fa";
 import Projects from "./pages/project_section/Projects";
 import About from "./pages/about_section/About";
 import Contact from "./pages/contact_section/Contact";
+import Footer from "./components/ui/Footer";
+import { FaArrowUp } from "react-icons/fa";
 
 const App = () => {
   const [showButton, setShowButton] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
+      const sections = ["home", "about", "skills", "projects", "contact"];
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      for (let id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const bottom = top + el.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            setActiveSection(id);
+          }
+        }
       }
+
+      if (window.scrollY > 200) setShowButton(true);
+      else setShowButton(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -25,22 +38,19 @@ const App = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div className="relative min-h-screen gap-24 flex flex-col text-white">
       <Background />
-      <Header />
+      <Header activeSection={activeSection} />
       <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      
+      <About id="about" />
+      <Skills id="skills" />
+      <Projects id="projects" />
+      <Contact id="contact" />
+      <Footer />
 
       {/* Scroll To Top Button */}
       <button
@@ -56,5 +66,7 @@ const App = () => {
 };
 
 export default App;
+
+
 
 

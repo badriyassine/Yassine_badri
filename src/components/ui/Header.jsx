@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../../assets/logo/Logo.png"; // put your logo inside src/assets
+import logo from "../../assets/logo/Logo.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const navLinks = ["Home", "About", "Skills", "Projects", "Contact"];
 
@@ -17,29 +18,66 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Scroll spy
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map((link) =>
+        document.getElementById(link.toLowerCase())
+      );
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const top = section.offsetTop;
+          const bottom = top + section.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            setActiveSection(navLinks[index].toLowerCase());
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false); // close mobile menu
+  };
+
   return (
-    <header className="fixed top-0 left-0 w-full  flex items-center justify-between px-8 py-4 backdrop-blur-md bg-transparent z-50">
-      {/* Logo with slow jump animation */}
-      <motion.img
-        src={logo}
-        alt="Logo"
-        className="h-16 object-contain"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      />
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 backdrop-blur-md bg-transparent z-50">
+      {/* Logo */}
+      <a href="#home" onClick={() => scrollToSection("home")}>
+        <motion.img
+          src={logo}
+          alt="Logo"
+          className="h-16 object-contain"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </a>
 
       {/* Desktop Navigation */}
       {!isMobile && (
         <div className="flex items-center gap-8">
           <nav className="flex gap-6 font-medium tracking-wide">
             {navLinks.map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-300 hover:text-[#ff734d] transition-colors duration-300"
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className={`transition-colors duration-300 ${
+                  activeSection === item.toLowerCase()
+                    ? "text-[#ff734d]"
+                    : "text-gray-300 hover:text-[#ff734d]"
+                }`}
               >
                 {item}
-              </a>
+              </button>
             ))}
           </nav>
           <a
@@ -55,7 +93,6 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMobile && (
         <div className="relative z-50">
-          {/* Hamburger Button */}
           {!menuOpen && (
             <button
               onClick={() => setMenuOpen(true)}
@@ -74,7 +111,6 @@ const Header = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="fixed top-0 right-0 w-64 h-screen bg-[#0a0a0a]/95 backdrop-blur-md flex flex-col items-start p-8 gap-6 shadow-lg z-50"
               >
-                {/* Close Button inside menu */}
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="self-end text-white text-2xl mb-6 focus:outline-none"
@@ -82,19 +118,20 @@ const Header = () => {
                   <FaTimes />
                 </button>
 
-                {/* Menu Links */}
                 {navLinks.map((item) => (
-                  <a
+                  <button
                     key={item}
-                    href={`#${item.toLowerCase()}`}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-white text-lg hover:text-[#ff734d] transition-colors duration-300"
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className={`text-lg w-full text-left transition-colors duration-300 ${
+                      activeSection === item.toLowerCase()
+                        ? "text-[#ff734d]"
+                        : "text-white hover:text-[#ff734d]"
+                    }`}
                   >
                     {item}
-                  </a>
+                  </button>
                 ))}
 
-                {/* CV Button */}
                 <a
                   href="/cv.pdf"
                   download
@@ -112,3 +149,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
