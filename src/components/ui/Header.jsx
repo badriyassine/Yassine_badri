@@ -72,7 +72,7 @@ const Header = () => {
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className={`transition-colors duration-300 ${
                   activeSection === item.toLowerCase()
-                    ? "text-[#ff734d]"
+                    ? "text-[#ff734d] cursor-pointer"
                     : "text-gray-300 hover:text-[#ff734d] cursor-pointer"
                 }`}
               >
