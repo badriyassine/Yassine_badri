@@ -36,7 +36,7 @@ const About = () => {
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="text-5xl font-bold text-white mb-3"
       >
@@ -47,7 +47,7 @@ const About = () => {
       <motion.h3
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="text-2xl text-gray-300 mb-6"
       >
@@ -58,7 +58,7 @@ const About = () => {
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.4 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="max-w-5xl text-gray-400 mb-16"
       >
@@ -67,20 +67,20 @@ const About = () => {
         <span className="text-[#ff734d] font-semibold">
           Full Stack Developer
         </span>{" "}
-        who loves building web experiences that balance clean design, smooth
-        user interactions, and strong backend functionality. With a deep
-        curiosity for new technologies and a focus on problem-solving, I strive
-        to create digital solutions that are not only{" "}
+        who enjoys creating web experiences that combine clean design, smooth
+        user interactions, and robust backend functionality. Curious about new
+        technologies and driven by problem-solving, I aim to build digital
+        solutions that are not only{" "}
         <span className="text-[#ff734d] font-semibold">efficient</span> and{" "}
         <span className="text-[#ff734d] font-semibold">scalable</span>, but also
-        leave a lasting impact for users and businesses alike.
+        make a meaningful impact for both users and businesses.
       </motion.p>
 
       {/* Cards (animate as a single block) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         viewport={{ once: true }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mb-20"
       >
@@ -103,7 +103,7 @@ const About = () => {
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-2xl text-gray-300 "
         >
@@ -118,5 +118,3 @@ const About = () => {
 };
 
 export default About;
-
-

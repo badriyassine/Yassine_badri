@@ -62,7 +62,7 @@ const Contact = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="flex items-center gap-3 mb-6"
       >
@@ -76,7 +76,7 @@ const Contact = () => {
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="text-5xl font-bold text-white mb-3"
       >
@@ -86,7 +86,7 @@ const Contact = () => {
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="text-gray-400 text-center mt-2 mb-12 max-w-3xl"
       >
@@ -99,7 +99,7 @@ const Contact = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="flex flex-col md:flex-row gap-5 mb-12 max-w-4xl w-full justify-around"
       >
@@ -140,7 +140,7 @@ const Contact = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="flex gap-6 mb-12 text-white text-2xl"
       >
@@ -155,7 +155,7 @@ const Contact = () => {
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="w-full max-w-3xl bg-white/5 border border-white/20 rounded-2xl p-8 flex flex-col gap-6 shadow-lg"
       >

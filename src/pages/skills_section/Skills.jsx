@@ -9,7 +9,7 @@ const Skills = ({ id = "skills" }) => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -57,7 +57,6 @@ const Skills = ({ id = "skills" }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ delay: 0.3 }}
       >
         <div className="bg-white/5 border border-white/20 rounded-2xl p-4 mb-4 shadow-md hover:shadow-lg transition-all duration-300">
           <h3 className="text-2xl font-bold text-center text-[#ff734d]">
