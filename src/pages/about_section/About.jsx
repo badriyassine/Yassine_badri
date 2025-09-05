@@ -96,17 +96,17 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mb-20"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mb-20 justify-items-center"
       >
         {cards.map((card, idx) => (
           <div
             key={idx}
-            className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300"
+            className={`bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ${
+              idx === 2 ? "sm:col-span-2 sm:self-center lg:col-auto" : ""
+            }`}
           >
             <div className="text-[#ff734d] mb-4">{card.icon}</div>
-            <h4 className="text-lg font-semibold text-white mb-2">
-              {card.title}
-            </h4>
+            <h4 className="text-lg font-semibold text-white mb-2">{card.title}</h4>
             <p className="text-sm text-gray-400">{card.desc}</p>
           </div>
         ))}
@@ -152,5 +152,6 @@ const About = () => {
 };
 
 export default About;
+
 
 

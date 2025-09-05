@@ -132,10 +132,11 @@ const Header = () => {
                   </button>
                 ))}
 
+                {/* CV Button placed right under links */}
                 <a
                   href={`${import.meta.env.BASE_URL}YASSINE_BADRI_CV.pdf`}
                   download="Yassine_Badri_CV.pdf"
-                  className="mt-auto px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 w-full text-center"
+                  className="px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 w-full text-center shadow-md"
                 >
                   Download CV
                 </a>
@@ -149,5 +150,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
