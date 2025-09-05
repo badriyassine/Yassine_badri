@@ -5,9 +5,9 @@ import { FaArrowRight, FaArrowDown, FaGithub, FaPlay, FaStop } from "react-icons
 const roles = ["Frontend Developer", "Backend Developer", "Full Stack Developer"];
 
 const projectImages = [
-  "/src/assets/images/hero/1.png",
-  "/src/assets/images/hero/2.png",
-  "/src/assets/images/hero/3.png",
+  "/images/hero/1.png",
+  "/images/hero/2.png",
+  "/images/hero/3.png",
 ];
 
 const Hero = () => {
