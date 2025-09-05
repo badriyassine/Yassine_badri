@@ -55,7 +55,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.6 }}
             className="absolute inset-0 w-full h-full object-cover -z-10"
           />
         )}
@@ -64,7 +64,7 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
         className="max-w-2xl mt-6 z-10"
       >
         {/* Glass-style section above title */}
@@ -88,7 +88,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.6 }}
               className="text-xl sm:text-4xl font-semibold text-gray-300"
             >
               {roles[index]}
@@ -130,7 +130,7 @@ const Hero = () => {
       <motion.div
         className="absolute bottom-8 flex flex-col items-center text-gray-300 text-sm z-10"
         animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 3, repeat: Infinity }}
+        transition={{ duration: 1.5, repeat: Infinity }}
       >
         <span>Scroll to explore</span>
         <FaArrowDown className="mt-2" />

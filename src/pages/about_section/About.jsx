@@ -1,7 +1,6 @@
 import React from "react";
-import { FaCode, FaDatabase, FaLaptopCode, FaGamepad } from "react-icons/fa";
+import { FaCode, FaDatabase, FaLaptopCode, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Highlights from "../Highlights_section/Highlights";
 
 const About = () => {
   const cards = [
@@ -20,11 +19,14 @@ const About = () => {
       icon: <FaLaptopCode size={40} />,
       desc: "I merge frontend and backend skills to craft complete web applications from concept to deployment.",
     },
-    {
-      title: "Gamer",
-      icon: <FaGamepad size={40} />,
-      desc: "In my free time, I dive into gaming — always exploring worlds, strategies, and challenges for fun and creativity.",
-    },
+  ];
+
+  const softSkills = [
+    "Problem Solving",
+    "Teamwork",
+    "Adaptability",
+    "Communication",
+    "Time Management",
   ];
 
   return (
@@ -51,7 +53,7 @@ const About = () => {
         viewport={{ once: true }}
         className="text-2xl text-gray-300 mb-6"
       >
-        Who am I ?
+        Who am I?
       </motion.h3>
 
       {/* Answer */}
@@ -76,13 +78,13 @@ const About = () => {
         make a meaningful impact for both users and businesses.
       </motion.p>
 
-      {/* Cards (animate as a single block) */}
+      {/* Cards (Technical Skills) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mb-20"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mb-20"
       >
         {cards.map((card, idx) => (
           <div
@@ -98,21 +100,23 @@ const About = () => {
         ))}
       </motion.div>
 
-      <div>
-        {/* Question */}
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-2xl text-gray-300 "
-        >
-          What do I believe in ?
-        </motion.h3>
-
-        {/* Highlights */}
-        <Highlights />
-      </div>
+      {/* Soft Skills */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="max-w-4xl flex flex-wrap justify-center gap-4"
+      >
+        {softSkills.map((skill, idx) => (
+          <span
+            key={idx}
+            className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-medium transition-all duration-300 hover:scale-110 hover:shadow-lg hover:text-[#ff734d] cursor-pointer"
+          >
+            {skill}
+          </span>
+        ))}
+      </motion.div>
     </section>
   );
 };
