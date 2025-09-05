@@ -29,7 +29,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-[#111111]"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent"
     >
       {/* Available for work title */}
       <motion.div
