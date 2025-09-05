@@ -91,7 +91,7 @@ const Projects = ({ id = "projects" }) => {
       </motion.div>
 
       {/* Project Carousel */}
-      <div className="relative w-full max-w-6xl h-[600px] overflow-hidden rounded-2xl shadow-xl">
+      <div className="relative w-full max-w-6xl h-[500px] md:h-[600px] overflow-hidden rounded-2xl shadow-xl">
         <AnimatePresence custom={direction} initial={false}>
           <motion.div
             key={currentIndex}
@@ -157,7 +157,7 @@ const Projects = ({ id = "projects" }) => {
                 onClick={() => setTapped(!tapped)}
                 className="px-4 py-2 bg-[#ff734d] text-white rounded-full shadow-lg transition hover:bg-[#ff734d]/80"
               >
-                {tapped ? "Hide Info" : "Show Info"}
+                {tapped ? "Hide" : "Show"}
               </button>
 
               <button
