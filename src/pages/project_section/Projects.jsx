@@ -47,11 +47,13 @@ const projects = [
 
 const Projects = ({ id = "projects" }) => {
   const [[currentIndex, direction], setCurrent] = useState([0, 0]);
+  const [tapped, setTapped] = useState(false); // Track mobile tap
   const project = projects[currentIndex];
 
   const paginate = (dir) => {
     const newIndex = (currentIndex + dir + projects.length) % projects.length;
     setCurrent([newIndex, dir]);
+    setTapped(false); // reset tap on project change
   };
 
   const slideVariants = {
@@ -66,10 +68,7 @@ const Projects = ({ id = "projects" }) => {
   };
 
   return (
-    <section
-      id={id}
-      className="flex flex-col items-center mt-20 px-4 w-full"
-    >
+    <section id={id} className="flex flex-col items-center mt-20 px-4 w-full">
       {/* Section Title */}
       <motion.div
         variants={sectionVariants}
@@ -105,13 +104,14 @@ const Projects = ({ id = "projects" }) => {
               src={project.image}
               alt={project.name}
               className="w-full h-full object-cover"
+              onClick={() => setTapped(!tapped)} // toggle info on mobile
             />
 
             {/* Overlay Info */}
             <motion.div
-              className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center text-center p-6 opacity-0 hover:opacity-100 transition-opacity duration-300"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
+              className={`absolute inset-0 bg-black/80 flex flex-col justify-center items-center text-center p-6 transition-opacity duration-300
+                ${tapped ? "opacity-100" : "opacity-0"} 
+                md:hover:opacity-100`} // hover on desktop
             >
               <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
               <p className="text-gray-300 max-w-2xl mb-4">{project.description}</p>
@@ -169,6 +169,7 @@ const Projects = ({ id = "projects" }) => {
 };
 
 export default Projects;
+
 
 
 

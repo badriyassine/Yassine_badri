@@ -13,6 +13,7 @@ const App = () => {
   const [showButton, setShowButton] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  // Update active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "projects", "contact"];
@@ -29,13 +30,25 @@ const App = () => {
         }
       }
 
-      if (window.scrollY > 200) setShowButton(true);
-      else setShowButton(false);
+      setShowButton(window.scrollY > 200);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Dynamic browser tab title
+  useEffect(() => {
+    const sectionTitles = {
+      home: "Home - Yassine Badri",
+      about: "About Me - Yassine Badri",
+      skills: "Skills - Yassine Badri",
+      projects: "Projects - Yassine Badri",
+      contact: "Contact - Yassine Badri",
+    };
+
+    document.title = sectionTitles[activeSection] || "Yassine Badri";
+  }, [activeSection]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -66,6 +79,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
