@@ -38,7 +38,10 @@ const Github = () => {
       .then((data) => {
         if (Array.isArray(data)) {
           setRepos(data);
-          const stars = data.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+          const stars = data.reduce(
+            (acc, repo) => acc + repo.stargazers_count,
+            0
+          );
           setTotalStars(stars);
         }
       })
@@ -69,8 +72,13 @@ const Github = () => {
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg transition-all duration-500"
         >
+          {/* Icon always visible */}
           <FontAwesomeIcon icon={faGithub} />
-          <span className="text-white font-semibold">View GitHub</span>
+
+          {/* Text only visible on medium+ screens */}
+          <span className="text-white font-semibold hidden md:inline">
+            View GitHub
+          </span>
         </a>
       </div>
 
@@ -78,21 +86,38 @@ const Github = () => {
       <div className="flex flex-wrap gap-6 mt-6 text-gray-300">
         <span>Repositories: {user.public_repos || repos.length}</span>
         <span>Total Stars: {totalStars}</span>
-        <span>Achievements: {user.public_repos ? Math.floor(user.public_repos / 2) : 0}</span>
+        <span>
+          Achievements:{" "}
+          {user.public_repos ? Math.floor(user.public_repos / 2) : 0}
+        </span>
       </div>
 
       {/* Contributions */}
       {showContribution && (
         <div className="w-full flex flex-col gap-4 mt-8">
-          <h4 className="text-white font-semibold mb-2">Contribution Heatmap</h4>
+          <h4 className="text-white font-semibold mb-2">
+            Contribution Heatmap
+          </h4>
 
           {/* Month Labels */}
           <div className="flex justify-between text-gray-400 text-sm mb-1 px-1">
             {[
-              "Jan","Feb","Mar","Apr","May","Jun",
-              "Jul","Aug","Sep","Oct","Nov","Dec",
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
             ].map((month, i) => (
-              <span key={i} className="w-20 text-center">{month}</span>
+              <span key={i} className="w-20 text-center">
+                {month}
+              </span>
             ))}
           </div>
 
@@ -100,7 +125,9 @@ const Github = () => {
             {/* Day Labels */}
             <div className="flex flex-col justify-between h-full text-gray-400 text-xs">
               {["Sun", "", "Tue", "", "Thu", "", "Sat"].map((day, i) => (
-                <span key={i} className="h-4">{day}</span>
+                <span key={i} className="h-4">
+                  {day}
+                </span>
               ))}
             </div>
 
@@ -130,7 +157,8 @@ const Github = () => {
           </div>
 
           <p className="text-gray-400 text-sm mt-2">
-            Contributions heatmap fetched directly from GitHub GraphQL API with dates.
+            Contributions heatmap fetched directly from GitHub GraphQL API with
+            dates.
           </p>
         </div>
       )}
@@ -139,7 +167,3 @@ const Github = () => {
 };
 
 export default Github;
-
-
-
-
