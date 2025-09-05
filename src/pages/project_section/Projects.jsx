@@ -64,7 +64,11 @@ const Projects = ({ id = "projects" }) => {
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -113,8 +117,12 @@ const Projects = ({ id = "projects" }) => {
                 ${tapped ? "opacity-100" : "opacity-0"} 
                 md:hover:opacity-100`}
             >
-              <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
-              <p className="text-gray-300 max-w-2xl mb-4">{project.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                {project.name}
+              </h3>
+              <p className="text-gray-300 max-w-2xl mb-4">
+                {project.description}
+              </p>
               <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {project.technologies.map((tech, idx) => (
                   <span
@@ -135,26 +143,43 @@ const Projects = ({ id = "projects" }) => {
               </a>
             </motion.div>
 
-            {/* Mobile/Tablet Toggle Button */}
-            <button
-              className="md:hidden absolute bottom-4 right-4 px-4 py-2 bg-[#ff734d] text-white rounded-full shadow-lg z-10 transition hover:bg-[#ff734d]/80"
-              onClick={() => setTapped(!tapped)}
-            >
-              {tapped ? "Hide Info" : "Show Info"}
-            </button>
+            {/* Mobile/Tablet Controls */}
+            {/* Mobile/Tablet Controls */}
+            <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+              <button
+                onClick={() => paginate(-1)}
+                className="bg-black/50 p-2 rounded-full text-white hover:bg-black/70 transition"
+              >
+                <FaChevronLeft size={18} />
+              </button>
+
+              <button
+                onClick={() => setTapped(!tapped)}
+                className="px-4 py-2 bg-[#ff734d] text-white rounded-full shadow-lg transition hover:bg-[#ff734d]/80"
+              >
+                {tapped ? "Hide Info" : "Show Info"}
+              </button>
+
+              <button
+                onClick={() => paginate(1)}
+                className="bg-black/50 p-2 rounded-full text-white hover:bg-black/70 transition"
+              >
+                <FaChevronRight size={18} />
+              </button>
+            </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Buttons */}
+        {/* Desktop Navigation Buttons */}
         <button
           onClick={() => paginate(-1)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
         >
           <FaChevronLeft size={22} />
         </button>
         <button
           onClick={() => paginate(1)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
         >
           <FaChevronRight size={22} />
         </button>
@@ -177,14 +202,3 @@ const Projects = ({ id = "projects" }) => {
 };
 
 export default Projects;
-
-
-
-
-
-
-
-
-
-
-
