@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 import {
   FaLinkedin,
   FaGithub,
@@ -18,15 +19,38 @@ const Contact = () => {
     message: "",
   });
 
+  const [toast, setToast] = useState({ show: false, message: "", success: true });
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you! I will get back to you soon.");
-    setFormData({ name: "", email: "", type: "freelance", message: "" });
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          user_name: formData.name,
+          user_email: formData.email,
+          project_type: formData.type,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          setToast({ show: true, message: "Message sent successfully!", success: true });
+          setFormData({ name: "", email: "", type: "freelance", message: "" });
+          setTimeout(() => setToast({ show: false, message: "", success: true }), 4000);
+        },
+        (error) => {
+          setToast({ show: true, message: "Oops! Something went wrong.", success: false });
+          setTimeout(() => setToast({ show: false, message: "", success: true }), 4000);
+        }
+      );
   };
 
   return (
@@ -34,7 +58,7 @@ const Contact = () => {
       id="contact"
       className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-transparent"
     >
-      {/* Available for work title */}
+      {/* Available for work */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -79,11 +103,11 @@ const Contact = () => {
         viewport={{ once: true }}
         className="flex flex-col md:flex-row gap-5 mb-12 max-w-4xl w-full justify-around"
       >
-        {/* Left - Email */}
-        <div className="flex-1 flex flex-col items-center md:items-end gap-2 ">
-          <div className="flex flex-col items-center text-white gap-2 ">
+        {/* Email */}
+        <div className="flex-1 flex flex-col items-center md:items-end gap-2">
+          <div className="flex flex-col items-center text-white gap-2">
             <FaEnvelope className="text-white hover:text-[#ff734d] transition text-xl cursor-pointer" />
-            <span className="text-sm md:text-base ">
+            <span className="text-sm md:text-base">
               yassine.badrii18@gmail.com
             </span>
           </div>
@@ -92,7 +116,7 @@ const Contact = () => {
         {/* Divider */}
         <div className="hidden md:block w-px bg-gray-500"></div>
 
-        {/* Mid - Location */}
+        {/* Location */}
         <div className="flex-1 flex flex-col items-center gap-2">
           <div className="flex flex-col items-center text-white gap-2">
             <FaMapMarkerAlt className="text-white hover:text-[#ff734d] transition text-xl cursor-pointer" />
@@ -103,7 +127,7 @@ const Contact = () => {
         {/* Divider */}
         <div className="hidden md:block w-px bg-gray-500"></div>
 
-        {/* Right - Phone */}
+        {/* Phone */}
         <div className="flex-1 flex flex-col items-center md:items-start gap-2">
           <div className="flex flex-col items-center text-white gap-2">
             <FaPhoneAlt className="text-white hover:text-[#ff734d] transition text-xl cursor-pointer" />
@@ -112,7 +136,7 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      {/* Social Media Links */}
+      {/* Social Media */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -120,38 +144,10 @@ const Contact = () => {
         viewport={{ once: true }}
         className="flex gap-6 mb-12 text-white text-2xl"
       >
-        <a
-          href="https://www.linkedin.com/in/yassine-badri-0279a7342/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#ff734d] transition-colors"
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="https://www.instagram.com/yassinebadri_dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#ff734d] transition-colors"
-        >
-          <FaInstagram />
-        </a>
-        <a
-          href="https://x.com/yassine_o2"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#ff734d] transition-colors"
-        >
-          <FaXTwitter />
-        </a>
-        <a
-          href="https://github.com/badriyassine"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#ff734d] transition-colors"
-        >
-          <FaGithub />
-        </a>
+        <a href="https://www.linkedin.com/in/yassine-badri-0279a7342/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaLinkedin /></a>
+        <a href="https://www.instagram.com/yassinebadri_dev/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaInstagram /></a>
+        <a href="https://x.com/yassine_o2" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaXTwitter /></a>
+        <a href="https://github.com/badriyassine" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaGithub /></a>
       </motion.div>
 
       {/* Contact Form */}
@@ -210,8 +206,23 @@ const Contact = () => {
           Send Message
         </button>
       </motion.form>
+
+      {/* Toast */}
+      {toast.show && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg text-white font-semibold text-center ${
+            toast.success ? "bg-green-500" : "bg-red-500"
+          }`}
+        >
+          {toast.message}
+        </motion.div>
+      )}
     </section>
   );
 };
 
 export default Contact;
+
