@@ -27,16 +27,16 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <div className="flex justify-center gap-5 mt-4">
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/yassine-badri-0279a7342/" target="_blank" rel="noreferrer">
             <FaLinkedin className="text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer">
-            <FaGithub className="text-2xl text-white hover:text-[#ff734d] transition" />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/yassinebadri_dev/" target="_blank" rel="noreferrer">
             <FaInstagram className="text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
-          <a href="https://x.com" target="_blank" rel="noreferrer">
+          <a href="https://github.com/badriyassine" target="_blank" rel="noreferrer">
+            <FaGithub className="text-2xl text-white hover:text-[#ff734d] transition" />
+          </a>
+          <a href="https://x.com/yassine_o2" target="_blank" rel="noreferrer">
             <FaXTwitter className="text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
         </div>
