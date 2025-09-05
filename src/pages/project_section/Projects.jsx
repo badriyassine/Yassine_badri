@@ -47,7 +47,7 @@ const projects = [
 
 const Projects = ({ id = "projects" }) => {
   const [[currentIndex, direction], setCurrent] = useState([0, 0]);
-  const [tapped, setTapped] = useState(false); // Track mobile tap
+  const [tapped, setTapped] = useState(false);
   const project = projects[currentIndex];
 
   const paginate = (dir) => {
@@ -104,14 +104,14 @@ const Projects = ({ id = "projects" }) => {
               src={project.image}
               alt={project.name}
               className="w-full h-full object-cover"
-              onClick={() => setTapped(!tapped)} // toggle info on mobile
+              onClick={() => setTapped(!tapped)}
             />
 
             {/* Overlay Info */}
             <motion.div
               className={`absolute inset-0 bg-black/80 flex flex-col justify-center items-center text-center p-6 transition-opacity duration-300
                 ${tapped ? "opacity-100" : "opacity-0"} 
-                md:hover:opacity-100`} // hover on desktop
+                md:hover:opacity-100`}
             >
               <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
               <p className="text-gray-300 max-w-2xl mb-4">{project.description}</p>
@@ -134,6 +134,14 @@ const Projects = ({ id = "projects" }) => {
                 <FaGithub size={18} /> View on GitHub
               </a>
             </motion.div>
+
+            {/* Mobile/Tablet Toggle Button */}
+            <button
+              className="md:hidden absolute bottom-4 right-4 px-4 py-2 bg-[#ff734d] text-white rounded-full shadow-lg z-10 transition hover:bg-[#ff734d]/80"
+              onClick={() => setTapped(!tapped)}
+            >
+              {tapped ? "Hide Info" : "Show Info"}
+            </button>
           </motion.div>
         </AnimatePresence>
 
