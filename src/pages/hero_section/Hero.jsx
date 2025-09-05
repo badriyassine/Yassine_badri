@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight, FaArrowDown, FaGithub, FaPlay, FaStop } from "react-icons/fa";
 
 const roles = [
-  "Web Designer",
   "Frontend Developer",
   "Backend Developer",
   "Full Stack Developer",
@@ -190,6 +189,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 
 
