@@ -66,8 +66,9 @@ portfolio/
 
 If you’d like to connect or collaborate, feel free to reach out:  
 - Email: tassine.badrii18@gmail.com  
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/yassine-badri-0279a7342/)  
+- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/yassine-badri-0279a7342/)  
 
+---
 
 ⭐ Don’t forget to **star the repo** if you like it!
 
