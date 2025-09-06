@@ -65,7 +65,7 @@ portfolio/
 ## 📧 Contact
 
 If you’d like to connect or collaborate, feel free to reach out:  
-- Email: tassine.badrii18@gmail.com  
+- Email: yassine.badrii18@gmail.com  
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/yassine-badri-0279a7342/)  
 
 
