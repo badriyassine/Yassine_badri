@@ -3,7 +3,7 @@
 This is my personal portfolio website, redesigned from scratch to better showcase my work, skills, and projects.  
 It’s fully **responsive on all devices** and built with modern web technologies for a smooth and engaging experience.  
 
-
+check it out live: [your-portfolio-url.com](https://yassine-badri.vercel.app/)
 
 ## ✨ Features
 
