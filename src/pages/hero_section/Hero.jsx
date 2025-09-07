@@ -116,8 +116,8 @@ const Hero = () => {
 
         {/* Short paragraph */}
         <p className="text-gray-400 mb-6 sm:mb-10 text-sm sm:text-base px-2 sm:px-0">
-          Passionate about building clean, modern web applications that combine
-          beautiful design with powerful functionality.
+          I’m passionate about creating web applications that are both visually
+          appealing and highly functional.
         </p>
 
         {/* Buttons */}
