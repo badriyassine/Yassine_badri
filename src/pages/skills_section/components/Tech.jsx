@@ -1,15 +1,13 @@
 const Tech = () => {
   const techStack = {
-    Frontend: ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],
-    Backend: ["PHP", "Laravel", "Node.js", "Express.js"],
+    Frontend: ["React", "TypeScript", "TailwindCSS"],
+    Backend: ["Laravel", "Express.js"],
     Database: ["MySQL", "MongoDB"],
     Tools: ["VSCode", "Figma", "Git", "GitHub", "Postman", "Canva"],
   };
 
   const techColors = {
-    HTML: "#E34F26",
-    CSS: "#1572B6",
-    JavaScript: "#F7DF1E",
+    TypeScript: "#3178C6",
     React: "#61DAFB",
     TailwindCSS: "#38B2AC",
     PHP: "#777BB4",
@@ -58,8 +56,14 @@ const Tech = () => {
                     transition-all duration-300
                     hover:scale-110 hover:shadow-lg
                   `}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = techColors[tech])}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = techColors[tech];
+                    e.currentTarget.style.borderColor = techColors[tech];
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "white";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                  }}
                 >
                   {tech}
                 </span>
@@ -73,5 +77,6 @@ const Tech = () => {
 };
 
 export default Tech;
+
 
 
