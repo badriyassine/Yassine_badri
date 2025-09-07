@@ -1,8 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaArrowDown, FaGithub, FaPlay, FaStop } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaArrowDown,
+  FaGithub,
+  FaPlay,
+  FaStop,
+} from "react-icons/fa";
 
-const roles = ["Frontend Developer", "Backend Developer", "Full Stack Developer"];
+const roles = [
+  "Frontend Developer",
+  "Backend Developer",
+  "Full Stack Developer",
+];
 
 const projectImages = [
   "/images/hero/1.png",
@@ -19,14 +29,20 @@ const Hero = () => {
 
   // Cycle roles
   useEffect(() => {
-    const interval = setInterval(() => setIndex((prev) => (prev + 1) % roles.length), 3000);
+    const interval = setInterval(
+      () => setIndex((prev) => (prev + 1) % roles.length),
+      3000
+    );
     return () => clearInterval(interval);
   }, []);
 
   // Cycle background images
   useEffect(() => {
     if (slideshowActive) {
-      slideshowRef.current = setInterval(() => setBgIndex((prev) => (prev + 1) % projectImages.length), 5000);
+      slideshowRef.current = setInterval(
+        () => setBgIndex((prev) => (prev + 1) % projectImages.length),
+        5000
+      );
     } else {
       clearInterval(slideshowRef.current);
     }
@@ -78,7 +94,9 @@ const Hero = () => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-4xl sm:text-6xl font-bold mb-4 sm:mb-6">Hi, I&apos;m Yassine Badri</h1>
+        <h1 className="text-4xl sm:text-6xl font-bold mb-4 sm:mb-6">
+          Hi, I&apos;m Yassine Badri
+        </h1>
 
         {/* Animated Role Switching */}
         <div className="h-10 sm:h-12 mb-4 sm:mb-6 overflow-hidden">
@@ -98,7 +116,8 @@ const Hero = () => {
 
         {/* Short paragraph */}
         <p className="text-gray-400 mb-6 sm:mb-10 text-sm sm:text-base px-2 sm:px-0">
-          Passionate about building clean, modern web applications that combine beautiful design with powerful functionality.
+          Passionate about building clean, modern web applications that combine
+          beautiful design with powerful functionality.
         </p>
 
         {/* Buttons */}
@@ -147,21 +166,23 @@ const Hero = () => {
       )}
 
       {/* Keyframes */}
-      <style jsx>{`
-        @keyframes shine {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        @keyframes gradientSlide {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradientSlide {
-          background-size: 200% 200%;
-          animation: gradientSlide 5s ease-in-out infinite;
-        }
-      `}</style>
+      <style>
+        {`
+           @keyframes shine {
+             0% { transform: rotate(0deg); }
+             100% { transform: rotate(360deg); }
+         }
+           @keyframes gradientSlide {
+             0% { background-position: 0% 50%; }
+             50% { background-position: 100% 50%; }
+             100% { background-position: 0% 50%; }
+           }
+           .animate-gradientSlide {
+             background-size: 200% 200%;
+             animation: gradientSlide 5s ease-in-out infinite;
+           }
+         `}
+      </style>
     </section>
   );
 };
