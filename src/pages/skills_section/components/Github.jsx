@@ -9,6 +9,8 @@ const Github = () => {
   const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [totalStars, setTotalStars] = useState(0);
+  const [totalForks, setTotalForks] = useState(0);
+  const [achievements, setAchievements] = useState(0);
   const [showContribution, setShowContribution] = useState(true);
 
   const contributions =
@@ -38,11 +40,19 @@ const Github = () => {
       .then((data) => {
         if (Array.isArray(data)) {
           setRepos(data);
+
+          // Calculate stars and forks
           const stars = data.reduce(
             (acc, repo) => acc + repo.stargazers_count,
             0
           );
+          const forks = data.reduce((acc, repo) => acc + repo.forks_count, 0);
+
           setTotalStars(stars);
+          setTotalForks(forks);
+
+          // Simple "achievement" score idea (stars + forks + repo count)
+          setAchievements(stars + forks + data.length);
         }
       })
       .catch((err) => console.error(err));
@@ -72,10 +82,7 @@ const Github = () => {
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg transition-all duration-500"
         >
-          {/* Icon always visible */}
           <FontAwesomeIcon icon={faGithub} />
-
-          {/* Text only visible on medium+ screens */}
           <span className="text-white font-semibold hidden md:inline">
             View GitHub
           </span>
@@ -85,11 +92,9 @@ const Github = () => {
       {/* Stats */}
       <div className="flex flex-wrap gap-6 mt-6 text-gray-300">
         <span>Repositories: {user.public_repos || repos.length}</span>
+        <span>Achievements: {achievements}</span>
         <span>Total Stars: {totalStars}</span>
-        <span>
-          Achievements:{" "}
-          {user.public_repos ? Math.floor(user.public_repos / 2) : 0}
-        </span>
+        <span>Total Forks: {totalForks}</span>
       </div>
 
       {/* Contributions */}
@@ -167,3 +172,4 @@ const Github = () => {
 };
 
 export default Github;
+
