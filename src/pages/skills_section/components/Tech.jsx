@@ -1,5 +1,3 @@
-import React from "react";
-
 const Tech = () => {
   const techStack = {
     Frontend: ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],

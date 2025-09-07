@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCode, FaDatabase, FaLaptopCode } from "react-icons/fa";
 import { motion } from "framer-motion";
 

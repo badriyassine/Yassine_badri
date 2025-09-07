@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Github from "./components/Github";
 import Tech from "./components/Tech";
