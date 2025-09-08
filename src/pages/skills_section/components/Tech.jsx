@@ -3,7 +3,7 @@ const Tech = () => {
     Frontend: ["React", "TypeScript", "TailwindCSS"],
     Backend: ["Laravel", "Express.js"],
     Database: ["MySQL", "MongoDB"],
-    Tools: ["VSCode", "Figma", "Git", "GitHub", "Postman", "Canva"],
+    Tools: ["VSCode","Cursor", "Figma", "Git", "GitHub", "Postman", "Canva"],
   };
 
   const techColors = {
@@ -15,6 +15,7 @@ const Tech = () => {
     MySQL: "#4479A1",
     MongoDB: "#47A248",
     VSCode: "#007ACC",
+    Cursor: "#000000",
     Figma: "#F24E1E",
     Git: "#F05032",
     GitHub: "#181717",
