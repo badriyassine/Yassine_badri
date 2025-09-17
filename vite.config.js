@@ -6,10 +6,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    headers: {
-      "Content-Security-Policy":
-        "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:* https://localhost:*; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https:; object-src 'none';",
-    },
+    // Disable CSP for development to avoid eval() issues
+    // headers: {
+    //   "Content-Security-Policy": "script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https:; object-src 'none';",
+    // },
   },
   build: {
     rollupOptions: {
@@ -21,5 +21,13 @@ export default defineConfig({
   define: {
     // Ensure Vite can use eval in development
     global: "globalThis",
+  },
+  esbuild: {
+    // Allow eval in development
+    target: "esnext",
+  },
+  optimizeDeps: {
+    // Disable pre-bundling to avoid eval issues
+    disabled: false,
   },
 });
