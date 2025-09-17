@@ -19,7 +19,11 @@ const Contact = () => {
     message: "",
   });
 
-  const [toast, setToast] = useState({ show: false, message: "", success: true });
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    success: true,
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,13 +46,27 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          setToast({ show: true, message: "Message sent successfully!", success: true });
+          setToast({
+            show: true,
+            message: "Message sent successfully!",
+            success: true,
+          });
           setFormData({ name: "", email: "", type: "freelance", message: "" });
-          setTimeout(() => setToast({ show: false, message: "", success: true }), 4000);
+          setTimeout(
+            () => setToast({ show: false, message: "", success: true }),
+            4000
+          );
         },
         (error) => {
-          setToast({ show: true, message: "Oops! Something went wrong.", success: false });
-          setTimeout(() => setToast({ show: false, message: "", success: true }), 4000);
+          setToast({
+            show: true,
+            message: "Oops! Something went wrong.",
+            success: false,
+          });
+          setTimeout(
+            () => setToast({ show: false, message: "", success: true }),
+            4000
+          );
         }
       );
   };
@@ -144,10 +162,38 @@ const Contact = () => {
         viewport={{ once: true }}
         className="flex gap-6 mb-12 text-white text-2xl"
       >
-        <a href="https://www.linkedin.com/in/yassine-badri-0279a7342/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaLinkedin /></a>
-        <a href="https://www.instagram.com/yassinebadri_dev/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaInstagram /></a>
-        <a href="https://github.com/badriyassine" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaGithub /></a>
-        <a href="https://x.com/yassine_o2" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff734d] transition-colors"><FaXTwitter /></a>
+        <a
+          href="https://www.linkedin.com/in/yassine-badri-0279a7342/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="https://www.instagram.com/yassinebadri_dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
+          <FaInstagram />
+        </a>
+        <a
+          href="https://github.com/badriyassine"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://x.com/yassine_o2"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#ff734d] transition-colors"
+        >
+          <FaXTwitter />
+        </a>
       </motion.div>
 
       {/* Contact Form */}
@@ -165,6 +211,7 @@ const Contact = () => {
           value={formData.name}
           onChange={handleChange}
           placeholder="Your Name"
+          autoComplete="name"
           required
           className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ff734d]"
         />
@@ -175,6 +222,7 @@ const Contact = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder="Your Email"
+          autoComplete="email"
           required
           className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ff734d]"
         />
@@ -183,6 +231,7 @@ const Contact = () => {
           name="type"
           value={formData.type}
           onChange={handleChange}
+          autoComplete="off"
           className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#ff734d]"
         >
           <option value="freelance">Freelance Project</option>
@@ -194,6 +243,7 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChange}
           placeholder="Your Message"
+          autoComplete="off"
           rows={6}
           required
           className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ff734d]"
@@ -225,4 +275,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
