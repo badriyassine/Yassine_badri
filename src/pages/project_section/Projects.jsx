@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaGithub } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -6,6 +6,7 @@ const projects = [
   {
     name: "Motary – Online Car Store",
     image: "/images/projects/Motary.png",
+    mobileImage: "/images/projects/Motary2.png",
     description:
       "Motary is an online car store I built for browsing and buying vehicles. It offers a clean design and smooth user experience to make car shopping easier.",
     technologies: ["React", "TypeScript", "Express", "MongoDB"],
@@ -14,6 +15,7 @@ const projects = [
   {
     name: "InventoryPro – Simple Inventory Tracker",
     image: "/images/projects/InventoryPro.png",
+    mobileImage: "/images/projects/InventoryPro2.png",
     description:
       "InventoryPro is a simple app I built to track products and stock. It keeps everything organized while showing real-time updates.",
     technologies: ["React", "TailwindCSS", "PHP", "MySQL"],
@@ -22,6 +24,7 @@ const projects = [
   {
     name: "HealthTracker – Monitor Your Wellness",
     image: "/images/projects/Health-tracker.png",
+    mobileImage: "/images/projects/Health-tracker2.png",
     description:
       "HealthTracker is a web app I built to help users monitor their daily health and fitness activities. It features interactive charts, goal tracking, and a responsive, user-friendly interface.",
     technologies: ["React", "TailwindCSS"],
@@ -30,6 +33,7 @@ const projects = [
   {
     name: "Goldbike – Online Bike Store",
     image: "/images/projects/Goldbike.png",
+    mobileImage: "/images/projects/Goldbike2.png",
     description:
       "Goldbike is a modern bike store UI design I created to showcase clean layouts and smooth shopping flow. It focuses on a stylish look and user-friendly experience.",
     technologies: ["HTML", "CSS"],
@@ -38,6 +42,7 @@ const projects = [
   {
     name: "DashboardPro – Interactive Data Panel",
     image: "/images/projects/Dashboard.png",
+    mobileImage: "/images/projects/Dashboard2.png",
     description:
       "DashboardPro is a sleek admin panel design I created to showcase data visualization and clean layouts. It focuses on intuitive navigation and modern UI aesthetics.",
     technologies: ["HTML", "CSS"],
@@ -46,14 +51,29 @@ const projects = [
 ];
 
 const Projects = ({ id = "projects" }) => {
+  // safer init for environments without window (SSR)
   const [[currentIndex, direction], setCurrent] = useState([0, 0]);
   const [tapped, setTapped] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 637 : false
+  );
+
+  // Detect screen resize
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 637);
+    window.addEventListener("resize", handleResize);
+    // set initial in case it changed after mount
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const project = projects[currentIndex];
+  const displayImage = isMobile ? project.mobileImage : project.image;
 
   const paginate = (dir) => {
     const newIndex = (currentIndex + dir + projects.length) % projects.length;
     setCurrent([newIndex, dir]);
-    setTapped(false); // reset tap on project change
+    setTapped(false);
   };
 
   const slideVariants = {
@@ -105,7 +125,7 @@ const Projects = ({ id = "projects" }) => {
           >
             {/* Project Image */}
             <img
-              src={project.image}
+              src={displayImage}
               alt={project.name}
               className="w-full h-full object-cover"
               onClick={() => setTapped(!tapped)}
@@ -113,9 +133,9 @@ const Projects = ({ id = "projects" }) => {
 
             {/* Overlay Info */}
             <motion.div
-              className={`absolute inset-0 bg-black/80 flex flex-col justify-center items-center text-center p-6 transition-opacity duration-300
-                ${tapped ? "opacity-100" : "opacity-0"} 
-                md:hover:opacity-100`}
+              className={`absolute inset-0 bg-black/80 flex flex-col justify-center items-center text-center p-6 transition-opacity duration-300 ${
+                tapped ? "opacity-100" : "opacity-0"
+              } md:hover:opacity-100`}
             >
               <h3 className="text-2xl font-bold text-white mb-3">
                 {project.name}
@@ -144,7 +164,6 @@ const Projects = ({ id = "projects" }) => {
             </motion.div>
 
             {/* Mobile/Tablet Controls */}
-            {/* Mobile/Tablet Controls */}
             <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
               <button
                 onClick={() => paginate(-1)}
@@ -155,7 +174,7 @@ const Projects = ({ id = "projects" }) => {
 
               <button
                 onClick={() => setTapped(!tapped)}
-                className="px-4 py-2 bg-[#ff734d] text-white rounded-full shadow-lg transition hover:bg-[#ff734d]/80"
+                className="px-4 py-2 bg-[#f5f5f5] text-[#ff734d] rounded-full shadow-lg transition hover:bg-[#f5f5f5]/80"
               >
                 {tapped ? "Hide" : "Show"}
               </button>
@@ -194,7 +213,7 @@ const Projects = ({ id = "projects" }) => {
             className={`w-4 h-2 rounded-full transition ${
               idx === currentIndex ? "bg-[#ff734d] scale-110" : "bg-[#fff]"
             }`}
-          />
+          ></button>
         ))}
       </div>
     </section>
@@ -202,3 +221,4 @@ const Projects = ({ id = "projects" }) => {
 };
 
 export default Projects;
+
