@@ -98,7 +98,7 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-5xl font-bold text-white mb-3"
       >
-        Let's work together
+        Contact Me
       </motion.h2>
 
       <motion.p
