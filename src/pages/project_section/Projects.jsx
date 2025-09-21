@@ -15,7 +15,7 @@ const projects = [
   {
     name: "InventoryPro – Simple Inventory Tracker",
     image: "/images/projects/InventoryPro.png",
-    mobileImage: "/images/projects/InventoryPro2.png",
+    mobileImage: "/images/projects/InventoryPro.png",
     description:
       "InventoryPro is a simple app I built to track products and stock. It keeps everything organized while showing real-time updates.",
     technologies: ["React", "TailwindCSS", "PHP", "MySQL"],
