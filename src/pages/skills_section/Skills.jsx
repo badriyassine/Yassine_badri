@@ -64,7 +64,3 @@ const Skills = ({ id = "skills" }) => {
 };
 
 export default Skills;
-
-
-
-

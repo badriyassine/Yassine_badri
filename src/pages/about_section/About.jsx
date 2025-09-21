@@ -66,7 +66,9 @@ const About = () => {
         className="hidden md:block max-w-5xl text-gray-400 mb-16"
       >
         I’m <span className="text-[#ff734d] font-semibold">Yassine</span>, a{" "}
-        <span className="text-[#ff734d] font-semibold">Full Stack Developer</span>{" "}
+        <span className="text-[#ff734d] font-semibold">
+          Full Stack Developer
+        </span>{" "}
         who enjoys creating web experiences that combine clean design, smooth
         user interactions, and robust backend functionality. Curious about new
         technologies and driven by problem-solving, I aim to build digital
@@ -85,8 +87,11 @@ const About = () => {
         className="block md:hidden max-w-xl text-gray-400 mb-16"
       >
         I’m <span className="text-[#ff734d] font-semibold">Yassine</span>, a{" "}
-        <span className="text-[#ff734d] font-semibold">Full Stack Developer</span>.  
-        I love building web apps that look good, work smoothly, and solve real problems.
+        <span className="text-[#ff734d] font-semibold">
+          Full Stack Developer
+        </span>
+        . I love building web apps that look good, work smoothly, and solve real
+        problems.
       </motion.p>
 
       {/* Cards */}
@@ -105,7 +110,9 @@ const About = () => {
             }`}
           >
             <div className="text-[#ff734d] mb-4">{card.icon}</div>
-            <h4 className="text-lg font-semibold text-white mb-2">{card.title}</h4>
+            <h4 className="text-lg font-semibold text-white mb-2">
+              {card.title}
+            </h4>
             <p className="text-sm text-gray-400">{card.desc}</p>
           </div>
         ))}
@@ -151,6 +158,3 @@ const About = () => {
 };
 
 export default About;
-
-
-

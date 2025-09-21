@@ -3,7 +3,7 @@ const Tech = () => {
     Frontend: ["React", "TypeScript", "TailwindCSS"],
     Backend: ["Laravel", "Express.js"],
     Database: ["MySQL", "MongoDB"],
-    Tools: ["VSCode","Cursor", "Figma", "Git", "GitHub", "Postman", "Canva"],
+    Tools: ["VSCode", "Cursor", "Figma", "Git", "GitHub", "Postman", "Canva"],
   };
 
   const techColors = {
@@ -76,6 +76,3 @@ const Tech = () => {
 };
 
 export default Tech;
-
-
-
