@@ -15,7 +15,7 @@ const projects = [
   {
     name: "InventoryPro – Simple Inventory Tracker",
     image: "/images/projects/InventoryPro.png",
-    mobileImage: "/images/projects/InventoryPro.png",
+    mobileImage: "/images/projects/InventoryPro2.png",
     description:
       "InventoryPro is a simple app I built to track products and stock. It keeps everything organized while showing real-time updates.",
     technologies: ["React", "TailwindCSS", "PHP", "MySQL"],
@@ -29,15 +29,6 @@ const projects = [
       "Goldbike is a modern bike store UI design I created to showcase clean layouts and smooth shopping flow. It focuses on a stylish look and user-friendly experience.",
     technologies: ["HTML", "CSS"],
     github: "https://github.com/badriyassine/Goldbike",
-  },
-  {
-    name: "DashboardPro – Interactive Data Panel",
-    image: "/images/projects/Dashboard.png",
-    mobileImage: "/images/projects/Dashboard2.png",
-    description:
-      "DashboardPro is a sleek admin panel design I created to showcase data visualization and clean layouts. It focuses on intuitive navigation and modern UI aesthetics.",
-    technologies: ["HTML", "CSS"],
-    github: "https://github.com/badriyassine/Dashboard-design",
   },
 ];
 
@@ -102,7 +93,7 @@ const Projects = ({ id = "projects" }) => {
       </motion.div>
 
       {/* Project Carousel */}
-      <div className="relative w-full max-w-6xl h-[500px] md:h-[600px] overflow-hidden rounded-2xl shadow-xl">
+      <div className="relative w-full max-w-6xl h-[500px] md:h-[650px] overflow-hidden  shadow-xl">
         <AnimatePresence custom={direction} initial={false}>
           <motion.div
             key={currentIndex}
@@ -112,7 +103,7 @@ const Projects = ({ id = "projects" }) => {
             animate="center"
             exit="exit"
             transition={{ type: "tween", duration: 0.6 }}
-            className="absolute w-full h-full rounded-2xl overflow-hidden"
+            className="absolute w-full h-full rounded-xl overflow-hidden"
           >
             {/* Project Image */}
             <img
@@ -158,7 +149,7 @@ const Projects = ({ id = "projects" }) => {
             <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
               <button
                 onClick={() => paginate(-1)}
-                className="bg-black/50 p-2 rounded-full text-white hover:bg-black/70 transition"
+                className="bg-black/50 p-2 rounded-full text-white  hover:bg-black/70 transition"
               >
                 <FaChevronLeft size={18} />
               </button>
@@ -183,13 +174,13 @@ const Projects = ({ id = "projects" }) => {
         {/* Desktop Navigation Buttons */}
         <button
           onClick={() => paginate(-1)}
-          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full cursor-pointer text-white hover:bg-black/70 transition"
         >
           <FaChevronLeft size={22} />
         </button>
         <button
           onClick={() => paginate(1)}
-          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition"
+          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full cursor-pointer text-white hover:bg-black/70 transition"
         >
           <FaChevronRight size={22} />
         </button>
