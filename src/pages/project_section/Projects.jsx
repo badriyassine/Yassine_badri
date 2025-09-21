@@ -22,15 +22,6 @@ const projects = [
     github: "https://github.com/badriyassine/InventoryPro",
   },
   {
-    name: "HealthTracker – Monitor Your Wellness",
-    image: "/images/projects/Health-tracker.png",
-    mobileImage: "/images/projects/Health-tracker2.png",
-    description:
-      "HealthTracker is a web app I built to help users monitor their daily health and fitness activities. It features interactive charts, goal tracking, and a responsive, user-friendly interface.",
-    technologies: ["React", "TailwindCSS"],
-    github: "https://github.com/badriyassine/health_tracker",
-  },
-  {
     name: "Goldbike – Online Bike Store",
     image: "/images/projects/Goldbike.png",
     mobileImage: "/images/projects/Goldbike2.png",
