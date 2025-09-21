@@ -93,7 +93,7 @@ const Projects = ({ id = "projects" }) => {
       </motion.div>
 
       {/* Project Carousel */}
-      <div className="relative w-full max-w-6xl h-[500px] md:h-[650px] overflow-hidden  shadow-xl">
+      <div className="relative w-full max-w-6xl h-[500px] md:h-[650px] overflow-hidden rounded-xl  shadow-xl">
         <AnimatePresence custom={direction} initial={false}>
           <motion.div
             key={currentIndex}
