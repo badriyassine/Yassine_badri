@@ -33,7 +33,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center"
+      className="relative flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center bg"
     >
       {/* Section Title */}
       <motion.h2

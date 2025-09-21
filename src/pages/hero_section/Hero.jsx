@@ -1,12 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaArrowRight,
-  FaArrowDown,
-  FaGithub,
-  FaPlay,
-  FaStop,
-} from "react-icons/fa";
+import { FaArrowRight, FaArrowDown, FaGithub } from "react-icons/fa";
 
 const roles = [
   "Frontend Developer",
@@ -14,18 +8,8 @@ const roles = [
   "Full Stack Developer",
 ];
 
-const projectImages = [
-  "/images/hero/1.png",
-  "/images/hero/2.png",
-  "/images/hero/3.png",
-];
-
 const Hero = () => {
   const [index, setIndex] = useState(0);
-  const [bgIndex, setBgIndex] = useState(0);
-  const [slideshowActive, setSlideshowActive] = useState(true);
-  const [showOnScroll, setShowOnScroll] = useState(true);
-  const slideshowRef = useRef(null);
 
   // Cycle roles
   useEffect(() => {
@@ -36,47 +20,11 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Cycle background images
-  useEffect(() => {
-    if (slideshowActive) {
-      slideshowRef.current = setInterval(
-        () => setBgIndex((prev) => (prev + 1) % projectImages.length),
-        5000
-      );
-    } else {
-      clearInterval(slideshowRef.current);
-    }
-    return () => clearInterval(slideshowRef.current);
-  }, [slideshowActive]);
-
-  // Detect scroll to hide slideshow and button
-  useEffect(() => {
-    const handleScroll = () => setShowOnScroll(window.scrollY <= 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section
       id="home"
       className="relative flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6 overflow-hidden"
     >
-      {/* Background Slideshow */}
-      <AnimatePresence mode="wait">
-        {slideshowActive && showOnScroll && (
-          <motion.img
-            key={bgIndex}
-            src={projectImages[bgIndex]}
-            alt="Project background"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute inset-0 w-full h-full object-cover -z-10"
-          />
-        )}
-      </AnimatePresence>
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -131,7 +79,6 @@ const Hero = () => {
             <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#ff734d]/40 via-gray-300/30 to-gray-700/20 opacity-50 animate-[shine_6s_linear_infinite] blur-xl group-hover:opacity-70"></span>
           </a>
 
-          {/* GitHub Button */}
           <a
             href="https://github.com/badriyassine"
             target="_blank"
@@ -155,23 +102,9 @@ const Hero = () => {
         <FaArrowDown className="mt-2" />
       </motion.div>
 
-      {/* Start/Stop Slideshow Button */}
-      {showOnScroll && (
-        <button
-          onClick={() => setSlideshowActive((prev) => !prev)}
-          className="absolute bottom-8 left-4 sm:left-8 p-3 rounded-full bg-[#ff734d] text-white shadow-md hover:opacity-80 transition-colors z-10 cursor-pointer"
-        >
-          {slideshowActive ? <FaStop size={18} /> : <FaPlay size={18} />}
-        </button>
-      )}
-
       {/* Keyframes */}
       <style>
         {`
-           @keyframes shine {
-             0% { transform: rotate(0deg); }
-             100% { transform: rotate(360deg); }
-         }
            @keyframes gradientSlide {
              0% { background-position: 0% 50%; }
              50% { background-position: 100% 50%; }
@@ -188,3 +121,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
