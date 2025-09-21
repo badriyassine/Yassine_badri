@@ -212,4 +212,3 @@ const Projects = ({ id = "projects" }) => {
 };
 
 export default Projects;
-
