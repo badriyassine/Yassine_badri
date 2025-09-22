@@ -8,7 +8,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  const navLinks = ["Home", "About", "Skills", "Projects", "Contact"];
+  const navLinks = ["Home","Projects", "Skills", "About", "Contact"];
 
   // Detect screen width for mobile
   useEffect(() => {

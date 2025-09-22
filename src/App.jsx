@@ -59,9 +59,9 @@ const App = () => {
       <Background />
       <Header activeSection={activeSection} />
       <Hero />
-      <About id="about" />
-      <Skills id="skills" />
       <Projects id="projects" />
+      <Skills id="skills" />
+      <About id="about" />
       <Contact id="contact" />
       <Footer />
 
