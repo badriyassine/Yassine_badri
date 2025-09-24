@@ -21,9 +21,19 @@ const Hero = () => {
   }, []);
 
   return (
-    <section
+    <motion.section
       id="home"
       className="relative flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6 overflow-hidden"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 1,
+          ease: "easeOut",
+        },
+      }}
+      viewport={{ once: true }}
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -32,7 +42,7 @@ const Hero = () => {
         className="max-w-2xl mt-6 z-10"
       >
         {/* Glass-style section above title */}
-        <div className="mx-auto mb-6 sm:mb-10 rounded-4xl border border-[#ff734d] backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 flex items-center gap-3 shadow-md inline-flex">
+        <div className="mx-auto mb-6 sm:mb-10 rounded-4xl border border-[#ff734d] backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 inline-flex items-center gap-3 shadow-md">
           <div className="w-2 h-2 rounded-full bg-[#ff734d]"></div>
           <h3 className="font-medium relative overflow-hidden text-sm sm:text-base">
             <span className="bg-gradient-to-r from-white via-[#ff734d] to-white bg-clip-text text-transparent animate-gradientSlide">
@@ -43,7 +53,7 @@ const Hero = () => {
 
         {/* Main Title */}
         <h1 className="text-4xl sm:text-6xl font-bold mb-4 sm:mb-6">
-          Hi, I&apos;m Yassine Badri
+          Hi, I'm <span className="text-[#ff734d]">Yassine Badri</span>
         </h1>
 
         {/* Animated Role Switching */}
@@ -68,26 +78,22 @@ const Hero = () => {
           appealing and highly functional.
         </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-2 sm:px-0">
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#projects"
-            className="relative inline-flex px-6 sm:px-8 py-3 rounded-full bg-[#ff734d] border border-[#ff734d] text-white font-medium items-center gap-3 overflow-hidden shadow-md group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            className="bg-[#ff734d] hover:bg-[#ff734d]/80 text-white font-semibold px-12 py-3 rounded-full shadow-lg transition-all duration-300 text-base flex items-center justify-center gap-2 hover:scale-105 active:scale-95 w-full sm:w-auto min-w-[200px]"
           >
-            <span className="relative z-10">View My Work</span>
-            <FaArrowRight className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
-            <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#ff734d]/40 via-gray-300/30 to-gray-700/20 opacity-50 animate-[shine_6s_linear_infinite] blur-xl group-hover:opacity-70"></span>
+            My Work <FaArrowRight className="w-4 h-4" />
           </a>
-
           <a
             href="https://github.com/badriyassine"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex md:inline-flex relative px-6 py-3 rounded-full border border-[#ff734d] bg-[#05070869] font-medium text-[#ff734d] items-center gap-2 shadow-md overflow-hidden group hover:opacity-80 mt-2 sm:mt-0"
+            className="bg-white/20 hover:bg-white/30 text-white font-semibold px-12 py-3 rounded-full shadow-lg transition-all duration-300 text-base flex items-center justify-center gap-2 border border-white/30 hover:scale-105 active:scale-95 w-full sm:w-auto min-w-[200px]"
           >
-            <FaGithub className="z-10" />
-            <span className="relative z-10">Check My GitHub</span>
-            <span className="absolute inset-0 rounded-xl border-2 border-transparent animate-[pulse_2s_infinite]"></span>
+            <FaGithub className="w-5 h-5" />
+            GitHub
           </a>
         </div>
       </motion.div>
@@ -116,7 +122,7 @@ const Hero = () => {
            }
          `}
       </style>
-    </section>
+    </motion.section>
   );
 };
 

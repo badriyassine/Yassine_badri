@@ -3,12 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/logo/Logo.png";
 
-const Header = () => {
+const Header = ({ activeSection: propActiveSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState(
+    propActiveSection || "home"
+  );
 
-  const navLinks = ["Home","Projects", "Skills", "About", "Contact"];
+  // Update nav labels: Projects -> Work, Skills -> Tech, remove Contact
+  const navLinks = ["Home", "Work", "Tech", "About"];
 
   // Detect screen width for mobile
   useEffect(() => {
@@ -18,31 +21,19 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll spy
+  // Update activeSection when prop changes
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navLinks.map((link) =>
-        document.getElementById(link.toLowerCase())
-      );
-      const scrollPos = window.scrollY + window.innerHeight / 2;
-
-      sections.forEach((section, index) => {
-        if (section) {
-          const top = section.offsetTop;
-          const bottom = top + section.offsetHeight;
-          if (scrollPos >= top && scrollPos < bottom) {
-            setActiveSection(navLinks[index].toLowerCase());
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (propActiveSection) {
+      setActiveSection(propActiveSection);
+    }
+  }, [propActiveSection]);
 
   const scrollToSection = (id) => {
-    const el = document.getElementById(id);
+    let targetId = id;
+    if (id === "work") targetId = "projects";
+    if (id === "tech") targetId = "skills";
+
+    const el = document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -50,22 +41,26 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 backdrop-blur-md bg-transparent z-50">
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-26 py-3 sm:py-4 backdrop-blur-md bg-transparent z-50">
       {/* Logo */}
-      <a href="#home" onClick={() => scrollToSection("home")}>
+      <button
+        onClick={() => scrollToSection("home")}
+        aria-label="Go to home"
+        className="flex items-center"
+      >
         <motion.img
           src={logo}
           alt="Logo"
-          className="h-16 object-contain"
+          className="h-12 sm:h-14 lg:h-16 object-contain"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
-      </a>
+      </button>
 
       {/* Desktop Navigation */}
       {!isMobile && (
-        <div className="flex items-center gap-8">
-          <nav className="flex gap-6 font-medium tracking-wide">
+        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+          <nav className="flex gap-4 sm:gap-6 lg:gap-8 font-medium tracking-wide text-sm sm:text-base">
             {navLinks.map((item) => (
               <button
                 key={item}
@@ -80,13 +75,14 @@ const Header = () => {
               </button>
             ))}
           </nav>
-          <a
-            href={`${import.meta.env.BASE_URL}YASSINE_BADRI_CV.pdf`}
-            download="Yassine_Badri_CV.pdf"
-            className="px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] backdrop-blur-lg text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 shadow-lg"
+
+          {/* "Let's chat" button — scrolls to contact section */}
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="px-4 sm:px-6 lg:px-8 py-2 cursor-pointer rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] backdrop-blur-lg text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 shadow-lg text-sm sm:text-base"
           >
-            Download CV
-          </a>
+            Let's chat
+          </button>
         </div>
       )}
 
@@ -97,6 +93,7 @@ const Header = () => {
             <button
               onClick={() => setMenuOpen(true)}
               className="text-white text-2xl focus:outline-none"
+              aria-label="Open menu"
             >
               <FaBars />
             </button>
@@ -114,6 +111,7 @@ const Header = () => {
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="self-end text-white text-2xl mb-6 focus:outline-none"
+                  aria-label="Close menu"
                 >
                   <FaTimes />
                 </button>
@@ -132,14 +130,13 @@ const Header = () => {
                   </button>
                 ))}
 
-                {/* CV Button placed right under links */}
-                <a
-                  href={`${import.meta.env.BASE_URL}YASSINE_BADRI_CV.pdf`}
-                  download="Yassine_Badri_CV.pdf"
+                {/* "Let's chat" button in mobile: full width, scrolls to contact */}
+                <button
+                  onClick={() => scrollToSection("contact")}
                   className="px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 w-full text-center shadow-md"
                 >
-                  Download CV
-                </a>
+                  Let's chat
+                </button>
               </motion.nav>
             )}
           </AnimatePresence>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Background from "./components/Background";
 import Header from "./components/ui/Header";
 import Hero from "./pages/hero_section/Hero";
@@ -6,10 +7,12 @@ import Skills from "./pages/skills_section/Skills";
 import Projects from "./pages/project_section/Projects";
 import About from "./pages/about_section/About";
 import Contact from "./pages/contact_section/Contact";
+import AllProjects from "./pages/AllProjects";
 import Footer from "./components/ui/Footer";
 import { FaArrowUp } from "react-icons/fa";
 
-const App = () => {
+// HomePage component moved outside to prevent recreation on every render
+const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -41,9 +44,9 @@ const App = () => {
   useEffect(() => {
     const sectionTitles = {
       home: "Home - Yassine Badri",
-      about: "About Me - Yassine Badri",
-      skills: "Skills - Yassine Badri",
-      projects: "Projects - Yassine Badri",
+      about: "About - Yassine Badri",
+      skills: "Tech - Yassine Badri",
+      projects: "Work - Yassine Badri",
       contact: "Contact - Yassine Badri",
     };
 
@@ -55,7 +58,7 @@ const App = () => {
   };
 
   return (
-    <div className="relative min-h-screen gap-24 flex flex-col text-white">
+    <div className="relative min-h-screen gap-20 sm:gap-32 lg:gap-40 flex flex-col text-white">
       <Background />
       <Header activeSection={activeSection} />
       <Hero />
@@ -68,19 +71,29 @@ const App = () => {
       {/* Scroll To Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-3 rounded-full bg-[#ff734d] backdrop-blur-lg text-white shadow-lg cursor-pointer hover:scale-110 transition-all duration-500
-          ${showButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-2 sm:p-3 rounded-full bg-[#ff734d] backdrop-blur-lg text-white shadow-lg cursor-pointer hover:scale-110 transition-all duration-500 z-50
+          ${
+            showButton
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10 pointer-events-none"
+          }
         `}
       >
-        <FaArrowUp size={18} />
+        <FaArrowUp size={16} className="sm:w-[18px] sm:h-[18px]" />
       </button>
     </div>
   );
 };
 
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<AllProjects />} />
+      </Routes>
+    </Router>
+  );
+};
+
 export default App;
-
-
-
-
-

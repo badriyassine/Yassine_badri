@@ -4,13 +4,13 @@ import logo from "../../assets/logo/Logo.png"; // Update path if needed
 
 const Footer = () => {
   return (
-    <footer className="bg-black/50 text-white pt-10 pb-6 px-6">
+    <footer className="bg-black/50 text-white pt-8 sm:pt-10 pb-4 sm:pb-6 px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto flex flex-col items-center gap-5"
+        className="max-w-4xl mx-auto flex flex-col items-center gap-4 sm:gap-5"
       >
         {/* Logo */}
         <a href="#home" className="mb-3">
@@ -18,32 +18,45 @@ const Footer = () => {
         </a>
 
         {/* Paragraph */}
-        <p className="text-gray-400 text-center text-sm max-w-md">
-          I’m ready for hiring or job opportunities. Even if you want to ask me
-          for advice, feel free to contact me. Let’s connect and create something
-          amazing together!
+        <p className="text-gray-400 text-center text-xs sm:text-sm max-w-md">
+          I'm ready for hiring or job opportunities. Even if you want to ask me
+          for advice, feel free to contact me. Let's connect and create
+          something amazing together!
         </p>
 
         {/* Social Media Icons */}
-        <div className="flex justify-center gap-5 mt-4">
-          <a href="https://www.linkedin.com/in/yassine-badri-0279a7342/" target="_blank" rel="noreferrer">
-            <FaLinkedin className="text-2xl text-white hover:text-[#ff734d] transition" />
+        <div className="flex justify-center gap-4 sm:gap-5 mt-3 sm:mt-4">
+          <a
+            href="https://www.linkedin.com/in/yassine-badri-0279a7342/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedin className="text-xl sm:text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
-          <a href="https://www.instagram.com/yassinebadri_dev/" target="_blank" rel="noreferrer">
-            <FaInstagram className="text-2xl text-white hover:text-[#ff734d] transition" />
+          <a
+            href="https://www.instagram.com/yassinebadri_dev/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaInstagram className="text-xl sm:text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
-          <a href="https://github.com/badriyassine" target="_blank" rel="noreferrer">
-            <FaGithub className="text-2xl text-white hover:text-[#ff734d] transition" />
+          <a
+            href="https://github.com/badriyassine"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGithub className="text-xl sm:text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
           <a href="https://x.com/yassine_o2" target="_blank" rel="noreferrer">
-            <FaXTwitter className="text-2xl text-white hover:text-[#ff734d] transition" />
+            <FaXTwitter className="text-xl sm:text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 mt-6 pt-4 text-center text-gray-400 text-sm">
+        <div className="border-t border-gray-700 mt-4 sm:mt-6 pt-3 sm:pt-4 text-center text-gray-400 text-xs sm:text-sm">
           © {new Date().getFullYear()} Created by{" "}
-          <span className="text-[#ff734d] font-medium">Yassine Badri</span>, All rights reserved.
+          <span className="text-[#ff734d] font-medium">Yassine Badri</span>, All
+          rights reserved.
         </div>
       </motion.div>
     </footer>
@@ -51,7 +64,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-

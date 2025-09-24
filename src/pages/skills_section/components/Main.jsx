@@ -1,0 +1,509 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiLaravel,
+  SiExpress,
+  SiMysql,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiFigma,
+  SiCanva,
+  SiPostman,
+  SiHtml5,
+  SiCss3,
+  SiBootstrap,
+  SiJavascript,
+  SiNodedotjs,
+  SiPhp,
+  SiPostgresql,
+  SiRedis,
+  SiDocker,
+  SiLinux,
+  SiApple,
+} from "react-icons/si";
+import {
+  FaComments,
+  FaUsers,
+  FaSearch,
+  FaLanguage,
+  FaFlag,
+  FaWindows,
+} from "react-icons/fa";
+import { MdCode } from "react-icons/md";
+import { VscCode } from "react-icons/vsc";
+
+const cards = [
+  {
+    id: "01",
+    title: "Frontend",
+    desc: "hover to explore my frontend arsenal",
+    shapes: "frontend", // Triangle, Circle, Square for UI elements
+    // Essential technologies for center display
+    essentialTechs: [
+      {
+        name: "React",
+        icon: <SiReact className="w-8 h-8 text-[#61DAFB]" />,
+      },
+      {
+        name: "TypeScript",
+        icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" />,
+      },
+      {
+        name: "Tailwind",
+        icon: <SiTailwindcss className="w-8 h-8 text-[#06B6D4]" />,
+      },
+    ],
+    // Detailed technologies for news line
+    techs: [
+      {
+        name: "HTML5",
+        icon: <SiHtml5 className="w-8 h-8 text-[#E34F26]" />,
+      },
+      {
+        name: "CSS3",
+        icon: <SiCss3 className="w-8 h-8 text-[#1572B6]" />,
+      },
+      {
+        name: "Bootstrap",
+        icon: <SiBootstrap className="w-8 h-8 text-[#7952B3]" />,
+      },
+      {
+        name: "JavaScript",
+        icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" />,
+      },
+      {
+        name: "React",
+        icon: <SiReact className="w-8 h-8 text-[#61DAFB]" />,
+      },
+      {
+        name: "TypeScript",
+        icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" />,
+      },
+      {
+        name: "Tailwind",
+        icon: <SiTailwindcss className="w-8 h-8 text-[#06B6D4]" />,
+      },
+    ],
+  },
+  {
+    id: "02",
+    title: "Backend",
+    desc: "hover to discover my backend toolkit",
+    shapes: "backend", // Server-like shapes
+    // Essential technologies for center display
+    essentialTechs: [
+      {
+        name: "Laravel",
+        icon: <SiLaravel className="w-8 h-8 text-[#FF2D20]" />,
+      },
+      {
+        name: "Express.js",
+        icon: <SiExpress className="w-8 h-8 text-[#000000]" />,
+      },
+    ],
+    // Detailed technologies for news line
+    techs: [
+      {
+        name: "PHP",
+        icon: <SiPhp className="w-8 h-8 text-[#777BB4]" />,
+      },
+      {
+        name: "Laravel",
+        icon: <SiLaravel className="w-8 h-8 text-[#FF2D20]" />,
+      },
+      {
+        name: "Node.js",
+        icon: <SiNodedotjs className="w-8 h-8 text-[#339933]" />,
+      },
+      {
+        name: "Express.js",
+        icon: <SiExpress className="w-8 h-8 text-[#000000]" />,
+      },
+      {
+        name: "JavaScript",
+        icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" />,
+      },
+    ],
+  },
+  {
+    id: "03",
+    title: "Database",
+    desc: "hover to peek into my data world",
+    shapes: "database", // Data storage shapes
+    // Essential technologies for center display
+    essentialTechs: [
+      {
+        name: "MySQL",
+        icon: <SiMysql className="w-8 h-8 text-[#4479A1]" />,
+      },
+      {
+        name: "MongoDB",
+        icon: <SiMongodb className="w-8 h-8 text-[#47A248]" />,
+      },
+    ],
+    // Detailed technologies for news line
+    techs: [
+      {
+        name: "MySQL",
+        icon: <SiMysql className="w-8 h-8 text-[#4479A1]" />,
+      },
+      {
+        name: "MongoDB",
+        icon: <SiMongodb className="w-8 h-8 text-[#47A248]" />,
+      },
+      {
+        name: "PostgreSQL",
+        icon: <SiPostgresql className="w-8 h-8 text-[#336791]" />,
+      },
+      {
+        name: "Redis",
+        icon: <SiRedis className="w-8 h-8 text-[#DC382D]" />,
+      },
+    ],
+  },
+  {
+    id: "04",
+    title: "Tools & Others",
+    desc: "hover to browse my digital toolbox",
+    shapes: "tools", // Tool-like shapes
+    // Essential technologies for center display
+    essentialTechs: [
+      {
+        name: "VSCode",
+        icon: <VscCode className="w-8 h-8 text-[#007ACC]" />,
+      },
+      {
+        name: "Cursor",
+        icon: <MdCode className="w-8 h-8 text-[#000000]" />,
+      },
+      {
+        name: "Figma",
+        icon: <SiFigma className="w-8 h-8 text-[#F24E1E]" />,
+      },
+      {
+        name: "Git",
+        icon: <SiGit className="w-8 h-8 text-[#F05032]" />,
+      },
+      {
+        name: "GitHub",
+        icon: <SiGithub className="w-8 h-8 text-[#181717]" />,
+      },
+    ],
+    // Detailed technologies for news line
+    techs: [
+      {
+        name: "VSCode",
+        icon: <VscCode className="w-8 h-8 text-[#007ACC]" />,
+      },
+      {
+        name: "Cursor",
+        icon: <MdCode className="w-8 h-8 text-[#000000]" />,
+      },
+      {
+        name: "Git",
+        icon: <SiGit className="w-8 h-8 text-[#F05032]" />,
+      },
+      {
+        name: "GitHub",
+        icon: <SiGithub className="w-8 h-8 text-[#181717]" />,
+      },
+      {
+        name: "Figma",
+        icon: <SiFigma className="w-8 h-8 text-[#F24E1E]" />,
+      },
+      {
+        name: "Canva",
+        icon: <SiCanva className="w-8 h-8 text-[#00C4CC]" />,
+      },
+      {
+        name: "Postman",
+        icon: <SiPostman className="w-8 h-8 text-[#FF6C37]" />,
+      },
+      {
+        name: "Docker",
+        icon: <SiDocker className="w-8 h-8 text-[#2496ED]" />,
+      },
+      {
+        name: "Linux",
+        icon: <SiLinux className="w-8 h-8 text-[#FCC624]" />,
+      },
+      {
+        name: "Windows",
+        icon: <FaWindows className="w-8 h-8 text-[#0078D4]" />,
+      },
+      {
+        name: "macOS",
+        icon: <SiApple className="w-8 h-8 text-[#000000]" />,
+      },
+    ],
+  },
+  {
+    id: "05",
+    title: "Soft Skills",
+    desc: "hover to uncover my interpersonal powers",
+    shapes: "skills", // People and communication shapes
+    // Essential technologies for center display
+    essentialTechs: [
+      {
+        name: "Communication",
+        icon: <FaComments className="w-8 h-8 text-[#4CAF50]" />,
+      },
+      {
+        name: "Team Work",
+        icon: <FaUsers className="w-8 h-8 text-[#2196F3]" />,
+      },
+      {
+        name: "Problem Solving",
+        icon: <FaSearch className="w-8 h-8 text-[#FF9800]" />,
+      },
+    ],
+    // Detailed technologies for news line
+    techs: [
+      {
+        name: "Communication",
+        icon: <FaComments className="w-8 h-8 text-[#4CAF50]" />,
+      },
+      {
+        name: "Team Work",
+        icon: <FaUsers className="w-8 h-8 text-[#2196F3]" />,
+      },
+      {
+        name: "Problem Solving",
+        icon: <FaSearch className="w-8 h-8 text-[#FF9800]" />,
+      },
+      {
+        name: "Adaptability",
+        icon: <FaComments className="w-8 h-8 text-[#9C27B0]" />,
+      },
+      {
+        name: "Time Management",
+        icon: <FaUsers className="w-8 h-8 text-[#FF5722]" />,
+      },
+      {
+        name: "Leadership",
+        icon: <FaSearch className="w-8 h-8 text-[#607D8B]" />,
+      },
+    ],
+  },
+];
+
+// Function to render different shapes based on card type
+const renderShapes = (shapeType) => {
+  switch (shapeType) {
+    case "frontend":
+      return (
+        <div className="flex flex-col gap-2">
+          {/* UI Triangle */}
+          <div className="w-0 h-0 border-l-[8px] border-r-[8px] border-b-[14px] border-l-transparent border-r-transparent border-b-[#ff734d]"></div>
+          {/* UI Circle */}
+          <div className="w-4 h-4 bg-[#ff734d] rounded-full"></div>
+          {/* UI Square */}
+          <div className="w-3 h-3 bg-[#ff734d] rotate-45"></div>
+        </div>
+      );
+    case "backend":
+      return (
+        <div className="flex flex-col gap-2">
+          {/* Server Rectangle */}
+          <div className="w-5 h-3 bg-[#ff734d] rounded-sm"></div>
+          {/* Server Lines */}
+          <div className="flex gap-1">
+            <div className="w-1 h-2 bg-[#ff734d]"></div>
+            <div className="w-1 h-2 bg-[#ff734d]"></div>
+            <div className="w-1 h-2 bg-[#ff734d]"></div>
+          </div>
+          {/* Server Circle */}
+          <div className="w-3 h-3 bg-[#ff734d] rounded-full"></div>
+        </div>
+      );
+    case "database":
+      return (
+        <div className="flex flex-col gap-2">
+          {/* Database Cylinder */}
+          <div className="w-4 h-3 bg-[#ff734d] rounded-t-full rounded-b-full"></div>
+          {/* Data Lines */}
+          <div className="flex flex-col gap-1">
+            <div className="w-4 h-0.5 bg-[#ff734d]"></div>
+            <div className="w-4 h-0.5 bg-[#ff734d]"></div>
+          </div>
+          {/* Data Square */}
+          <div className="w-3 h-2 bg-[#ff734d] rounded-sm"></div>
+        </div>
+      );
+    case "tools":
+      return (
+        <div className="flex flex-col gap-2">
+          {/* Tool Wrench */}
+          <div className="w-4 h-1 bg-[#ff734d] rounded-full"></div>
+          {/* Tool Square */}
+          <div className="w-3 h-3 bg-[#ff734d] rotate-45"></div>
+          {/* Tool Circle */}
+          <div className="w-3 h-3 bg-[#ff734d] rounded-full"></div>
+          {/* Tool Triangle */}
+          <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-l-transparent border-r-transparent border-b-[#ff734d]"></div>
+        </div>
+      );
+    case "skills":
+      return (
+        <div className="flex flex-col gap-2">
+          {/* People Circle */}
+          <div className="w-4 h-4 bg-[#ff734d] rounded-full"></div>
+          {/* Communication Lines */}
+          <div className="flex gap-1">
+            <div className="w-1 h-1 bg-[#ff734d] rounded-full"></div>
+            <div className="w-1 h-1 bg-[#ff734d] rounded-full"></div>
+            <div className="w-1 h-1 bg-[#ff734d] rounded-full"></div>
+          </div>
+          {/* Language Symbol */}
+          <div className="w-3 h-2 bg-[#ff734d] rounded-sm"></div>
+        </div>
+      );
+    default:
+      return null;
+  }
+};
+
+const Main = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [clickedCard, setClickedCard] = useState(null);
+
+  return (
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.8,
+          ease: "easeOut",
+        },
+      }}
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      {cards.map((card, index) => (
+        <div
+          key={index}
+          className={`group relative border h-48 sm:h-56 lg:h-60 border-white rounded-2xl p-4 sm:p-6 transition-all duration-300 bg-transparent flex flex-col justify-between hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg cursor-pointer ${
+            card.id === "04" ? "sm:col-span-2 lg:col-span-2" : ""
+          }`}
+          onMouseEnter={() => setHoveredCard(index)}
+          onMouseLeave={() => setHoveredCard(null)}
+          onClick={() => {
+            if (window.innerWidth < 1024) {
+              // lg breakpoint
+              setClickedCard(clickedCard === index ? null : index);
+            }
+          }}
+        >
+          {/* ID Number */}
+          <span
+            className={`font-bold text-2xl sm:text-3xl transition-colors duration-300 ${
+              hoveredCard === index || clickedCard === index
+                ? "text-[#ff734d]"
+                : "text-gray-300"
+            }`}
+          >
+            {card.id}
+          </span>
+
+          {/* Decorative Shapes - Top Right */}
+          <div
+            className={`absolute top-4 right-4 transition-all duration-500 ${
+              hoveredCard === index || clickedCard === index
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-75"
+            }`}
+          >
+            {renderShapes(card.shapes)}
+          </div>
+
+          {/* Title and Description */}
+          <div
+            className={`mt-4 transition-all duration-500 ${
+              hoveredCard === index || clickedCard === index
+                ? "transform -translate-y-3"
+                : ""
+            }`}
+          >
+            <h3
+              className={`font-bold text-base sm:text-lg transition-colors duration-300 ${
+                hoveredCard === index || clickedCard === index
+                  ? "text-[#ff734d]"
+                  : "text-white"
+              }`}
+            >
+              {card.title}
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-400">
+              <span className="block lg:hidden">
+                click to {card.desc.replace("hover to ", "")}
+              </span>
+              <span className="hidden lg:block">{card.desc}</span>
+            </p>
+          </div>
+
+          {/* Essential Technologies - Center Display */}
+          <div
+            className={`flex justify-center items-center flex-1 transition-all duration-500 ${
+              hoveredCard === index || clickedCard === index
+                ? "transform -translate-y-3"
+                : ""
+            }`}
+          >
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              {card.essentialTechs.map((tech, techIndex) => (
+                <div
+                  key={`essential-${tech.name}-${techIndex}`}
+                  className={`flex items-center justify-center ${
+                    card.id === "04" && tech.name === "GitHub"
+                      ? "hidden sm:flex"
+                      : ""
+                  }`}
+                >
+                  <span className="text-sm text-white font-medium text-center px-3 py-1 bg-white/10 rounded-full transition-all duration-300 hover:text-[#ff734d] hover:bg-[#ff734d]/20 hover:scale-110 cursor-pointer">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tech Icons News Ticker */}
+          <div
+            className={`absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-r from-transparent via-[#ff734d]/20 to-transparent overflow-hidden transition-opacity duration-300 ${
+              hoveredCard === index || clickedCard === index
+                ? "opacity-100"
+                : "opacity-0"
+            }`}
+          >
+            <div
+              className={`flex items-center h-full ${
+                hoveredCard === index || clickedCard === index
+                  ? "animate-scroll"
+                  : ""
+              }`}
+            >
+              {[...card.techs, ...card.techs].map((tech, techIndex) => (
+                <div
+                  key={`${tech.name}-${techIndex}`}
+                  className="flex items-center mx-4 whitespace-nowrap"
+                >
+                  <span className="text-xs text-white font-medium px-2 py-1 bg-white/10 rounded-full">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </motion.div>
+  );
+};
+
+export default Main;
