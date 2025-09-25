@@ -381,7 +381,7 @@ const Main = () => {
                       ></motion.div>
                     </div>
                     <div className="flex-1 text-center">
-                      <span className="text-gray-300 text-xs font-medium truncate group-hover:text-white transition-colors duration-300">
+                      <span className="text-gray-300 text-xs font-medium truncate group-hover:text-white transition-colors duration-300 opacity-0">
                         {project.title}
                       </span>
                     </div>
