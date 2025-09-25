@@ -51,7 +51,7 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-2 bg-[#ff734d] text-white font-medium px-4 py-2 rounded-full transition-all duration-300">
           <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-          <span className="sm:hidden">Live</span>
+  
         </div>
       </div>
     </motion.div>

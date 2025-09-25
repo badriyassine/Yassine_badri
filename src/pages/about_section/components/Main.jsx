@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import profileImg from "/images/profile/image (3).png";
 
 const Main = () => {
+  const [isLanguagesClicked, setIsLanguagesClicked] = useState(false);
+
+  const toggleLanguages = () => {
+    setIsLanguagesClicked(!isLanguagesClicked);
+  };
+
   return (
     <motion.main
       className="flex flex-col lg:flex-row justify-between w-full gap-8 mt-8"
@@ -84,27 +90,76 @@ const Main = () => {
 
         {/* Key Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-          <div className="bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-24 flex flex-col justify-center">
+          <div className="bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-28 flex flex-col justify-center">
             <div className="text-2xl font-bold text-[#ff734d]">1+</div>
             <div className="text-sm text-gray-300">Years Experience</div>
           </div>
-          <div className="bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-24 flex flex-col justify-center">
+          <div className="bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-28 flex flex-col justify-center">
             <div className="text-2xl font-bold text-[#ff734d]">8+</div>
             <div className="text-sm text-gray-300">Projects Completed</div>
           </div>
-          <div className="hidden sm:flex bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-24 flex-col justify-center">
+          <div className="bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-28 flex flex-col justify-center">
             <div className="text-2xl font-bold text-[#ff734d]">5+</div>
             <div className="text-sm text-gray-300">Technologies Mastered</div>
           </div>
-          <div className="hidden sm:flex bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-24 flex-col justify-center">
-            <div className="text-2xl font-bold text-[#ff734d]">3</div>
-            <div className="text-sm text-gray-300">Languages Spoken</div>
+          <div
+            className="bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-28 flex flex-col justify-center group relative overflow-hidden lg:hover:border-[#ff734d] lg:hover:shadow-[#ff734d]/20 lg:hover:shadow-lg"
+            onClick={toggleLanguages}
+          >
+            <div
+              className={`text-2xl font-bold text-[#ff734d] transition-all duration-300 ease-in-out ${
+                isLanguagesClicked ? "opacity-0" : "opacity-100"
+              } lg:group-hover:opacity-0`}
+            >
+              3
+            </div>
+            <div
+              className={`text-sm text-gray-300 transition-all duration-300 ease-in-out ${
+                isLanguagesClicked ? "opacity-0" : "opacity-100"
+              } lg:group-hover:opacity-0`}
+            >
+              Languages Spoken
+            </div>
+
+            {/* Instructional text */}
+            <div
+              className={`text-xs text-gray-400 transition-all duration-300 ease-in-out ${
+                isLanguagesClicked ? "opacity-0" : "opacity-100"
+              } lg:group-hover:opacity-0`}
+            >
+              <span className="lg:hidden">Click me</span>
+              <span className="hidden lg:inline">Hover me</span>
+            </div>
+
+            {/* Hover/Click content */}
+            <div
+              className={`absolute inset-0 flex flex-col justify-center items-center transition-all duration-300 ease-in-out transform ${
+                isLanguagesClicked
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2"
+              } lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:delay-75`}
+            >
+              <div
+                className={`text-lg font-bold text-[#ff734d] mb-1 transform transition-transform duration-300 ease-in-out ${
+                  isLanguagesClicked ? "scale-100" : "scale-95"
+                } lg:scale-95 lg:group-hover:scale-100`}
+              >
+                English
+              </div>
+              <div
+                className={`text-sm text-gray-300 transform transition-transform duration-300 ease-in-out ${
+                  isLanguagesClicked ? "scale-100 delay-75" : "scale-95"
+                } lg:scale-95 lg:group-hover:scale-100 lg:delay-75`}
+              >
+                French • Arabic
+              </div>
+            </div>
           </div>
-          <div className="hidden sm:flex bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-24 flex-col justify-center">
+          <div className="hidden sm:flex bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-28 flex-col justify-center">
             <div className="text-2xl font-bold text-[#ff734d]">20</div>
             <div className="text-sm text-gray-300">Years Old</div>
           </div>
-          <div className="hidden sm:flex bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-24 flex-col justify-center">
+          <div className="hidden sm:flex bg-white/5 border border-white/20 rounded-xl p-6 text-center hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg transition-all duration-300 cursor-pointer h-28 flex-col justify-center">
             <div className="text-2xl font-bold text-[#ff734d]">100%</div>
             <div className="text-sm text-gray-300">Passion for Code</div>
           </div>

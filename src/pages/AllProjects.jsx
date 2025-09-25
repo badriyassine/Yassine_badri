@@ -134,7 +134,7 @@ const AllProjects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 bg-[#ff734d] hover:bg-[#ff734d]/80 text-white px-4 py-3 rounded-lg transition-all duration-300 text-sm font-medium hover:scale-105 active:scale-95"
+                    className="flex-1 flex items-center justify-center gap-2 bg-[#ff734d] hover:bg-[#ff734d]/80 text-white px-4 py-3 rounded-full transition-all duration-300 text-sm font-medium hover:scale-105 active:scale-95"
                   >
                     <FaGithub className="w-4 h-4" />
                     View Code
@@ -143,7 +143,7 @@ const AllProjects = () => {
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white px-4 py-3 rounded-lg transition-all duration-300 text-sm font-medium border border-white/30 hover:scale-105 active:scale-95"
+                    className="flex-1 flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white px-4 py-3 rounded-full transition-all duration-300 text-sm font-medium border border-white/30 hover:scale-105 active:scale-95"
                   >
                     <FaExternalLinkAlt className="w-4 h-4" />
                     Live Demo

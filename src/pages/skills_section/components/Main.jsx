@@ -155,14 +155,6 @@ const cards = [
         name: "MongoDB",
         icon: <SiMongodb className="w-5 h-5 text-[#47A248]" />,
       },
-      {
-        name: "PostgreSQL",
-        icon: <SiPostgresql className="w-5 h-5 text-[#336791]" />,
-      },
-      {
-        name: "Redis",
-        icon: <SiRedis className="w-5 h-5 text-[#DC382D]" />,
-      },
     ],
   },
   {
