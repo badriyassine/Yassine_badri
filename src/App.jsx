@@ -19,16 +19,22 @@ const HomePage = () => {
   // Update active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = [
+        { id: "home", navId: "home" },
+        { id: "about", navId: "about" },
+        { id: "skills", navId: "tech" },
+        { id: "projects", navId: "work" },
+        { id: "contact", navId: "contact" },
+      ];
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
-      for (let id of sections) {
-        const el = document.getElementById(id);
+      for (let section of sections) {
+        const el = document.getElementById(section.id);
         if (el) {
           const top = el.offsetTop;
           const bottom = top + el.offsetHeight;
           if (scrollPos >= top && scrollPos < bottom) {
-            setActiveSection(id);
+            setActiveSection(section.navId);
           }
         }
       }
@@ -45,8 +51,8 @@ const HomePage = () => {
     const sectionTitles = {
       home: "Home - Yassine Badri",
       about: "About - Yassine Badri",
-      skills: "Tech - Yassine Badri",
-      projects: "Work - Yassine Badri",
+      tech: "Tech - Yassine Badri",
+      work: "Work - Yassine Badri",
       contact: "Contact - Yassine Badri",
     };
 
