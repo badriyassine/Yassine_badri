@@ -29,13 +29,31 @@ const Header = ({ activeSection: propActiveSection }) => {
   }, [propActiveSection]);
 
   const scrollToSection = (id) => {
+    // Handle home section - scroll to top
+    if (id === "home") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      setMenuOpen(false);
+      return;
+    }
+
     let targetId = id;
     if (id === "work") targetId = "projects";
     if (id === "tech") targetId = "skills";
 
     const el = document.getElementById(targetId);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      // Get header height to offset the scroll position
+      const headerHeight = 80; // Approximate header height in pixels
+      const elementPosition = el.offsetTop;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
     setMenuOpen(false); // close mobile menu
   };

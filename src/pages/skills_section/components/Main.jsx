@@ -40,7 +40,7 @@ const cards = [
   {
     id: "01",
     title: "Frontend",
-    desc: "hover to explore my frontend arsenal",
+    desc: "Crafting beautiful and responsive user interfaces with modern web technologies",
     shapes: "frontend", // Triangle, Circle, Square for UI elements
     // Essential technologies for center display
     essentialTechs: [
@@ -92,7 +92,7 @@ const cards = [
   {
     id: "02",
     title: "Backend",
-    desc: "hover to discover my backend toolkit",
+    desc: "Building robust server-side applications and APIs for scalable web solutions",
     shapes: "backend", // Server-like shapes
     // Essential technologies for center display
     essentialTechs: [
@@ -132,7 +132,7 @@ const cards = [
   {
     id: "03",
     title: "Database",
-    desc: "hover to peek into my data world",
+    desc: "Designing and managing efficient data storage solutions for optimal performance",
     shapes: "database", // Data storage shapes
     // Essential technologies for center display
     essentialTechs: [
@@ -160,7 +160,7 @@ const cards = [
   {
     id: "04",
     title: "Tools & Others",
-    desc: "hover to browse my digital toolbox",
+    desc: "Leveraging powerful development tools and platforms for efficient workflow",
     shapes: "tools", // Tool-like shapes
     // Essential technologies for center display
     essentialTechs: [
@@ -183,6 +183,14 @@ const cards = [
       {
         name: "GitHub",
         icon: <SiGithub className="w-8 h-8 text-[#181717]" />,
+      },
+      {
+        name: "Canva",
+        icon: <SiCanva className="w-8 h-8 text-[#00C4CC]" />,
+      },
+      {
+        name: "Docker",
+        icon: <SiDocker className="w-8 h-8 text-[#2496ED]" />,
       },
     ],
     // Detailed technologies for news line
@@ -212,12 +220,12 @@ const cards = [
         icon: <SiCanva className="w-5 h-5 text-[#00C4CC]" />,
       },
       {
-        name: "Postman",
-        icon: <SiPostman className="w-5 h-5 text-[#FF6C37]" />,
-      },
-      {
         name: "Docker",
         icon: <SiDocker className="w-5 h-5 text-[#2496ED]" />,
+      },
+      {
+        name: "Postman",
+        icon: <SiPostman className="w-5 h-5 text-[#FF6C37]" />,
       },
       {
         name: "Linux",
@@ -232,7 +240,7 @@ const cards = [
   {
     id: "05",
     title: "Soft Skills",
-    desc: "hover to uncover my interpersonal powers",
+    desc: "Collaborating effectively and solving complex problems through strong communication",
     shapes: "skills", // People and communication shapes
     // Essential technologies for center display
     essentialTechs: [
@@ -361,7 +369,7 @@ const Main = () => {
 
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{
         opacity: 1,
@@ -376,14 +384,16 @@ const Main = () => {
       {cards.map((card, index) => (
         <div
           key={index}
-          className={`group relative border h-48 sm:h-56 lg:h-60 border-white rounded-2xl p-4 sm:p-6 transition-all duration-300 bg-transparent flex flex-col justify-between hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg cursor-pointer ${
-            card.id === "04" ? "sm:col-span-2 lg:col-span-2" : ""
-          }`}
+          className={`group relative border h-48 sm:h-56 lg:h-60 rounded-2xl p-4 sm:p-6 transition-all duration-300 bg-transparent flex flex-col justify-between hover:border-[#ff734d] hover:shadow-[#ff734d]/20 hover:shadow-lg cursor-pointer ${
+            clickedCard === index
+              ? "border-[#ff734d] shadow-[#ff734d]/20 shadow-lg"
+              : "border-white"
+          } ${card.id === "04" ? "sm:col-span-2 lg:col-span-2" : ""}`}
           onMouseEnter={() => setHoveredCard(index)}
           onMouseLeave={() => setHoveredCard(null)}
           onClick={() => {
             if (window.innerWidth < 1024) {
-              // lg breakpoint
+              // Toggle click effect for mobile and tablet
               setClickedCard(clickedCard === index ? null : index);
             }
           }}
@@ -428,16 +438,26 @@ const Main = () => {
               {card.title}
             </h3>
             <p className="text-xs sm:text-sm text-gray-400">
-              <span className="block lg:hidden">
-                click to {card.desc.replace("hover to ", "")}
+              <span className="block xl:hidden">
+                {card.id === "01"
+                  ? "Building modern user interfaces"
+                  : card.id === "02"
+                  ? "Creating robust server applications"
+                  : card.id === "03"
+                  ? "Managing data efficiently"
+                  : card.id === "04"
+                  ? "Using powerful development tools"
+                  : card.id === "05"
+                  ? "Working well with teams"
+                  : card.desc}
               </span>
-              <span className="hidden lg:block">{card.desc}</span>
+              <span className="hidden xl:block">{card.desc}</span>
             </p>
           </div>
 
           {/* Essential Technologies - Center Display */}
           <div
-            className={`flex justify-center items-center flex-1 transition-all duration-500 ${
+            className={`flex justify-center items-end flex-1 transition-all duration-500 pb-4 ${
               hoveredCard === index || clickedCard === index
                 ? "transform -translate-y-3"
                 : ""
@@ -448,10 +468,13 @@ const Main = () => {
                 <div
                   key={`essential-${tech.name}-${techIndex}`}
                   className={`flex items-center justify-center ${
-                    card.id === "04" && tech.name === "GitHub"
+                    card.id === "04" &&
+                    (tech.name === "GitHub" ||
+                      tech.name === "Canva" ||
+                      tech.name === "Docker")
                       ? "hidden sm:flex"
                       : card.id === "05" && tech.name === "Problem Solving"
-                      ? "hidden sm:flex"
+                      ? "hidden lg:flex"
                       : ""
                   }`}
                 >
@@ -463,36 +486,9 @@ const Main = () => {
             </div>
           </div>
 
-          {/* Tech Icons News Ticker */}
-          <div
-            className={`absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-r from-transparent via-[#ff734d]/20 to-transparent overflow-hidden transition-opacity duration-300 ${
-              hoveredCard === index || clickedCard === index
-                ? "opacity-100"
-                : "opacity-0"
-            }`}
-          >
-            <div
-              className={`flex items-center h-full ${
-                hoveredCard === index || clickedCard === index
-                  ? "animate-scroll"
-                  : ""
-              }`}
-            >
-              {[...card.techs, ...card.techs].map((tech, techIndex) => (
-                <div
-                  key={`${tech.name}-${techIndex}`}
-                  className={`flex items-center mx-4 whitespace-nowrap ${
-                    card.id === "05" && tech.name === "Problem Solving"
-                      ? "hidden sm:flex"
-                      : ""
-                  }`}
-                >
-                  <span className="flex items-center justify-center">
-                    {tech.icon}
-                  </span>
-                </div>
-              ))}
-            </div>
+          {/* Click me text for mobile and tablet */}
+          <div className="absolute bottom-2 right-2 lg:hidden">
+            <span className="text-xs text-gray-400 opacity-60">click me</span>
           </div>
         </div>
       ))}
