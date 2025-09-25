@@ -61,31 +61,31 @@ const cards = [
     techs: [
       {
         name: "HTML5",
-        icon: <SiHtml5 className="w-8 h-8 text-[#E34F26]" />,
+        icon: <SiHtml5 className="w-5 h-5 text-[#E34F26]" />,
       },
       {
         name: "CSS3",
-        icon: <SiCss3 className="w-8 h-8 text-[#1572B6]" />,
+        icon: <SiCss3 className="w-5 h-5 text-[#1572B6]" />,
       },
       {
         name: "Bootstrap",
-        icon: <SiBootstrap className="w-8 h-8 text-[#7952B3]" />,
+        icon: <SiBootstrap className="w-5 h-5 text-[#7952B3]" />,
       },
       {
         name: "JavaScript",
-        icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" />,
+        icon: <SiJavascript className="w-5 h-5 text-[#F7DF1E]" />,
       },
       {
         name: "React",
-        icon: <SiReact className="w-8 h-8 text-[#61DAFB]" />,
+        icon: <SiReact className="w-5 h-5 text-[#61DAFB]" />,
       },
       {
         name: "TypeScript",
-        icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" />,
+        icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" />,
       },
       {
         name: "Tailwind",
-        icon: <SiTailwindcss className="w-8 h-8 text-[#06B6D4]" />,
+        icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" />,
       },
     ],
   },
@@ -109,23 +109,23 @@ const cards = [
     techs: [
       {
         name: "PHP",
-        icon: <SiPhp className="w-8 h-8 text-[#777BB4]" />,
+        icon: <SiPhp className="w-5 h-5 text-[#777BB4]" />,
       },
       {
         name: "Laravel",
-        icon: <SiLaravel className="w-8 h-8 text-[#FF2D20]" />,
+        icon: <SiLaravel className="w-5 h-5 text-[#FF2D20]" />,
       },
       {
         name: "Node.js",
-        icon: <SiNodedotjs className="w-8 h-8 text-[#339933]" />,
+        icon: <SiNodedotjs className="w-5 h-5 text-[#339933]" />,
       },
       {
         name: "Express.js",
-        icon: <SiExpress className="w-8 h-8 text-[#000000]" />,
+        icon: <SiExpress className="w-5 h-5 text-[#000000]" />,
       },
       {
         name: "JavaScript",
-        icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" />,
+        icon: <SiJavascript className="w-5 h-5 text-[#F7DF1E]" />,
       },
     ],
   },
@@ -149,19 +149,19 @@ const cards = [
     techs: [
       {
         name: "MySQL",
-        icon: <SiMysql className="w-8 h-8 text-[#4479A1]" />,
+        icon: <SiMysql className="w-5 h-5 text-[#4479A1]" />,
       },
       {
         name: "MongoDB",
-        icon: <SiMongodb className="w-8 h-8 text-[#47A248]" />,
+        icon: <SiMongodb className="w-5 h-5 text-[#47A248]" />,
       },
       {
         name: "PostgreSQL",
-        icon: <SiPostgresql className="w-8 h-8 text-[#336791]" />,
+        icon: <SiPostgresql className="w-5 h-5 text-[#336791]" />,
       },
       {
         name: "Redis",
-        icon: <SiRedis className="w-8 h-8 text-[#DC382D]" />,
+        icon: <SiRedis className="w-5 h-5 text-[#DC382D]" />,
       },
     ],
   },
@@ -197,47 +197,43 @@ const cards = [
     techs: [
       {
         name: "VSCode",
-        icon: <VscCode className="w-8 h-8 text-[#007ACC]" />,
+        icon: <VscCode className="w-5 h-5 text-[#007ACC]" />,
       },
       {
         name: "Cursor",
-        icon: <MdCode className="w-8 h-8 text-[#000000]" />,
+        icon: <MdCode className="w-5 h-5 text-[#000000]" />,
       },
       {
         name: "Git",
-        icon: <SiGit className="w-8 h-8 text-[#F05032]" />,
+        icon: <SiGit className="w-5 h-5 text-[#F05032]" />,
       },
       {
         name: "GitHub",
-        icon: <SiGithub className="w-8 h-8 text-[#181717]" />,
+        icon: <SiGithub className="w-5 h-5 text-[#181717]" />,
       },
       {
         name: "Figma",
-        icon: <SiFigma className="w-8 h-8 text-[#F24E1E]" />,
+        icon: <SiFigma className="w-5 h-5 text-[#F24E1E]" />,
       },
       {
         name: "Canva",
-        icon: <SiCanva className="w-8 h-8 text-[#00C4CC]" />,
+        icon: <SiCanva className="w-5 h-5 text-[#00C4CC]" />,
       },
       {
         name: "Postman",
-        icon: <SiPostman className="w-8 h-8 text-[#FF6C37]" />,
+        icon: <SiPostman className="w-5 h-5 text-[#FF6C37]" />,
       },
       {
         name: "Docker",
-        icon: <SiDocker className="w-8 h-8 text-[#2496ED]" />,
+        icon: <SiDocker className="w-5 h-5 text-[#2496ED]" />,
       },
       {
         name: "Linux",
-        icon: <SiLinux className="w-8 h-8 text-[#FCC624]" />,
+        icon: <SiLinux className="w-5 h-5 text-[#FCC624]" />,
       },
       {
         name: "Windows",
-        icon: <FaWindows className="w-8 h-8 text-[#0078D4]" />,
-      },
-      {
-        name: "macOS",
-        icon: <SiApple className="w-8 h-8 text-[#000000]" />,
+        icon: <FaWindows className="w-5 h-5 text-[#0078D4]" />,
       },
     ],
   },
@@ -265,27 +261,27 @@ const cards = [
     techs: [
       {
         name: "Communication",
-        icon: <FaComments className="w-8 h-8 text-[#4CAF50]" />,
+        icon: <FaComments className="w-5 h-5 text-[#4CAF50]" />,
       },
       {
         name: "Team Work",
-        icon: <FaUsers className="w-8 h-8 text-[#2196F3]" />,
+        icon: <FaUsers className="w-5 h-5 text-[#2196F3]" />,
       },
       {
         name: "Problem Solving",
-        icon: <FaSearch className="w-8 h-8 text-[#FF9800]" />,
+        icon: <FaSearch className="w-5 h-5 text-[#FF9800]" />,
       },
       {
         name: "Adaptability",
-        icon: <FaComments className="w-8 h-8 text-[#9C27B0]" />,
+        icon: <FaComments className="w-5 h-5 text-[#9C27B0]" />,
       },
       {
         name: "Time Management",
-        icon: <FaUsers className="w-8 h-8 text-[#FF5722]" />,
+        icon: <FaUsers className="w-5 h-5 text-[#FF5722]" />,
       },
       {
         name: "Leadership",
-        icon: <FaSearch className="w-8 h-8 text-[#607D8B]" />,
+        icon: <FaSearch className="w-5 h-5 text-[#607D8B]" />,
       },
     ],
   },
@@ -462,6 +458,8 @@ const Main = () => {
                   className={`flex items-center justify-center ${
                     card.id === "04" && tech.name === "GitHub"
                       ? "hidden sm:flex"
+                      : card.id === "05" && tech.name === "Problem Solving"
+                      ? "hidden sm:flex"
                       : ""
                   }`}
                 >
@@ -491,10 +489,14 @@ const Main = () => {
               {[...card.techs, ...card.techs].map((tech, techIndex) => (
                 <div
                   key={`${tech.name}-${techIndex}`}
-                  className="flex items-center mx-4 whitespace-nowrap"
+                  className={`flex items-center mx-4 whitespace-nowrap ${
+                    card.id === "05" && tech.name === "Problem Solving"
+                      ? "hidden sm:flex"
+                      : ""
+                  }`}
                 >
-                  <span className="text-xs text-white font-medium px-2 py-1 bg-white/10 rounded-full">
-                    {tech.name}
+                  <span className="flex items-center justify-center">
+                    {tech.icon}
                   </span>
                 </div>
               ))}
