@@ -14,26 +14,16 @@ import {
 const allProjects = [
   {
     id: 1,
-    title: "Goldbike",
-    description:
-      "A full-stack e-commerce platform for bike sales with user authentication, payment integration, and admin dashboard.",
-    image: "/images/projects/Goldbike.png",
-    githubUrl: "https://github.com/badriyassine/goldbike",
-    demoUrl: "https://goldbike-demo.com",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-  },
-  {
-    id: 2,
     title: "InventoryPro",
     description:
       "A comprehensive inventory management system with real-time tracking, reporting, and analytics features.",
     image: "/images/projects/InventoryPro.png",
     githubUrl: "https://github.com/badriyassine/inventorypro",
     demoUrl: "https://inventorypro-demo.com",
-    tech: ["Laravel", "Vue.js", "MySQL", "Chart.js"],
+    tech: ["React", "Tailwind", "php", "MySQL"],
   },
   {
-    id: 3,
+    id: 2,
     title: "Motary",
     description:
       "A modern dashboard application for monitoring and managing various business metrics and KPIs.",
@@ -41,6 +31,16 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/motary",
     demoUrl: "https://motary-demo.com",
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
+  },
+  {
+    id: 3,
+    title: "Goldbike",
+    description:
+      "A full-stack e-commerce platform for bike sales with user authentication, payment integration, and admin dashboard.",
+    image: "/images/projects/Goldbike.png",
+    githubUrl: "https://github.com/badriyassine/goldbike",
+    demoUrl: "https://goldbike-demo.com",
+    tech: ["Html", "Css"],
   },
 ];
 
