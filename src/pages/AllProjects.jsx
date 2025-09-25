@@ -6,8 +6,8 @@ import Background from "../components/Background";
 const allProjects = [
   {
     id: 1,
-    title: "Goldbike E-commerce",
-    image: "/images/projects/Goldbike.png",
+    title: "Goldbike",
+    image: "/images/projects/Goldbike2.png",
     description:
       "A full-stack e-commerce platform for bicycle sales with modern UI and secure payment integration.",
     tech: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
@@ -16,8 +16,8 @@ const allProjects = [
   },
   {
     id: 2,
-    title: "InventoryPro Management",
-    image: "/images/projects/InventoryPro.png",
+    title: "InventoryPro",
+    image: "/images/projects/InventoryPro2.png",
     description:
       "Comprehensive inventory management system with real-time tracking and analytics dashboard.",
     tech: ["Laravel", "MySQL", "Vue.js", "Chart.js", "Bootstrap"],
@@ -26,44 +26,16 @@ const allProjects = [
   },
   {
     id: 3,
-    title: "Motary Car Rental",
-    image: "/images/projects/Motary.png",
+    title: "Motary",
+    image: "/images/projects/Motary2.png",
     description:
       "Car rental platform with booking system, user authentication, and admin panel.",
     tech: ["React", "Express.js", "PostgreSQL", "JWT", "Material-UI"],
     githubUrl: "https://github.com/yassinebadri/motary",
     demoUrl: "https://motary-demo.com",
   },
-  {
-    id: 4,
-    title: "TaskFlow Productivity",
-    image: "/images/projects/Goldbike2.png",
-    description:
-      "Project management tool with team collaboration features and deadline tracking.",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Framer Motion"],
-    githubUrl: "https://github.com/yassinebadri/taskflow",
-    demoUrl: "https://taskflow-demo.com",
-  },
-  {
-    id: 5,
-    title: "EduLearn Platform",
-    image: "/images/projects/InventoryPro2.png",
-    description:
-      "Online learning management system with video streaming and progress tracking.",
-    tech: ["React", "Node.js", "MongoDB", "Socket.io", "AWS S3"],
-    githubUrl: "https://github.com/yassinebadri/edulearn",
-    demoUrl: "https://edulearn-demo.com",
-  },
-  {
-    id: 6,
-    title: "HealthTracker App",
-    image: "/images/projects/Motary2.png",
-    description:
-      "Personal health monitoring app with data visualization and goal setting.",
-    tech: ["React Native", "Firebase", "Chart.js", "Expo", "Redux"],
-    githubUrl: "https://github.com/yassinebadri/healthtracker",
-    demoUrl: "https://healthtracker-demo.com",
-  },
+
+
 ];
 
 const AllProjects = () => {
