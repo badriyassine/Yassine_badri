@@ -42,6 +42,39 @@ const allProjects = [
     demoUrl: "https://goldbike-demo.com",
     tech: ["Html", "Css"],
   },
+  {
+    id: 1,
+    title: "InventoryPro",
+    description:
+      "A comprehensive inventory management system with real-time tracking, reporting, and analytics features.",
+    image: "/images/projects/InventoryPro.png",
+    githubUrl: "https://github.com/badriyassine/inventorypro",
+    demoUrl: "https://inventorypro-demo.com",
+    tech: ["React", "Tailwind", "php", "MySQL"],
+  },
+  {
+    id: 2,
+    title: "Motary",
+    description:
+      "A modern dashboard application for monitoring and managing various business metrics and KPIs.",
+    image: "/images/projects/Motary.png",
+    githubUrl: "https://github.com/badriyassine/motary",
+    demoUrl: "https://motary-demo.com",
+    tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
+  },
+  {
+    id: 3,
+    title: "Goldbike",
+    description:
+      "A full-stack e-commerce platform for bike sales with user authentication, payment integration, and admin dashboard.",
+    image: "/images/projects/Goldbike.png",
+    githubUrl: "https://github.com/badriyassine/goldbike",
+    demoUrl: "https://goldbike-demo.com",
+    tech: ["Html", "Css"],
+  },
+
+
+
 ];
 
 const Main = () => {
