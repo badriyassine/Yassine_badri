@@ -14,7 +14,7 @@ import {
 const allProjects = [
   {
     id: 1,
-    title: "Goldbike E-commerce",
+    title: "Goldbike",
     description:
       "A full-stack e-commerce platform for bike sales with user authentication, payment integration, and admin dashboard.",
     image: "/images/projects/Goldbike.png",
@@ -24,7 +24,7 @@ const allProjects = [
   },
   {
     id: 2,
-    title: "InventoryPro Management",
+    title: "InventoryPro",
     description:
       "A comprehensive inventory management system with real-time tracking, reporting, and analytics features.",
     image: "/images/projects/InventoryPro.png",
@@ -34,43 +34,13 @@ const allProjects = [
   },
   {
     id: 3,
-    title: "Motary Dashboard",
+    title: "Motary",
     description:
       "A modern dashboard application for monitoring and managing various business metrics and KPIs.",
     image: "/images/projects/Motary.png",
     githubUrl: "https://github.com/badriyassine/motary",
     demoUrl: "https://motary-demo.com",
-    tech: ["React", "TypeScript", "Tailwind", "D3.js"],
-  },
-  {
-    id: 4,
-    title: "Portfolio Website",
-    description:
-      "A responsive portfolio website showcasing projects, skills, and contact information with smooth animations.",
-    image: "/images/projects/Portfolio.png",
-    githubUrl: "https://github.com/badriyassine/portfolio",
-    demoUrl: "https://yassinebadri.dev",
-    tech: ["React", "Framer Motion", "Tailwind", "Vite"],
-  },
-  {
-    id: 5,
-    title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates, team collaboration, and project tracking.",
-    image: "/images/projects/TaskApp.png",
-    githubUrl: "https://github.com/badriyassine/taskapp",
-    demoUrl: "https://taskapp-demo.com",
-    tech: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"],
-  },
-  {
-    id: 6,
-    title: "Weather Dashboard",
-    description:
-      "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-    image: "/images/projects/WeatherApp.png",
-    githubUrl: "https://github.com/badriyassine/weather",
-    demoUrl: "https://weather-demo.com",
-    tech: ["React", "OpenWeather API", "Leaflet", "Styled Components"],
+    tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
   },
 ];
 
