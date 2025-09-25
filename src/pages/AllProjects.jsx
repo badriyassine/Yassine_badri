@@ -34,8 +34,6 @@ const allProjects = [
     githubUrl: "https://github.com/yassinebadri/motary",
     demoUrl: "https://motary-demo.com",
   },
-
-
 ];
 
 const AllProjects = () => {

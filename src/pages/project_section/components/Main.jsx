@@ -18,6 +18,7 @@ const allProjects = [
     description:
       "A comprehensive inventory management system with real-time tracking, reporting, and analytics features.",
     image: "/images/projects/InventoryPro.png",
+    imageMobile: "/images/projects/InventoryPro2.png",
     githubUrl: "https://github.com/badriyassine/inventorypro",
     demoUrl: "https://inventorypro-demo.com",
     tech: ["React", "Tailwind", "php", "MySQL"],
@@ -28,6 +29,7 @@ const allProjects = [
     description:
       "A modern dashboard application for monitoring and managing various business metrics and KPIs.",
     image: "/images/projects/Motary.png",
+    imageMobile: "/images/projects/Motary2.png",
     githubUrl: "https://github.com/badriyassine/motary",
     demoUrl: "https://motary-demo.com",
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
@@ -38,36 +40,40 @@ const allProjects = [
     description:
       "A full-stack e-commerce platform for bike sales with user authentication, payment integration, and admin dashboard.",
     image: "/images/projects/Goldbike.png",
+    imageMobile: "/images/projects/Goldbike2.png",
     githubUrl: "https://github.com/badriyassine/goldbike",
     demoUrl: "https://goldbike-demo.com",
     tech: ["Html", "Css"],
   },
   {
-    id: 1,
+    id: 4,
     title: "InventoryPro",
     description:
       "A comprehensive inventory management system with real-time tracking, reporting, and analytics features.",
     image: "/images/projects/InventoryPro.png",
+    imageMobile: "/images/projects/InventoryPro2.png",
     githubUrl: "https://github.com/badriyassine/inventorypro",
     demoUrl: "https://inventorypro-demo.com",
     tech: ["React", "Tailwind", "php", "MySQL"],
   },
   {
-    id: 2,
+    id: 5,
     title: "Motary",
     description:
       "A modern dashboard application for monitoring and managing various business metrics and KPIs.",
     image: "/images/projects/Motary.png",
+    imageMobile: "/images/projects/Motary2.png",
     githubUrl: "https://github.com/badriyassine/motary",
     demoUrl: "https://motary-demo.com",
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
   },
   {
-    id: 3,
+    id: 6,
     title: "Goldbike",
     description:
       "A full-stack e-commerce platform for bike sales with user authentication, payment integration, and admin dashboard.",
     image: "/images/projects/Goldbike.png",
+    imageMobile: "/images/projects/Goldbike2.png",
     githubUrl: "https://github.com/badriyassine/goldbike",
     demoUrl: "https://goldbike-demo.com",
     tech: ["Html", "Css"],
@@ -207,11 +213,17 @@ const Main = () => {
 
                   {/* Project Image */}
                   <div className="relative h-56 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 1024px)"
+                        srcSet={project.imageMobile}
+                      />
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
 
@@ -282,11 +294,17 @@ const Main = () => {
 
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 1024px)"
+                        srcSet={project.imageMobile}
+                      />
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                   </div>
 
@@ -408,11 +426,17 @@ const Main = () => {
 
                   {/* Project Image */}
                   <div className="relative h-[26.25rem] sm:h-[30rem] lg:h-[34rem] overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
+                    <picture>
+                      <source
+                        media="(max-width: 1024px)"
+                        srcSet={project.imageMobile}
+                      />
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </picture>
 
                     {/* Desktop Hover Overlay */}
                     {hoveredProject === project.id && (
