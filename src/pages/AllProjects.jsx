@@ -50,7 +50,7 @@ const AllProjects = () => {
               className="flex items-center gap-3 text-white hover:text-[#ff734d] transition-colors duration-300"
             >
               <FaArrowLeft className="w-5 h-5" />
-              <span className="text-lg font-semibold">Back to Portfolio</span>
+              <span className="text-lg font-semibold">Back</span>
             </Link>
             <h1 className="text-2xl font-bold">
               All My <span className="text-[#ff734d]">Projects</span>
