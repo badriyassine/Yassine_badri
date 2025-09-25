@@ -79,20 +79,20 @@ const Hero = () => {
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-row gap-3 justify-center">
           <a
             href="#projects"
-            className="bg-[#ff734d] hover:bg-[#ff734d]/80 text-white font-semibold px-12 py-3 rounded-full shadow-lg transition-all duration-300 text-base flex items-center justify-center gap-2 hover:scale-105 active:scale-95 w-full sm:w-auto min-w-[200px]"
+            className="bg-[#ff734d] hover:bg-[#ff734d]/80 text-white font-semibold px-4 py-3 sm:px-12 sm:py-3 rounded-full shadow-lg transition-all duration-300 text-sm flex items-center justify-center gap-2 hover:scale-105 active:scale-95 w-fit sm:min-w-[180px]"
           >
-            My Work <FaArrowRight className="w-4 h-4" />
+            My Work <FaArrowRight className="w-3 h-3" />
           </a>
           <a
             href="https://github.com/badriyassine"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white/20 hover:bg-white/30 text-white font-semibold px-12 py-3 rounded-full shadow-lg transition-all duration-300 text-base flex items-center justify-center gap-2 border border-white/30 hover:scale-105 active:scale-95 w-full sm:w-auto min-w-[200px]"
+            className="bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-3 sm:px-12 sm:py-3 rounded-full shadow-lg transition-all duration-300 text-sm flex items-center justify-center gap-2 border border-white/30 hover:scale-105 active:scale-95 w-fit sm:min-w-[180px]"
           >
-            <FaGithub className="w-5 h-5" />
+            <FaGithub className="w-4 h-4" />
             GitHub
           </a>
         </div>

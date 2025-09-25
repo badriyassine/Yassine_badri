@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = ({ onShowAll, showAll }) => {
   return (
     <motion.div
-      className="flex flex-col sm:flex-row justify-between w-full items-start sm:items-center mb-20 gap-4 sm:gap-0"
+      className="flex flex-col sm:flex-row justify-between w-full items-start sm:items-center mb-15 gap-4 sm:gap-0"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{
         opacity: 1,
