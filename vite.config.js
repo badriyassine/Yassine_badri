@@ -6,8 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    // Enable SPA fallback for client-side routing
-    historyApiFallback: true,
     // Disable CSP for development to avoid eval() issues
     headers: {
       "Content-Security-Policy":
@@ -15,8 +13,7 @@ export default defineConfig({
     },
   },
   preview: {
-    // Enable SPA fallback for preview mode
-    historyApiFallback: true,
+    // SPA fallback for production preview
   },
   build: {
     rollupOptions: {
@@ -34,7 +31,6 @@ export default defineConfig({
     target: "esnext",
   },
   optimizeDeps: {
-    // Disable pre-bundling to avoid eval issues
-    disabled: false,
+    // Pre-bundling is enabled by default in Vite 5.1+
   },
 });
