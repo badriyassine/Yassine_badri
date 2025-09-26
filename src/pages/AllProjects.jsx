@@ -11,8 +11,8 @@ const allProjects = [
     description:
       "A car store platform concept designed to showcase vehicles available for sale, with a clean and user-friendly interface.",
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
-    githubUrl: "https://github.com/yassinebadri/motary",
-    demoUrl: "https://motary-demo.com",
+    githubUrl: "https://github.com/badriyassine/Motary",
+    demoUrl: "https://github.com/badriyassine/Motary",
   },
   {
     id: 2,
