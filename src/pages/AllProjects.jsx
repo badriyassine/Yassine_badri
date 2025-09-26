@@ -19,7 +19,7 @@ const allProjects = [
     title: "InventoryPro",
     image: "/images/projects/InventoryPro2.png",
     description:
-    "A powerful web application to manage products, sales, and stock, with a visual dashboard for tracking activity.",
+      "A powerful web application to manage products, sales, and stock, with a visual dashboard for tracking activity.",
     tech: ["React", "Tailwind", "php", "MySQL"],
     githubUrl: "https://github.com/badriyassine/InventoryPro",
     demoUrl: "https://github.com/badriyassine/InventoryPro",
@@ -29,7 +29,7 @@ const allProjects = [
     title: "My first portfolio",
     image: "/images/projects/Portfolio.png",
     description:
-      "my first portfolio created using react.",
+      "This is my first portfolio built with React, where I share my projects and skills as I start my journey in web development.",
     tech: ["React", "Tailwind"],
     githubUrl: "https://github.com/badriyassine/Portfolio",
     demoUrl: "https://github.com/badriyassine/Portfolio",
@@ -48,8 +48,7 @@ const allProjects = [
     id: 5,
     title: "Dashboard design",
     image: "/images/projects/Dashboard.png",
-    description:
-      "Simple dashboard created using only html & css.",
+    description: "A simple yet functional dashboard built using only HTML and CSS to practice layout and design.",
     tech: ["Html", "Css"],
     githubUrl: "https://github.com/badriyassine/Dashboard-design",
     demoUrl: "https://github.com/badriyassine/Dashboard-design",
@@ -86,7 +85,7 @@ const AllProjects = () => {
           {allProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-white/5 border border-white/20 rounded-[15px] overflow-hidden transition-all duration-500 hover:border-[#ff734d] hover:shadow-[0_0_30px_rgba(255,115,77,0.3)] cursor-pointer"
+              className="group bg-white/5 border border-white/20 rounded-[15px] overflow-hidden transition-all duration-500 hover:border-[#ff734d] hover:shadow-[0_0_30px_rgba(255,115,77,0.3)] cursor-pointer flex flex-col h-full"
             >
               {/* Project Image */}
               <div className="relative h-64 sm:h-80 overflow-hidden">
@@ -98,7 +97,7 @@ const AllProjects = () => {
               </div>
 
               {/* Project Info */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#ff734d] transition-colors duration-300">
                   {project.title}
                 </h3>
@@ -119,7 +118,7 @@ const AllProjects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <a
                     href={project.githubUrl}
                     target="_blank"
