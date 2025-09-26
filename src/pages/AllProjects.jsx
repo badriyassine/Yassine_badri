@@ -47,7 +47,7 @@ const allProjects = [
   {
     id: 5,
     title: "Dashboard design",
-    image: "/images/projects/Goldbike2.png",
+    image: "/images/projects/Dashboard.png",
     description:
       "Simple dashboard created using only html & css.",
     tech: ["Html", "Css"],
