@@ -6,33 +6,53 @@ import Background from "../components/Background";
 const allProjects = [
   {
     id: 1,
-    title: "Goldbike",
-    image: "/images/projects/Goldbike2.png",
+    title: "Motary",
+    image: "/images/projects/Motary2.png",
     description:
-      "A full-stack e-commerce platform for bicycle sales with modern UI and secure payment integration.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-    githubUrl: "https://github.com/yassinebadri/goldbike",
-    demoUrl: "https://goldbike-demo.com",
+      "A car store platform concept designed to showcase vehicles available for sale, with a clean and user-friendly interface.",
+    tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
+    githubUrl: "https://github.com/yassinebadri/motary",
+    demoUrl: "https://motary-demo.com",
   },
   {
     id: 2,
     title: "InventoryPro",
     image: "/images/projects/InventoryPro2.png",
     description:
-      "Comprehensive inventory management system with real-time tracking and analytics dashboard.",
-    tech: ["Laravel", "MySQL", "Vue.js", "Chart.js", "Bootstrap"],
-    githubUrl: "https://github.com/yassinebadri/inventorypro",
-    demoUrl: "https://inventorypro-demo.com",
+    "A powerful web application to manage products, sales, and stock, with a visual dashboard for tracking activity.",
+    tech: ["React", "Tailwind", "php", "MySQL"],
+    githubUrl: "https://github.com/badriyassine/InventoryPro",
+    demoUrl: "https://github.com/badriyassine/InventoryPro",
   },
   {
     id: 3,
-    title: "Motary",
-    image: "/images/projects/Motary2.png",
+    title: "My first portfolio",
+    image: "/images/projects/Portfolio.png",
     description:
-      "Car rental platform with booking system, user authentication, and admin panel.",
-    tech: ["React", "Express.js", "PostgreSQL", "JWT", "Material-UI"],
-    githubUrl: "https://github.com/yassinebadri/motary",
-    demoUrl: "https://motary-demo.com",
+      "my first portfolio created using react.",
+    tech: ["React", "Tailwind"],
+    githubUrl: "https://github.com/badriyassine/Portfolio",
+    demoUrl: "https://github.com/badriyassine/Portfolio",
+  },
+  {
+    id: 4,
+    title: "Goldbike",
+    image: "/images/projects/Goldbike2.png",
+    description:
+      "home page of motorcycles store modern design created using html & css only.",
+    tech: ["Html", "Css"],
+    githubUrl: "https://github.com/badriyassine/Goldbike_store",
+    demoUrl: "https://github.com/badriyassine/Goldbike_store",
+  },
+  {
+    id: 5,
+    title: "Dashboard design",
+    image: "/images/projects/Goldbike2.png",
+    description:
+      "Simple dashboard created using only html & css.",
+    tech: ["Html", "Css"],
+    githubUrl: "https://github.com/badriyassine/Dashboard-design",
+    demoUrl: "https://github.com/badriyassine/Dashboard-design",
   },
 ];
 
