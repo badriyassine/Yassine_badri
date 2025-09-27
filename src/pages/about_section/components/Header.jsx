@@ -30,9 +30,11 @@ const Header = () => {
         >
           Resume
         </a>
-        <a className="bg-[#ff734d] text-white cursor-pointer font-medium px-3 py-2 rounded-full flex items-center gap-2 shadow-md hover:bg-[#ff734d]/50 transition" href="/YASSINE_BADRI_CV.pdf"
-          download="Yassine_Badri_CV.pdf">
-        
+        <a
+          className="bg-[#ff734d] text-white cursor-pointer font-medium px-3 py-2 rounded-full flex items-center gap-2 shadow-md hover:bg-[#ff734d]/50 transition"
+          href="/YASSINE_BADRI_CV.pdf"
+          download="Yassine_Badri_CV.pdf"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"

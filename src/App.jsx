@@ -10,6 +10,7 @@ import Contact from "./pages/contact_section/Contact";
 import { lazy, Suspense } from "react";
 
 const AllProjects = lazy(() => import("./pages/AllProjects"));
+const AllInfo = lazy(() => import("./pages/AllInfo"));
 import Footer from "./components/ui/Footer";
 import { FaArrowUp } from "react-icons/fa";
 
@@ -118,6 +119,20 @@ const App = () => {
               }
             >
               <AllProjects />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/all-info"
+          element={
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center bg-black text-white">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#ff734d]"></div>
+                </div>
+              }
+            >
+              <AllInfo />
             </Suspense>
           }
         />
