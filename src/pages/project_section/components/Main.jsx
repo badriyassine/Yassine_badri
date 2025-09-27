@@ -231,20 +231,6 @@ const Main = () => {
                       />
                     </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                          project.status === "completed"
-                            ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                            : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
-                        }`}
-                      >
-                        {project.status === "completed"
-                          ? "Completed"
-                          : "In Progress"}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Project Info */}
@@ -326,20 +312,6 @@ const Main = () => {
                       />
                     </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                          project.status === "completed"
-                            ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                            : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
-                        }`}
-                      >
-                        {project.status === "completed"
-                          ? "Completed"
-                          : "In Progress"}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Project Info */}
@@ -471,20 +443,6 @@ const Main = () => {
                         className="w-full h-full object-cover"
                       />
                     </picture>
-                    {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                          project.status === "completed"
-                            ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                            : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
-                        }`}
-                      >
-                        {project.status === "completed"
-                          ? "Completed"
-                          : "In Progress"}
-                      </span>
-                    </div>
 
                     {/* Desktop Hover Overlay */}
                     {hoveredProject === project.id && (
