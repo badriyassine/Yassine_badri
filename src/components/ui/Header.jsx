@@ -69,7 +69,7 @@ const Header = ({ activeSection: propActiveSection }) => {
         <motion.img
           src={logo}
           alt="Logo"
-          className="h-12 sm:h-14 lg:h-16 object-contain"
+          className="h-12 sm:h-14 lg:h-16 object-contain cursor-pointer"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
