@@ -7,6 +7,18 @@ import Background from "../components/Background";
 const allProjects = [
   {
     id: 1,
+    title: "DarBooking",
+    image: "/images/projects/DarBooking.png",
+    description:
+      "A hotel booking app with real-time reservations and admin management, built using React, Tailwind, PHP, and MySQL.",
+    tech: ["React", "Tailwind", "php", "MySQL"],
+    githubUrl: "https://github.com/badriyassine/DarBooking",
+    demoUrl: "https://github.com/badriyassine/DarBooking",
+    category: "new",
+    status: "in progress",
+  },
+  {
+    id: 2,
     title: "Motary",
     image: "/images/projects/Motary2.png",
     description:
@@ -15,9 +27,10 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/Motary",
     demoUrl: "https://github.com/badriyassine/Motary",
     category: "new",
+    status: "completed",
   },
   {
-    id: 2,
+    id: 3,
     title: "InventoryPro",
     image: "/images/projects/InventoryPro2.png",
     description:
@@ -26,10 +39,11 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/InventoryPro",
     demoUrl: "https://github.com/badriyassine/InventoryPro",
     category: "new",
+    status: "completed",
   },
   {
-    id: 3,
-    title: "My first portfolio",
+    id: 4,
+    title: "First Portfolio",
     image: "/images/projects/Portfolio.png",
     description:
       "This is my first portfolio built with React, where I share my projects and skills as I start my journey in web development.",
@@ -37,9 +51,10 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/Portfolio",
     demoUrl: "https://github.com/badriyassine/Portfolio",
     category: "new",
+    status: "completed",
   },
   {
-    id: 4,
+    id: 5,
     title: "Goldbike",
     image: "/images/projects/Goldbike2.png",
     description:
@@ -48,9 +63,10 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/Goldbike_store",
     demoUrl: "https://github.com/badriyassine/Goldbike_store",
     category: "old",
+    status: "completed",
   },
   {
-    id: 5,
+    id: 6,
     title: "Dashboard design",
     image: "/images/projects/Dashboard.png",
     description:
@@ -59,6 +75,7 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/Dashboard-design",
     demoUrl: "https://github.com/badriyassine/Dashboard-design",
     category: "old",
+    status: "completed",
   },
 ];
 
@@ -240,6 +257,20 @@ const AllProjects = () => {
                     loading="lazy"
                     decoding="async"
                   />
+                  {/* Status Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                        project.status === "completed"
+                          ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                          : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
+                      }`}
+                    >
+                      {project.status === "completed"
+                        ? "Completed"
+                        : "In Progress"}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Project Info */}

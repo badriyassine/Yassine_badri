@@ -22,6 +22,7 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/InventoryPro",
     demoUrl: "https://github.com/badriyassine/InventoryPro",
     tech: ["React", "Tailwind", "php", "MySQL"],
+    status: "completed",
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/Motary",
     demoUrl: "https://github.com/badriyassine/Motary",
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
+    status: "completed",
   },
   {
     id: 3,
@@ -44,39 +46,43 @@ const allProjects = [
     githubUrl: "https://github.com/badriyassine/Goldbike_store",
     demoUrl: "https://github.com/badriyassine/Goldbike_store",
     tech: ["Html", "Css"],
+    status: "completed",
   },
   {
     id: 4,
-    title: "InventoryPro",
+    title: "E-commerce Platform",
     description:
-      "A powerful web application to manage products, sales, and stock, with a visual dashboard for tracking activity.",
+      "A full-stack e-commerce platform with user authentication, payment integration, and admin dashboard. Currently in development phase.",
     image: "/images/projects/InventoryPro.png",
     imageMobile: "/images/projects/InventoryPro2.png",
-    githubUrl: "https://github.com/badriyassine/InventoryPro",
-    demoUrl: "https://github.com/badriyassine/InventoryPro",
-    tech: ["React", "Tailwind", "php", "MySQL"],
+    githubUrl: "https://github.com/badriyassine/ecommerce-platform",
+    demoUrl: "https://github.com/badriyassine/ecommerce-platform",
+    tech: ["React", "Node.js", "MongoDB", "Stripe", "JWT"],
+    status: "in progress",
   },
   {
     id: 5,
-    title: "Motary",
+    title: "Task Management App",
     description:
-      "A car store platform concept designed to showcase vehicles available for sale, with a clean and user-friendly interface.",
+      "A collaborative task management application with real-time updates and team collaboration features. Still adding advanced features.",
     image: "/images/projects/Motary.png",
     imageMobile: "/images/projects/Motary2.png",
-    githubUrl: "https://github.com/badriyassine/Motary",
-    demoUrl: "https://github.com/badriyassine/Motary",
-    tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
+    githubUrl: "https://github.com/badriyassine/task-manager",
+    demoUrl: "https://github.com/badriyassine/task-manager",
+    tech: ["Vue.js", "Socket.io", "Express.js", "PostgreSQL"],
+    status: "in progress",
   },
   {
     id: 6,
-    title: "Goldbike",
+    title: "Portfolio Website",
     description:
-      "home page of motorcycles store modern design created using html & css only.",
+      "A modern portfolio website showcasing projects and skills with responsive design and smooth animations.",
     image: "/images/projects/Goldbike.png",
     imageMobile: "/images/projects/Goldbike2.png",
-    githubUrl: "https://github.com/badriyassine/Goldbike_store",
-    demoUrl: "https://github.com/badriyassine/Goldbike_store",
-    tech: ["Html", "Css"],
+    githubUrl: "https://github.com/badriyassine/portfolio",
+    demoUrl: "https://github.com/badriyassine/portfolio",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    status: "completed",
   },
 ];
 
@@ -225,6 +231,20 @@ const Main = () => {
                       />
                     </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                          project.status === "completed"
+                            ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                            : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
+                        }`}
+                      >
+                        {project.status === "completed"
+                          ? "Completed"
+                          : "In Progress"}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Project Info */}
@@ -306,6 +326,20 @@ const Main = () => {
                       />
                     </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                          project.status === "completed"
+                            ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                            : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
+                        }`}
+                      >
+                        {project.status === "completed"
+                          ? "Completed"
+                          : "In Progress"}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Project Info */}
@@ -437,6 +471,20 @@ const Main = () => {
                         className="w-full h-full object-cover"
                       />
                     </picture>
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                          project.status === "completed"
+                            ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                            : "bg-[#ff734d]/20 text-[#ff734d] border border-[#ff734d]/30"
+                        }`}
+                      >
+                        {project.status === "completed"
+                          ? "Completed"
+                          : "In Progress"}
+                      </span>
+                    </div>
 
                     {/* Desktop Hover Overlay */}
                     {hoveredProject === project.id && (
