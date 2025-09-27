@@ -16,7 +16,8 @@ const allInfo = [
     id: 1,
     title: "Specialized Technician in Full-Stack Web Development",
     type: "diploma",
-    institution: "Institut Spécialisé de Technologie Appliquée_Al Oubour Tantan",
+    institution:
+      "Institut Spécialisé de Technologie Appliquée_Al Oubour Tantan",
     location: "Tan-Tan, Morocco",
     date: "2024 - Present",
     description:
@@ -36,7 +37,6 @@ const allInfo = [
     status: "completed",
     category: "education",
   },
-
 ];
 
 const AllInfo = () => {
@@ -86,6 +86,12 @@ const AllInfo = () => {
       count: allInfo.length,
     },
     {
+      value: "experience",
+      label: "Experience",
+      mobileLabel: "Exp",
+      count: allInfo.filter((item) => item.category === "experience").length,
+    },
+    {
       value: "education",
       label: "Education",
       mobileLabel: "Education",
@@ -96,12 +102,6 @@ const AllInfo = () => {
       label: "Certifications",
       mobileLabel: "Certs",
       count: allInfo.filter((item) => item.category === "certification").length,
-    },
-    {
-      value: "experience",
-      label: "Experience",
-      mobileLabel: "Exp",
-      count: allInfo.filter((item) => item.category === "experience").length,
     },
   ];
 
