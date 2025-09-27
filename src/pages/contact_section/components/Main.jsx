@@ -33,6 +33,34 @@ const Main = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Debug: Check if environment variables are set
+    console.log("EmailJS Config:", {
+      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    });
+
+    // Debug: Check form data
+    console.log("Form Data:", formData);
+
+    // Check if any required variables are missing
+    if (
+      !import.meta.env.VITE_EMAILJS_SERVICE_ID ||
+      !import.meta.env.VITE_EMAILJS_TEMPLATE_ID ||
+      !import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ) {
+      setToast({
+        show: true,
+        message: "EmailJS not configured. Please set up environment variables.",
+        success: false,
+      });
+      setTimeout(
+        () => setToast({ show: false, message: "", success: true }),
+        4000
+      );
+      return;
+    }
+
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -46,7 +74,8 @@ const Main = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
-        () => {
+        (response) => {
+          console.log("EmailJS Success:", response);
           setToast({
             show: true,
             message: "Message sent successfully!",
@@ -58,10 +87,13 @@ const Main = () => {
             4000
           );
         },
-        () => {
+        (error) => {
+          console.error("EmailJS Error:", error);
           setToast({
             show: true,
-            message: "Oops! Something went wrong.",
+            message: `Error: ${
+              error.text || error.message || "Something went wrong"
+            }`,
             success: false,
           });
           setTimeout(
@@ -278,7 +310,7 @@ const Main = () => {
 
           <button
             type="submit"
-            className="w-full py-4 bg-[#ff734d] text-white font-semibold rounded-lg shadow-lg hover:bg-[#ff734d]/80 transition-all duration-300"
+            className="w-full py-4 bg-[#ff734d] text-white cursor-pointer font-semibold rounded-lg shadow-lg hover:bg-[#ff734d]/80 transition-all duration-300"
           >
             Send Message
           </button>
