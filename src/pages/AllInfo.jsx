@@ -86,28 +86,18 @@ const AllInfo = () => {
       count: allInfo.length,
     },
     {
-      value: "experience",
-      label: "Experience",
-      mobileLabel: "Exp",
-      count: allInfo.filter((item) => item.category === "experience").length,
-    },
-    {
       value: "education",
       label: "Education",
       mobileLabel: "Education",
       count: allInfo.filter((item) => item.category === "education").length,
-    },
-    {
-      value: "certification",
-      label: "Certifications",
-      mobileLabel: "Certs",
-      count: allInfo.filter((item) => item.category === "certification").length,
     },
   ];
 
   const getIcon = (type) => {
     switch (type) {
       case "diploma":
+        return <FaGraduationCap className="w-6 h-6" />;
+      case "degree":
         return <FaGraduationCap className="w-6 h-6" />;
       case "certificate":
         return <FaCertificate className="w-6 h-6" />;
