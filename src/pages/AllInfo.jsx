@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import Background from "../components/Background";
 
 const allInfo = [
+  // EDUCATION 
   {
     id: 1,
     title: "Specialized Technician in Full-Stack Web Development",
@@ -37,6 +38,8 @@ const allInfo = [
     status: "completed",
     category: "education",
   },
+
+
 ];
 
 const AllInfo = () => {
@@ -86,10 +89,22 @@ const AllInfo = () => {
       count: allInfo.length,
     },
     {
+      value: "experience",
+      label: "Experience",
+      mobileLabel: "Exp",
+      count: allInfo.filter((item) => item.category === "experience").length,
+    },
+    {
       value: "education",
       label: "Education",
       mobileLabel: "Education",
       count: allInfo.filter((item) => item.category === "education").length,
+    },
+    {
+      value: "certification",
+      label: "Certifications",
+      mobileLabel: "Certs",
+      count: allInfo.filter((item) => item.category === "certification").length,
     },
   ];
 
