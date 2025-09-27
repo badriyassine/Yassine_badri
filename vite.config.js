@@ -18,11 +18,29 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          router: ["react-router-dom"],
+          motion: ["framer-motion"],
+          icons: [
+            "react-icons/fa",
+            "react-icons/si",
+            "react-icons/md",
+            "react-icons/vsc",
+          ],
+        },
       },
     },
     // Disable automatic preloading of assets
     assetsInlineLimit: 0,
+    // Enable minification
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
   define: {
     // Ensure Vite can use eval in development

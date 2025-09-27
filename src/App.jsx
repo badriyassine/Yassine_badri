@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Background from "./components/Background";
 import Header from "./components/ui/Header";
@@ -7,42 +7,53 @@ import Skills from "./pages/skills_section/Skills";
 import Projects from "./pages/project_section/Projects";
 import About from "./pages/about_section/About";
 import Contact from "./pages/contact_section/Contact";
-import AllProjects from "./pages/AllProjects";
+import { lazy, Suspense } from "react";
+
+const AllProjects = lazy(() => import("./pages/AllProjects"));
 import Footer from "./components/ui/Footer";
 import { FaArrowUp } from "react-icons/fa";
 
 // HomePage component moved outside to prevent recreation on every render
-const HomePage = () => {
+const HomePage = memo(() => {
   const [showButton, setShowButton] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Update active section on scroll
+  // Update active section on scroll with throttling
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const sections = [
-        { id: "home", navId: "home" },
-        { id: "about", navId: "about" },
-        { id: "skills", navId: "tech" },
-        { id: "projects", navId: "work" },
-        { id: "contact", navId: "contact" },
-      ];
-      const scrollPos = window.scrollY + window.innerHeight / 2;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const sections = [
+            { id: "home", navId: "home" },
+            { id: "about", navId: "about" },
+            { id: "skills", navId: "tech" },
+            { id: "projects", navId: "work" },
+            { id: "contact", navId: "contact" },
+          ];
+          const scrollPos = window.scrollY + window.innerHeight / 2;
 
-      for (let section of sections) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const top = el.offsetTop;
-          const bottom = top + el.offsetHeight;
-          if (scrollPos >= top && scrollPos < bottom) {
-            setActiveSection(section.navId);
+          for (let section of sections) {
+            const el = document.getElementById(section.id);
+            if (el) {
+              const top = el.offsetTop;
+              const bottom = top + el.offsetHeight;
+              if (scrollPos >= top && scrollPos < bottom) {
+                setActiveSection(section.navId);
+                break; // Exit early when section is found
+              }
+            }
           }
-        }
-      }
 
-      setShowButton(window.scrollY > 200);
+          setShowButton(window.scrollY > 200);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -89,14 +100,27 @@ const HomePage = () => {
       </button>
     </div>
   );
-};
+});
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<AllProjects />} />
+        <Route
+          path="/projects"
+          element={
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center bg-black text-white">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#ff734d]"></div>
+                </div>
+              }
+            >
+              <AllProjects />
+            </Suspense>
+          }
+        />
       </Routes>
     </Router>
   );

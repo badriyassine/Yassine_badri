@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, memo, useCallback } from "react";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -76,7 +76,7 @@ const AllProjects = () => {
   }, []);
 
   // Function to handle back navigation with scroll position restoration
-  const handleBackToPortfolio = () => {
+  const handleBackToPortfolio = useCallback(() => {
     // Get the saved scroll position from location state
     const savedScrollPosition = location.state?.scrollPosition || 0;
 
@@ -91,7 +91,7 @@ const AllProjects = () => {
         behavior: "smooth",
       });
     }, 100);
-  };
+  }, [location.state?.scrollPosition]);
 
   // Filter projects based on active filter
   const filteredProjects = useMemo(() => {
@@ -237,6 +237,8 @@ const AllProjects = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -329,4 +331,4 @@ const AllProjects = () => {
   );
 };
 
-export default AllProjects;
+export default memo(AllProjects);

@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Yassine Badri - Portfolio</title>
+    <meta
+      name="description"
+      content="Yassine Badri - Full Stack Developer Portfolio"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script>
       // Suppress preload warnings and service worker errors in development
       if (window.location.hostname === "localhost") {
@@ -16,7 +22,8 @@
             args[0] &&
             (args[0].includes("preloaded using link preload but not used") ||
               args[0].includes("FetchEvent") ||
-              args[0].includes("network error response"))
+              args[0].includes("network error response") ||
+              args[0].includes("main.jsx was preloaded"))
           ) {
             return;
           }

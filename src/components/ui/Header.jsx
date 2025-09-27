@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/logo/Logo.png";
@@ -28,7 +28,7 @@ const Header = ({ activeSection: propActiveSection }) => {
     }
   }, [propActiveSection]);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = useCallback((id) => {
     // Handle home section - scroll to top
     if (id === "home") {
       window.scrollTo({
@@ -56,7 +56,7 @@ const Header = ({ activeSection: propActiveSection }) => {
       });
     }
     setMenuOpen(false); // close mobile menu
-  };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-26 py-3 sm:py-4 backdrop-blur-md bg-transparent z-50">
@@ -164,4 +164,4 @@ const Header = ({ activeSection: propActiveSection }) => {
   );
 };
 
-export default Header;
+export default memo(Header);
