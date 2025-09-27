@@ -21,6 +21,8 @@ export default defineConfig({
         manualChunks: undefined,
       },
     },
+    // Disable automatic preloading of assets
+    assetsInlineLimit: 0,
   },
   define: {
     // Ensure Vite can use eval in development

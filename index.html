@@ -5,6 +5,37 @@
     <link rel="icon" type="image/svg+xml" href="/Favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <script>
+      // Suppress preload warnings and service worker errors in development
+      if (window.location.hostname === "localhost") {
+        const originalWarn = console.warn;
+        const originalError = console.error;
+
+        console.warn = function (...args) {
+          if (
+            args[0] &&
+            (args[0].includes("preloaded using link preload but not used") ||
+              args[0].includes("FetchEvent") ||
+              args[0].includes("network error response"))
+          ) {
+            return;
+          }
+          originalWarn.apply(console, args);
+        };
+
+        console.error = function (...args) {
+          if (
+            args[0] &&
+            (args[0].includes("Failed to fetch") ||
+              args[0].includes("performance-monitor.js") ||
+              args[0].includes("sw.js"))
+          ) {
+            return;
+          }
+          originalError.apply(console, args);
+        };
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

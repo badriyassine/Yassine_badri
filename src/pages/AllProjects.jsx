@@ -14,7 +14,6 @@ const allProjects = [
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
     githubUrl: "https://github.com/badriyassine/Motary",
     demoUrl: "https://github.com/badriyassine/Motary",
-    date: "2024-01-15", // New project
     category: "new",
   },
   {
@@ -26,7 +25,6 @@ const allProjects = [
     tech: ["React", "Tailwind", "php", "MySQL"],
     githubUrl: "https://github.com/badriyassine/InventoryPro",
     demoUrl: "https://github.com/badriyassine/InventoryPro",
-    date: "2024-02-20", // New project
     category: "new",
   },
   {
@@ -38,8 +36,7 @@ const allProjects = [
     tech: ["React", "Tailwind"],
     githubUrl: "https://github.com/badriyassine/Portfolio",
     demoUrl: "https://github.com/badriyassine/Portfolio",
-    date: "2023-08-10", // Old project
-    category: "old",
+    category: "new",
   },
   {
     id: 4,
@@ -50,7 +47,6 @@ const allProjects = [
     tech: ["Html", "Css"],
     githubUrl: "https://github.com/badriyassine/Goldbike_store",
     demoUrl: "https://github.com/badriyassine/Goldbike_store",
-    date: "2023-06-05", // Old project
     category: "old",
   },
   {
@@ -62,7 +58,6 @@ const allProjects = [
     tech: ["Html", "Css"],
     githubUrl: "https://github.com/badriyassine/Dashboard-design",
     demoUrl: "https://github.com/badriyassine/Dashboard-design",
-    date: "2023-04-12", // Old project
     category: "old",
   },
 ];
@@ -243,29 +238,6 @@ const AllProjects = () => {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        project.category === "new"
-                          ? "bg-green-500/90 text-white"
-                          : "bg-blue-500/90 text-white"
-                      }`}
-                    >
-                      {project.category === "new" ? "NEW" : "OLD"}
-                    </span>
-                  </div>
-
-                  {/* Date Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-black/50 backdrop-blur-sm text-white text-xs rounded-full">
-                      {new Date(project.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                      })}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Project Info */}
