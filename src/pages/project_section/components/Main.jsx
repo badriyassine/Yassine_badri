@@ -45,8 +45,8 @@ const allProjects = [
     demoUrl: "https://github.com/badriyassine/Goldbike_store",
     tech: ["Html", "Css"],
   },
-    {
-    id: 1,
+  {
+    id: 4,
     title: "InventoryPro",
     description:
       "A powerful web application to manage products, sales, and stock, with a visual dashboard for tracking activity.",
@@ -57,7 +57,7 @@ const allProjects = [
     tech: ["React", "Tailwind", "php", "MySQL"],
   },
   {
-    id: 2,
+    id: 5,
     title: "Motary",
     description:
       "A car store platform concept designed to showcase vehicles available for sale, with a clean and user-friendly interface.",
@@ -68,7 +68,7 @@ const allProjects = [
     tech: ["React", "TypeScript", "Tailwind", "Express.js", "MongoDB"],
   },
   {
-    id: 3,
+    id: 6,
     title: "Goldbike",
     description:
       "home page of motorcycles store modern design created using html & css only.",
@@ -78,7 +78,6 @@ const allProjects = [
     demoUrl: "https://github.com/badriyassine/Goldbike_store",
     tech: ["Html", "Css"],
   },
-
 ];
 
 const Main = () => {
