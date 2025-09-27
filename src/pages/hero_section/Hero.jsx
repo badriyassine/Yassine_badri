@@ -82,6 +82,21 @@ const Hero = () => {
         <div className="flex flex-row gap-3 justify-center">
           <a
             href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              const projectsSection = document.getElementById("projects");
+              if (projectsSection) {
+                // Use the same offset calculation as header navigation
+                const headerHeight = 80; // Same as header navigation
+                const elementPosition = projectsSection.offsetTop;
+                const offsetPosition = elementPosition - headerHeight;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth",
+                });
+              }
+            }}
             className="bg-[#ff734d] hover:bg-[#ff734d]/80 text-white font-semibold px-4 py-3 sm:px-12 sm:py-3 rounded-full shadow-lg transition-all duration-300 text-sm flex items-center justify-center gap-2 hover:scale-105 active:scale-95 w-fit sm:min-w-[180px]"
           >
             My Work <FaArrowRight className="w-3 h-3" />
