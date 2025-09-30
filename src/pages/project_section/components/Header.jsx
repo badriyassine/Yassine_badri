@@ -33,7 +33,7 @@ const Header = ({ onShowAll, showAll }) => {
     >
       <div>
         <h2 className="text-2xl font-bold">
-          Selection of recent <br />{" "}
+          Highlights from my <br />{" "}
           <span className="text-[#ff734d] text-3xl">Work.</span>
         </h2>
       </div>

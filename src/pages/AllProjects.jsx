@@ -53,7 +53,7 @@ const allProjects = [
     category: "new",
     status: "completed",
   },
-  {
+    {
     id: 5,
     title: "Goldbike",
     image: "/images/projects/Goldbike2.png",
@@ -67,6 +67,18 @@ const allProjects = [
   },
   {
     id: 6,
+    title: "Eraa AI",
+    image: "/images/projects/Goldbike2.png",
+    description:
+      "this is a landing page with 3d design using html & css.",
+    tech: ["Html", "Css"],
+    githubUrl: "https://github.com/badriyassine/Erra_AI",
+    demoUrl: "https://badriyassine.github.io/Erra_AI/",
+    category: "old",
+    status: "completed",
+  },
+  {
+    id: 7,
     title: "Dashboard design",
     image: "/images/projects/Dashboard.png",
     description:
