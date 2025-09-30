@@ -49,7 +49,7 @@ const allProjects = [
       "This is my first portfolio built with React, where I share my projects and skills as I start my journey in web development.",
     tech: ["React", "Tailwind"],
     githubUrl: "https://github.com/badriyassine/Portfolio",
-    demoUrl: "https://github.com/badriyassine/Portfolio",
+    demoUrl: "https://badriyassine.github.io/Portfolio/",
     category: "new",
     status: "completed",
   },
