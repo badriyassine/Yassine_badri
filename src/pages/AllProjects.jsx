@@ -73,7 +73,7 @@ const allProjects = [
       "A simple yet functional dashboard built using only HTML and CSS to practice layout and design.",
     tech: ["Html", "Css"],
     githubUrl: "https://github.com/badriyassine/Dashboard-design",
-    demoUrl: "https://github.com/badriyassine/Dashboard-design",
+    demoUrl: "https://badriyassine.github.io/Dashboard-design/",
     category: "old",
     status: "completed",
   },
