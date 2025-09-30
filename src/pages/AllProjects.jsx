@@ -68,7 +68,7 @@ const allProjects = [
   {
     id: 6,
     title: "Eraa AI",
-    image: "/images/projects/Goldbike2.png",
+    image: "/images/projects/Eraa.png",
     description:
       "this is a landing page with 3d design using html & css.",
     tech: ["Html", "Css"],
