@@ -61,7 +61,7 @@ const allProjects = [
       "home page of motorcycles store modern design created using html & css only.",
     tech: ["Html", "Css"],
     githubUrl: "https://github.com/badriyassine/Goldbike_store",
-    demoUrl: "https://github.com/badriyassine/Goldbike_store",
+    demoUrl: "https://badriyassine.github.io/Goldbike_store/",
     category: "old",
     status: "completed",
   },
