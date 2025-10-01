@@ -53,8 +53,20 @@ const allProjects = [
     category: "new",
     status: "completed",
   },
-    {
+  {
     id: 5,
+    title: "Landing page",
+    image: "/images/projects/Landing.png",
+    description:
+      "home page of motorcycles store modern design created using html & css only.",
+    tech: ["React", "Tailwind"],
+    githubUrl: "https://github.com/badriyassine/BADRI",
+    demoUrl: "https://badriyassine.github.io/BADRI/",
+    category: "new",
+    status: "in progress",
+  },
+  {
+    id: 6,
     title: "Goldbike",
     image: "/images/projects/Goldbike2.png",
     description:
@@ -66,11 +78,10 @@ const allProjects = [
     status: "completed",
   },
   {
-    id: 6,
+    id: 7,
     title: "Eraa AI",
     image: "/images/projects/Eraa.png",
-    description:
-      "this is a landing page with 3d design using html & css.",
+    description: "this is a landing page with 3d design using html & css.",
     tech: ["Html", "Css"],
     githubUrl: "https://github.com/badriyassine/Erra_AI",
     demoUrl: "https://badriyassine.github.io/Erra_AI/",
@@ -78,7 +89,7 @@ const allProjects = [
     status: "completed",
   },
   {
-    id: 7,
+    id: 8,
     title: "Dashboard design",
     image: "/images/projects/Dashboard.png",
     description:
