@@ -59,28 +59,58 @@ const Header = ({ activeSection: propActiveSection }) => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-26 py-3 sm:py-4 backdrop-blur-md bg-transparent z-50">
+    <motion.header
+      className="fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-26 py-3 sm:py-4 backdrop-blur-md bg-transparent z-50"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+        delay: 0.1,
+      }}
+    >
       {/* Logo */}
-      <button
+      <motion.button
         onClick={() => scrollToSection("home")}
         aria-label="Go to home"
         className="flex items-center"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+          delay: 0.1,
+        }}
       >
         <motion.img
           src={logo}
           alt="Logo"
           className="h-12 sm:h-14 lg:h-16 object-contain cursor-pointer"
           animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
         />
-      </button>
+      </motion.button>
 
       {/* Desktop Navigation */}
       {!isMobile && (
-        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+        <motion.div
+          className="flex items-center gap-4 sm:gap-6 lg:gap-8"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+            delay: 0.1,
+          }}
+        >
           <nav className="flex gap-4 sm:gap-6 lg:gap-8 font-medium tracking-wide text-sm sm:text-base">
-            {navLinks.map((item) => (
-              <button
+            {navLinks.map((item, index) => (
+              <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className={`transition-colors duration-300 ${
@@ -88,33 +118,65 @@ const Header = ({ activeSection: propActiveSection }) => {
                     ? "text-[#ff734d] cursor-pointer"
                     : "text-gray-300 hover:text-[#ff734d] cursor-pointer"
                 }`}
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: 0.1,
+                }}
               >
                 {item}
-              </button>
+              </motion.button>
             ))}
           </nav>
 
           {/* "Let's chat" button — scrolls to contact section */}
-          <button
+          <motion.button
             onClick={() => scrollToSection("contact")}
-            className="px-4 sm:px-6 lg:px-8 py-2 cursor-pointer rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] backdrop-blur-lg text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 shadow-lg text-sm sm:text-base"
+            className="px-4 sm:px-6 lg:px-8 py-2 cursor-pointer rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] backdrop-blur-lg text-white font-semibold hover:bg-[#ff734d]/80 shadow-lg text-sm sm:text-base"
+            initial={{ y: -20, opacity: 0, scale: 0.95 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.1,
+            }}
           >
             Let's chat
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       )}
 
       {/* Mobile Menu */}
       {isMobile && (
-        <div className="relative z-50">
+        <motion.div
+          className="relative z-50"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+            delay: 0.1,
+          }}
+        >
           {!menuOpen && (
-            <button
+            <motion.button
               onClick={() => setMenuOpen(true)}
               className="text-white text-2xl focus:outline-none"
               aria-label="Open menu"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.1,
+              }}
             >
               <FaBars />
-            </button>
+            </motion.button>
           )}
 
           <AnimatePresence>
@@ -149,18 +211,20 @@ const Header = ({ activeSection: propActiveSection }) => {
                 ))}
 
                 {/* "Let's chat" button in mobile: full width, scrolls to contact */}
-                <button
+                <motion.button
                   onClick={() => scrollToSection("contact")}
-                  className="px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] text-white font-semibold hover:bg-[#ff734d]/80 transition duration-300 w-full text-center shadow-md"
+                  className="px-5 py-2 rounded-4xl border border-[#ff734d]/50 bg-[#ff734d] text-white font-semibold hover:bg-[#ff734d]/80 w-full text-center shadow-md"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Let's chat
-                </button>
+                </motion.button>
               </motion.nav>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 };
 
