@@ -34,7 +34,7 @@ const Footer = () => {
             <FaLinkedin className="text-xl sm:text-2xl text-white hover:text-[#ff734d] transition" />
           </a>
           <a
-            href="https://www.instagram.com/yassinebadri_dev/"
+            href="https://www.instagram.com/badriyassine.dev"
             target="_blank"
             rel="noreferrer"
           >

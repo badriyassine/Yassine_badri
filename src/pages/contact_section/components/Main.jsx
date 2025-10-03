@@ -218,7 +218,7 @@ const Main = () => {
               <FaLinkedin className="text-white text-xl group-hover:text-[#ff734d] transition-colors duration-300" />
             </a>
             <a
-              href="https://www.instagram.com/yassinebadri_dev/"
+              href="https://www.instagram.com/badriyassine.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-12 h-12 bg-white/5 border border-white/20 rounded-xl shadow-lg hover:border-[#ff734d] hover:shadow-[#ff734d]/20 transition-all duration-300 group"
