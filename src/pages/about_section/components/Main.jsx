@@ -1,10 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import profileImg from "/images/profile/image (3).png";
 
 const Main = () => {
   const [isLanguagesClicked, setIsLanguagesClicked] = useState(false);
+  const [age, setAge] = useState(0);
+
+  const calculateAge = () => {
+    const birthDate = new Date(2005, 1, 11); // February is 1 (0-based months)
+    const today = new Date();
+    let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      calculatedAge--;
+    }
+    return calculatedAge;
+  };
+
+  useEffect(() => {
+    // Calculate initial age
+    setAge(calculateAge());
+
+    // Set up an interval to check and update age every day
+    const interval = setInterval(() => {
+      setAge(calculateAge());
+    }, 86400000); // 24 hours in milliseconds
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleLanguages = () => {
     setIsLanguagesClicked(!isLanguagesClicked);
@@ -38,7 +67,7 @@ const Main = () => {
               </span>
               , a{" "}
               <span className="text-[#ff734d] font-semibold">
-                20-year-old Full Stack Developer
+                {age}-year-old Full Stack Developer
               </span>{" "}
               who loves building cool stuff with code. I create websites and
               apps from scratch using React, Node.js, and modern tech.
