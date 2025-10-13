@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaXTwitter } from "react-icons/fa6";
-import logo from "../../assets/logo/Logo.png"; // Update path if needed
+import logo from "../../assets/logo/Logo.png"; 
 
 const Footer = () => {
   return (
