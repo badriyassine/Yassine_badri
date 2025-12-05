@@ -57,37 +57,6 @@ const cards = [
         icon: <SiTailwindcss className="w-8 h-8 text-[#06B6D4]" />,
       },
     ],
-    // Detailed technologies for news line
-    techs: [
-      {
-        name: "HTML5",
-        icon: <SiHtml5 className="w-5 h-5 text-[#E34F26]" />,
-      },
-      {
-        name: "CSS3",
-        icon: <SiCss3 className="w-5 h-5 text-[#1572B6]" />,
-      },
-      {
-        name: "Bootstrap",
-        icon: <SiBootstrap className="w-5 h-5 text-[#7952B3]" />,
-      },
-      {
-        name: "JavaScript",
-        icon: <SiJavascript className="w-5 h-5 text-[#F7DF1E]" />,
-      },
-      {
-        name: "React",
-        icon: <SiReact className="w-5 h-5 text-[#61DAFB]" />,
-      },
-      {
-        name: "TypeScript",
-        icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" />,
-      },
-      {
-        name: "Tailwind",
-        icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" />,
-      },
-    ],
   },
   {
     id: "02",
@@ -103,29 +72,6 @@ const cards = [
       {
         name: "Express.js",
         icon: <SiExpress className="w-8 h-8 text-[#000000]" />,
-      },
-    ],
-    // Detailed technologies for news line
-    techs: [
-      {
-        name: "PHP",
-        icon: <SiPhp className="w-5 h-5 text-[#777BB4]" />,
-      },
-      {
-        name: "Laravel",
-        icon: <SiLaravel className="w-5 h-5 text-[#FF2D20]" />,
-      },
-      {
-        name: "Node.js",
-        icon: <SiNodedotjs className="w-5 h-5 text-[#339933]" />,
-      },
-      {
-        name: "Express.js",
-        icon: <SiExpress className="w-5 h-5 text-[#000000]" />,
-      },
-      {
-        name: "JavaScript",
-        icon: <SiJavascript className="w-5 h-5 text-[#F7DF1E]" />,
       },
     ],
   },
@@ -145,17 +91,6 @@ const cards = [
         icon: <SiMongodb className="w-8 h-8 text-[#47A248]" />,
       },
     ],
-    // Detailed technologies for news line
-    techs: [
-      {
-        name: "MySQL",
-        icon: <SiMysql className="w-5 h-5 text-[#4479A1]" />,
-      },
-      {
-        name: "MongoDB",
-        icon: <SiMongodb className="w-5 h-5 text-[#47A248]" />,
-      },
-    ],
   },
   {
     id: "04",
@@ -171,6 +106,10 @@ const cards = [
       {
         name: "Cursor",
         icon: <MdCode className="w-8 h-8 text-[#000000]" />,
+      },
+      {
+        name: "UML",
+        icon: <SiFigma className="w-8 h-8 text-[#F24E1E]" />,
       },
       {
         name: "Figma",
@@ -193,49 +132,6 @@ const cards = [
         icon: <SiDocker className="w-8 h-8 text-[#2496ED]" />,
       },
     ],
-    // Detailed technologies for news line
-    techs: [
-      {
-        name: "VSCode",
-        icon: <VscCode className="w-5 h-5 text-[#007ACC]" />,
-      },
-      {
-        name: "Cursor",
-        icon: <MdCode className="w-5 h-5 text-[#000000]" />,
-      },
-      {
-        name: "Git",
-        icon: <SiGit className="w-5 h-5 text-[#F05032]" />,
-      },
-      {
-        name: "GitHub",
-        icon: <SiGithub className="w-5 h-5 text-[#181717]" />,
-      },
-      {
-        name: "Figma",
-        icon: <SiFigma className="w-5 h-5 text-[#F24E1E]" />,
-      },
-      {
-        name: "Canva",
-        icon: <SiCanva className="w-5 h-5 text-[#00C4CC]" />,
-      },
-      {
-        name: "Docker",
-        icon: <SiDocker className="w-5 h-5 text-[#2496ED]" />,
-      },
-      {
-        name: "Postman",
-        icon: <SiPostman className="w-5 h-5 text-[#FF6C37]" />,
-      },
-      {
-        name: "Linux",
-        icon: <SiLinux className="w-5 h-5 text-[#FCC624]" />,
-      },
-      {
-        name: "Windows",
-        icon: <FaWindows className="w-5 h-5 text-[#0078D4]" />,
-      },
-    ],
   },
   {
     id: "05",
@@ -255,33 +151,6 @@ const cards = [
       {
         name: "Problem Solving",
         icon: <FaSearch className="w-8 h-8 text-[#FF9800]" />,
-      },
-    ],
-    // Detailed technologies for news line
-    techs: [
-      {
-        name: "Communication",
-        icon: <FaComments className="w-5 h-5 text-[#4CAF50]" />,
-      },
-      {
-        name: "Team Work",
-        icon: <FaUsers className="w-5 h-5 text-[#2196F3]" />,
-      },
-      {
-        name: "Problem Solving",
-        icon: <FaSearch className="w-5 h-5 text-[#FF9800]" />,
-      },
-      {
-        name: "Adaptability",
-        icon: <FaComments className="w-5 h-5 text-[#9C27B0]" />,
-      },
-      {
-        name: "Time Management",
-        icon: <FaUsers className="w-5 h-5 text-[#FF5722]" />,
-      },
-      {
-        name: "Leadership",
-        icon: <FaSearch className="w-5 h-5 text-[#607D8B]" />,
       },
     ],
   },
